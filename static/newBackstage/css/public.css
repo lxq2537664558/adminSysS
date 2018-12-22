@@ -1,0 +1,187 @@
+body {
+    width: 100%;
+}
+
+.content {
+    position: relative;
+}
+/*顶部*/
+.content>.title {
+    position: relative;
+    width: 100%;
+    height: 65px;
+    background: #1291cc;
+    z-index: 2;
+}
+
+.content>.title>.logo {
+    position: relative;
+    float: left;
+    margin: 12px 0 0 20px;
+    width: 212px;
+    height: 49px;
+    background: url("../img/systemlogo.png")no-repeat;
+}
+
+.content>.title>.admin {
+    position: relative;
+}
+
+.content>.title>.admin>span {
+    color: #fff;
+    margin-right: 65px;
+    margin-top: 20px;
+    display: block;
+}
+
+.content>.title>.admin>span>img {
+    width: 34px;
+    height: 34px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+.content>.title>.admin>.logo-icon {
+    position: absolute;
+    right: 30px;
+    top: 28px;
+    width: 16px;
+    height: 15px;
+    background: url("../img/h.png")no-repeat;
+}
+
+.content>.title>.listNone {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 10px;
+    min-width: 200px;
+    box-shadow: 3px 3px 10px #ccc;
+}
+
+.content>.title>.listNone>ul {
+    width: 100%;
+}
+
+.content>.title>.listNone>ul>li {
+    background: #f2f2f2;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.content>.title>.listNone>ul>li:hover {
+    background: #f60;
+}
+/*左侧列表*/
+.content>.leftList {
+    width: 220px;
+    margin-right: 20px;
+}
+
+.content>.leftList>ul {
+    width: 100%;
+}
+
+.content>.leftList>ul>li {
+    width: 220px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #ccc;
+    margin: 5px 10px 10px 5px;
+    letter-spacing: 2px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.content>.leftList>ul>li>a{
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+.active {
+    background: #199ed8!important;
+}
+
+.content>.leftList>ul>li:hover {
+    background: #f60;
+}
+/*右侧列表*/
+.content>.rightList {
+    margin: 5px 10px 0 230px;
+    box-shadow: 3px 3px 5px #ccc;
+    /*background: #ccc;*/
+}
+
+.content>.rightList>.box {
+    width: auto;
+    height: auto;
+    padding-bottom: 100px;
+}
+/*分页样式*/
+.pages{
+    width: 100%;
+    height: 60px;
+}
+.pages .fenye{
+    line-height: 60px;
+    margin-left: 420px;
+    margin-top: 20px;
+}
+.pages .fenye a{
+    padding: 6px 10px;
+    color: #000;
+    margin-right: 25px;
+    text-decoration: none;
+    background-color: #f0f0f0;
+}
+.pages .fenye a b{
+    font-weight: normal;
+}
+.page{
+    background-color: #f60!important;
+    color: #fff!important;
+}
+
+/*弹层分页样式*/
+.maskPages{
+    width: 100%;
+    height: 60px;
+}
+.maskPages .fenye{
+    line-height: 100px;
+    margin-left: 160px;
+    /* margin-top: 20px; */
+}
+.maskPages .fenye a{
+    padding: 6px 10px;
+    color: #000;
+    margin-right: 25px;
+    text-decoration: none;
+    background-color: #ccc;
+}
+.maskPages .fenye a:hover{
+    background: #f60;
+    color: #fff;
+}
+.maskPages .fenye a b{
+    font-weight: normal;
+}
+.maskPage{
+    background-color: #f60!important;
+    color: #fff!important;
+}
+@media screen and (min-width:1200px) and (max-width:1623px){
+    .maskPages .fenye {
+        line-height: 100px;
+        margin-left: 100px;
+    }
+    .pages .fenye {
+        margin-left: 300px;
+    }
+    .maskPages .fenye a {
+        margin-right: 10px;
+    }
+}

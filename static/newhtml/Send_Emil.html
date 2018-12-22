@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/WdatePicker.css" />
+    <link rel="stylesheet" type="text/css" href="css/skin_/form.css" />
+    <link href="umeditor/themes/default/_css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/global.js"></script>
+    <script type="text/javascript" src="js/jquery.select.js"></script>
+    <script type="text/javascript" src="js/WdatePicker.js"></script>
+    <script type="text/javascript">
+        window.UMEDITOR_HOME_URL = 'umeditor/';  // 请换成绝对路径
+    </script>
+    <script type="text/javascript" src="js/umeditor.config.js"></script>
+    <script type="text/javascript" src="js/editor_api.js"></script>
+    <script type="text/javascript" src="umeditor/lang/zh-cn/zh-cn.js"></script>
+    <title>基础信息</title>
+</head>
+
+<body>
+<div id="container">
+    <div id="hd">
+    </div>
+    <div id="bd">
+        <div id="main">
+            <h2 class="subfild">
+                <span>基本信息</span>
+            </h2>
+            <div class="subfild-content base-info">
+                <div class="kv-item ue-clear">
+                    <label><span class="impInfo">*</span>邮件标题</label>
+                    <div class="kv-item-content">
+                        <input type="text" placeholder="文章标题"  id="Emilhead"/>
+                    </div>
+                    <span class="kv-item-tip">标题字数限制在35个字符</span>
+                </div>
+
+
+                <div class="kv-item ue-clear">
+                    <label><span class="impInfo">*</span>收件人ID</label>
+                    <div class="kv-item-content">
+                        <input type="text" placeholder="收件人ID" id="Emilnc" />
+                    </div>
+                    <span class="kv-item-tip">只允许数字</span>
+                </div>
+                <div class="kv-item ue-clear">
+                <label class="control-label" for="selectError3">收件人范围</label>
+                <div class="controls" id="PropName1111">
+                    <input type="checkbox" value="1" name="sProblem">所有人
+                    <input type="checkbox" value="2" name="sProblem">VIP1
+                    <input type="checkbox" value="3" name="sProblem">VIP2
+                    <input type="checkbox" value="4" name="sProblem">VIP3
+                    <input type="checkbox" value="5" name="sProblem">VIP4
+                    <input type="checkbox" value="6" name="sProblem">VIP5
+                    <input type="checkbox" value="7" name="sProblem">VIP6
+                    <input type="checkbox" value="8" name="sProblem">VIP7
+                    <input type="checkbox" value="9" name="sProblem">VIP8
+                    <input type="checkbox" value="10" name="sProblem">VIP9
+                    <input type="checkbox" value="11" name="sProblem">VIP10
+                </div>
+                </div>
+                <br>
+
+                <div class="subfild-content remarkes-info">
+                    <div class="kv-item ue-clear">
+                        <label><span class="impInfo">*</span>邮件内容</label>
+                        <div class="kv-item-content">
+                            <textarea placeholder="邮件内容" id="content" style="width:800px;height:240px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="buttons">
+                <input class="button" type="button" value="发送邮件"  onclick="Select_Bpuser_Emil_00012()"/>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script type="text/javascript" src="/static/js/head.js"></script>
+<script type="text/javascript" src="/static/js/Game_js.js"></script>
+
+
+
+
+<script type="text/javascript">
+    $('select').select();
+    showRemind('input[type=text],textarea','color5');
+    UM.getEditor('content');
+
+    //客户端请求添加邮件
+
+
+
+
+    //客户端请求发送客户端邮件  UL
+    function Select_Bpuser_Emil_00012() {
+
+
+
+
+        var username = document.getElementById("Emilnc").value;   //昵称
+        var head = document.getElementById("Emilhead").value; //标题
+        var msg_emil = document.getElementById("content").value; //内容
+
+        var checkboxValue= new Array();
+        var checkboxText= new Array();
+
+        var checkboxStr=document.getElementsByName("sProblem");
+
+        for(var i=0; i<checkboxStr.length; i++){
+            if(checkboxStr[i].checked){
+                //alert(checkboxStr[i].value+","+checkboxStr[i].nextSibling.nodeValue);
+                checkboxValue.push(checkboxStr[i].value);
+                checkboxText.push(checkboxStr[i].nextSibling.nodeValue);
+            }
+        }
+        // //输出值和文本
+        // alert("checkboxValue:"+checkboxValue);
+        // alert("checkboxText:"+checkboxText);
+
+
+        alert(username +"==="+head+"====="+msg_emil);
+        // var endtime1 = document.getElementById("PropName1111");   //昵称
+
+
+
+        var  pa  = new Array()
+
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9029" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                SID:parseInt(0),
+                NN:username,
+                TT:head,
+                MS:msg_emil,
+                PA:pa,
+                SA:username,
+                BTime:"2018-11-12",
+                CTime:"2018-11-12",
+                UL:checkboxValue
+
+
+
+
+            }));
+            socket.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj.Errcode)
+                if (obj.Errcode == 0 || obj.Errcode == -1 ){
+                    alert("添加成功")
+                }else{
+                    alert("添加失败")
+                }
+                socket.close()
+            }
+        }
+    }
+
+
+
+</script>
+</html>

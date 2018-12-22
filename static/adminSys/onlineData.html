@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/onlineData.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/echarts.common.min.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>在线数据</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <div class="public">
+                    <div class="chooseTime fl">
+                        <label for="">选择时间：</label>
+                    </div>
+                    <div class="type fl">
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="today" checked="">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="today">日报表</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="week">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="week">周报表</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="month">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="month">月报表</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="custom">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="custom">自由时间报表</label>
+                        </span>
+                        <div class="timer fl">
+                            <input type="date">&nbsp;&nbsp;到&nbsp;&nbsp;<input type="date">
+                        </div>
+                        <div class="search-button fl">
+                            <input class="button" type="button" value="搜索">
+                        </div>
+                    </div>
+                </div>
+                <div class="dailyList">
+                    <div class="list">
+                        <ul>
+                            <li><p id="Online_001">0</p>
+                                <p>新增数据</p></li>
+                            <li><p id="Online_002">0</p>
+                                <p>新增角色数</p></li>
+                            <li><p id="Online_003">0</p>
+                                <p>新增设备数</p></li>
+                            <li><p id="Online_004">0</p>
+                                <p>日活跃用户</p></li>
+                            <li><p id="Online_005">0</p>
+                                <p>周活跃用户</p></li>
+                            <li><p id="Online_006">0</p>
+                                <p>月活跃用户</p></li>
+                            <li><p id="Online_007">0</p>
+                                <p>回流用户</p></li>
+                            <li><p id="Online_008">0</p>
+                                <p>活跃账号时长</p></li>
+                            <li><p id="Online_009">0</p>
+                                <p>流失用户</p></li>
+                            <li><p id="Online_010">0</p>
+                                <p>用户留存率</p></li>
+                            <li><p id="Online_011">0</p>
+                                <p>当日玩家在线数据</p></li>
+                        </ul>
+                    </div>
+                    <div class="onecharts" id="onecharts"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script src="js/onlineData.js"></script>
+<script>
+    $(function () {
+        SetCookie("statice", 1);
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9055" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG")
+            }));
+            socket.onmessage = function (msg) {
+
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate);
+                $("#Online_001").html(obj.NewUser);
+                $("#Online_002").html(obj.NewPlayer);
+                $("#Online_003").html(obj.NewPhone);
+                $("#Online_004").html(obj.DAU);
+                $("#Online_005").html(obj.WAU);
+                $("#Online_006").html(obj.MAU);
+                $("#Online_007").html(obj.BackUser);
+                $("#Online_008").html(obj.YUser);
+                $("#Online_009").html(obj.LossUserData);
+                $("#Online_010").html("0");
+                $("#Online_011").html("0");
+
+                socket.close();
+
+            }
+        }
+    })
+
+</script>
+</body>

@@ -1,0 +1,329 @@
+.machineAccount>.sub{
+    display: block;
+}
+.machineAccount>.sub>li>.threeLi{
+    color: #f60;
+}
+.content>.pageCont>.right>.rightDown>.riTitle{
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding-left: 26px;
+    margin-bottom: 20px;
+}
+.content>.pageCont>.right>.rightDown>.riTitle>li{
+    display: inline-block;
+    width: 16%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: -5px;
+    background: #ccc;
+}
+.content>.pageCont>.right>.rightDown>.riTitle>li>a{
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+.content>.pageCont>.right>.rightDown>.riTitle>li>.active{
+    color: #fff!important;
+    background: #000033;
+}
+.content>.pageCont>.right>.rightDown>.listDown{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding-left: 20px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.rh_title{
+    width: 85%;
+    height: 30px;
+    margin-bottom: 2px;
+    margin-left: 190px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.rh_title>li{
+    width: 11%;
+    height: 30px;
+    /*background: #ccc;*/
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+    font-size: 15px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.rh_title>.current{
+    color: #000033;
+    border-bottom: 2px solid #000033;
+}
+.btn{
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+.btn>a{
+    text-decoration: none;
+    color: #000;
+    background: #ccc;
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px;
+}
+.btn>.site{
+    background: #000033;
+    color: #fff;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.rh_cont>li{
+    display: none;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.rh_cont>.show{
+    display: block;
+}
+/**/
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listLeft{
+    width: 10%;
+    height: auto;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listLeft>ul>li{
+    width: 65%;
+    line-height: 30px;
+    font-size: 15px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listLeft>ul>.current{
+    color: #fff!important;
+    background: #000033;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight{
+    width: 90%;
+    height: auto;
+    overflow: hidden;
+    padding-top: 20px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.allList{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 20px;
+    /*display: none;*/
+    /*background: #000033;*/
+}
+.time{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.time>span{
+    font-size: 14px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: none;
+    margin-left: 20px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_title{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_title>li{
+    width: 11%;
+    height: 30px;
+    /*background: #ccc;*/
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+    font-size: 15px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_title>.comm{
+    border-bottom: 2px solid #000033;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_cont{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_cont>li{
+    display: none;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_cont>.show{
+    display: block;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_cont>li>.list>li{
+    display: inline-block;
+    width: 185px;
+    height: 110px;
+    border: 1px solid #ccc;
+    margin: 0 5px 5px 0;
+    font-size: 14px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_cont>li>.list>li>p{
+    padding-left: 15px;
+    line-height: 27px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.leftList>.listRight>.singleRoomList>.rh_cont>li>.list>li>p:last-child{
+    background: #ccc;
+    text-align: center;
+    padding-left: 0;
+}
+.table{
+    width: 93.8%;
+    margin: 0;
+}
+.table>.tableList{
+    height: 291px;
+    overflow-y: scroll;
+}
+.table-cell {
+    display: table-cell;
+    padding: 0;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 14px;
+    width: 279px;
+    height: 28px;
+    line-height: 28px;
+}
+.fHeader{
+    border: none;
+}
+.footer{
+    background: #ccc;
+    color: #000;
+    border: none;
+}
+.footer>.table-cell{
+    border: none;
+}
+/*统计图*/
+.charts{
+    width: 95%;
+    height: 800px;
+    margin-top: 50px;
+}
+/*柱状图*/
+.charts>#histogram{
+    width: 100%;
+    height: 50%;
+}
+/*折线图*/
+.charts>#lineCharts{
+    width: 100%;
+    height: 50%;
+}
+/**/
+.public {
+    width: 100%;
+    height: 40px;
+}
+
+.public>.chooseTime {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.public>.chooseTime>label {
+    position: relative;
+    padding-left: 7px;
+    /*width: 6em;*/
+    height: 26px;
+    line-height: 26px;
+}
+
+.public>.type {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.public>.type>.choose {
+    position: relative;
+    top: 6px;
+    float: left;
+    margin-right: 21px;
+    white-space: nowrap;
+}
+
+.public>.type>.choose>.checkboxouter {
+    float: left;
+    position: relative;
+    margin: 0 auto;
+    width: 16px;
+    height: 16px;
+    background: url("../img/radio.png");
+}
+
+.public>.type>.choose input[type=radio], .kv-item .choose input[type=checkbox] {
+    position: relative;
+    *position: static;
+    float: left;
+    margin-right: -16px;
+}
+
+.public>.type>.choose .checkboxouter input[type="radio"] {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    background: red;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.public>.type>.choose .checkboxouter .radio {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 16px;
+    width: 16px;
+    background: none;
+}
+
+.public>.type>.choose .checkboxouter input[type="radio"]:checked ~.radio {
+    background: url("../img/radiochecked.png");
+}
+
+.public>.type>.choose .text {
+    float: left;
+    padding-left: 5px;
+    *padding-left: 5px;
+    white-space: nowrap;
+    /*font-size: 14px;*/
+}
+
+.public>.type>.timer {
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.public>.type>.search-button>input {
+    display: inline-block;
+    width: 105px;
+    height: 25px;
+    line-height: 25px;
+    background: #000033;
+    border: none;
+    border-radius: 3px;
+    color: #c96;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 18px;
+    outline: none;
+    margin-top: 4px;
+}
+/*适配*/
+@media screen and (min-width: 1200px) and (max-width: 1680px) {
+    .table-cell{
+        width: 188px;
+    }
+    .content>.pageCont>.right>.rightDown>.listDown>.rh_title {
+        margin-left: 122px;
+    }
+    .content>.pageCont>.right>.rightDown>.listDown>.leftList>.listLeft>ul>li{
+        width: 93%;
+    }
+}

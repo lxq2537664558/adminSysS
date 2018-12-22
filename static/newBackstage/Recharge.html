@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/Recharge.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/Recharge.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li><a href="gamePreview.html">游戏记录</a></li>
+                <li class="active"><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <div class="usertitle"></div>
+                <div class="searchUser">
+                    <input type="text" placeholder="请输入手机号、账号、ID、昵称" id="Game_id">
+                    <input type="button" class="search" value="查询" onclick="Select_uid_and_pohon_01()">
+                </div>
+                <!--查询列表-->
+                <ul class="rh_cont">
+                    <!--查询用户-->
+                    <li class="show">
+                        <div class="table" id="table_001">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">昵称</li>
+                                    <li class="table-cell">ID</li>
+                                    <li class="table-cell">现有金币值</li>
+                                    <li class="table-cell">现有游戏币值</li>
+                                    <li class="table-cell">今日充值</li>
+                                    <li class="table-cell">今日兑换</li>
+                                    <li class="table-cell">今日赠分</li>
+                                    <li class="table-cell">历史记录</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">123456789</li>
+                                    <li class="table-cell">10000</li>
+                                    <li class="table-cell">30000</li>
+                                    <li class="table-cell">5000</li>
+                                    <li class="table-cell">2000</li>
+                                    <li class="table-cell">1000</li>
+                                    <li class="table-cell details">详情</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="nonebtn">
+                    <ul>
+                        <li class="exchange"><span>兑换</span></li>
+                        <li class="recharge"><span>充值</span></li>
+                        <li class="give"><span>赠送</span></li>
+                    </ul>
+                </div>
+                <!--弹出层-->
+                <div class="mask">
+                    <div class="commMask">
+                        <div class="close">
+                            <img src="img/close.png" alt="">
+                        </div>
+                        <!--历史记录详情-->
+                        <div class="detailsList">
+                            <div class="detailsLeft fl">
+                                <ul>
+                                    <li><span>时间</span></li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                </ul>
+                            </div>
+                            <div class="detailsCenter fl">
+                                <ul>
+                                    <li><span>事件</span></li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                    <li>XXX在游戏XXX充值10000</li>
+                                </ul>
+                            </div>
+                            <div class="detailsRight fr">
+                                <ul>
+                                    <li><span>操作人</span></li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                    <li>admin</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--兑换-->
+                        <div class="exchangeList">
+                            <h1>兑换</h1>
+                            <input type="text" id="duihuan">
+                            <div class="down">
+                                <ul>
+                                    <li class="exCancel">取消</li>
+                                    <li class="exConfirm" onclick="rechaege(1)">确定</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--充值-->
+                        <div class="rechargeList">
+                            <h1>充值</h1>
+                            <input type="text"  id="chongzhi">
+                            <div class="down">
+                                <ul>
+                                    <li class="reCancel">取消</li>
+                                    <li class="reConfirm" onclick="rechaege(2)">确定</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--赠送-->
+                        <div class="giveList">
+                            <h1>赠送</h1>
+                            <input type="text" id="zengsong">
+                            <div class="down">
+                                <ul>
+                                    <li class="giCancel">取消</li>
+                                    <li class="giConfirm" onclick="rechaege(3)">确定</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--分页-->
+                        <div class="maskPages">
+                            <div class="fenye">
+                                <a href="##" class="backpage">上一页</a>
+                                <a href="##"><b>1</b></a>
+                                <a href="##"><b>2</b></a>
+                                <a href="##"><b>3</b></a>
+                                <a href="##"><b>4</b></a>
+                                <a href="##"><b>5</b></a>
+                                <a href="##" class="shenlue">...</a>
+                                <a href="##"><b>100</b></a>
+                                <a href="##" class="nextpage">下一页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+
+<script>
+
+
+    function Select_uid_and_pohon_01() {
+
+        var pas = document.getElementById("Game_id").value;
+
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        var list = [];
+        list.push(pas)
+        SetCookie("user",pas)
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9310" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                SID: parseInt(0),
+                UID: list,
+                NN: "",
+                SN: parseInt(0),
+                NUM: parseInt(10)
+            }));
+            ws.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj.Errcode)
+                if (obj.Errcode == 0 || obj.Errcode == -1 ){
+                    // alert("获取成功")
+
+                    var  num = "<div class='table-row-group'>"+
+                            "<ul class='table-header-row'>"+
+                            "<li class='table-cell'>昵称</li>"+
+                            "<li class='table-cell'>ID</li>"+
+                            "<li class='table-cell'>现有金币值</li>"+
+                            "<li class='table-cell'>现有游戏币值</li>"+
+                            "<li class='table-cell'>今日充值</li>"+
+                            "<li class='table-cell'>今日兑换</li>"+
+                            " <li class='table-cell'>今日赠分</li>"+
+                            "<li class='table-cell'>历史记录</li>"+
+
+                            "</ul>"+
+                            "</div>"
+
+                    for(var  i = 0 ; i < obj.UMG.length;i++){
+                        // var   num_001 = obj.UMG[i].CZ-obj.UMG[i].TF
+
+                        var     nums = "<div class='table-row-group' >"+
+                                "<ul class='table-row' >"+
+                                "<li class='table-cell'>"+obj.UMG[i].NickName+"</li>"+
+                                "<li class='table-cell'>"+obj.UMG[i].Uid+" </li>"+
+
+                                "<li class='table-cell'>"+obj.UMG[i].Coin+"</li>"+
+                                "<li class='table-cell recharge'>"+obj.UMG[i].GoldN+"</li>"+
+                                "<li class='table-cell exchange'>"+obj.UMG[i].CZ+"</li>"+
+                                "<li class='table-cell exchange'>"+obj.UMG[i].CZ+"</li>"+
+                                "<li class='table-cell exchange'>"+obj.UMG[i].CZ+"</li>"+
+                                "<li  class='table-cell changePwd'><a>详情</a></li>"+
+                                "</ul>"+
+                                "</div>"
+                        num = num +  nums
+
+                    }
+                    $("#table_001").html(num)
+
+
+
+
+
+                }else{
+                    alert("获取失败")
+                }
+                ws.close()
+            }
+        }
+    }
+
+
+    //上分或者下分
+    function rechaege(num){
+        var  user = GetCookies("user")
+        var pas
+            if  (num == 3 ){
+                 pas = document.getElementById("zengsong").value;
+                var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+
+                ws.onopen = function() {
+                    ws.send("1000"+GetCookies("UG"));
+                    ws.send("9308" + JSON.stringify({
+                        BG: "",
+                        UG: GetCookies("UG"),
+                        ACC: "",
+                        PHONE: user,
+                        GOLD: parseInt(0),
+                        DIA: parseInt(0),
+                        ZS: parseInt(pas)
+                    }));
+                    ws.onmessage = function (msg) {
+
+                        // alert(msg.data)
+                        var newdate="";
+                        for(var i=0;i<msg.data.length;i++){
+                            if (i>3){
+                                newdate = newdate + msg.data[i];
+                            }
+                        }
+                        obj = toJson(newdate)
+                        // alert(obj.Errcode)
+                        if ( obj.Err == -1 ){
+                            alert("赠送成功")
+                        }else{
+                            alert("赠送失败")
+                        }
+                        ws.close()
+                    }
+                }
+
+            }else if (num == 2 ){
+                pas = document.getElementById("chongzhi").value;
+                var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+
+                ws.onopen = function() {
+                    ws.send("1000"+GetCookies("UG"));
+                    ws.send("9308" + JSON.stringify({
+                        BG: "",
+                        UG: GetCookies("UG"),
+                        ACC: "",
+                        PHONE: user,
+                        GOLD: parseInt(0),
+                        DIA: parseInt(pas),
+                        ZS: parseInt(0)
+                    }));
+                    ws.onmessage = function (msg) {
+
+                        // alert(msg.data)
+                        var newdate="";
+                        for(var i=0;i<msg.data.length;i++){
+                            if (i>3){
+                                newdate = newdate + msg.data[i];
+                            }
+                        }
+                        obj = toJson(newdate)
+                        // alert(obj.Errcode)
+                        if ( obj.Err == -1 ){
+                            alert("充值成功")
+                        }else{
+                            alert("充值失败")
+                        }
+                        ws.close()
+                    }
+                }
+
+            } else if (num == 1){
+                pas = document.getElementById("duihuan").value;
+                var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+
+                ws.onopen = function() {
+                    ws.send("1000"+GetCookies("UG"));
+                    ws.send("9308" + JSON.stringify({
+                        BG: "",
+                        UG: GetCookies("UG"),
+                        ACC: "",
+                        PHONE: user,
+                        GOLD: parseInt(0),
+                        DIA: parseInt(-pas),
+                        ZS: parseInt(0)
+                    }));
+                    ws.onmessage = function (msg) {
+
+                        // alert(msg.data)
+                        var newdate="";
+                        for(var i=0;i<msg.data.length;i++){
+                            if (i>3){
+                                newdate = newdate + msg.data[i];
+                            }
+                        }
+                        obj = toJson(newdate)
+                        // alert(obj.Errcode)
+                        if ( obj.Err == -1 ){
+                            alert("兑换成功")
+                        }else{
+                            alert("兑换失败")
+                        }
+                        ws.close()
+                    }
+                }
+
+            }
+
+            // alert(pas +"======"+user)
+
+
+
+        // var pas = document.getElementById("Game_id").value;
+
+
+
+
+    }
+
+
+
+</script>
+
+
+</html>

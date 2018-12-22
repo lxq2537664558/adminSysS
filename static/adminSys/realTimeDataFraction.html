@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/realTimeDataFraction.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/realTimeDataFraction.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>游戏实时数据</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <ul class="riTitle">
+                    <li><a href="realTimeDataOverview.html">总览</a></li>
+                    <li><a href="realTimeDataFishing.html">捕鱼</a></li>
+                    <li><a href="realTimeDataHappy.html">欢乐牌机</a></li>
+                    <li><a href="realTimeDataFraction.html" class="active">经典压分</a></li>
+                    <li><a href="realTimeDataDroiyan.html">决战百人</a></li>
+                    <li><a href="realTimeDataInsane.html">疯狂滚轮</a></li>
+                </ul>
+                <div class="listDown">
+                    <div class="listLeft fl">
+                        <ul>
+                            <li class="all current">经典压分总览</li>
+                            <li class="singleRoom">各个房间</li>
+                        </ul>
+                    </div>
+                    <div class="listRight fl">
+                        <!--总览-->
+                        <div class="allList">
+                            <p class="time">
+                                <label for="">起始时间：&nbsp;</label>
+                                <span>2018-11-14&nbsp;12:25:54</span>
+                                <label for="">当前时间：&nbsp;</label>
+                                <span>2018-12-04&nbsp;10:25:54</span>
+                            </p>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">明细/模式</td>
+                                        <td>在线人数</td>
+                                        <td>进币数量</td>
+                                        <td>出币数量</td>
+                                        <td>盈收</td>
+                                    </tr>
+                                    <!--金鲨银鲨-->
+                                    <tr>
+                                        <td rowspan="4">金鲨银鲨</td>
+                                        <td>初级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>高级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>小计</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <!--豪车竞技-->
+                                    <tr>
+                                        <td rowspan="4">豪车竞技</td>
+                                        <td>初级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>高级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>小计</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <!--森林舞会-->
+                                    <tr>
+                                        <td rowspan="4">森林舞会</td>
+                                        <td>初级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>中级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>高级场</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>小计</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <!--总计-->
+                                    <tr>
+                                        <td colspan="2">总计</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--各个房间-->
+                        <div class="singleRoomList">
+                            <ul class="rh_title">
+                                <li class="comm">金鲨银鲨</li>
+                                <li>豪车竞技</li>
+                                <li>森林舞会</li>
+                            </ul>
+                            <p class="btn">
+                                <a href="javascript:;" class="site">初级场</a>
+                                <a href="javascript:;">中级场</a>
+                                <a href="javascript:;">高级场</a>
+                            </p>
+                            <p class="time">
+                                <label for="">起始时间：&nbsp;</label>
+                                <span>2018-11-14&nbsp;12:25:54</span>
+                                <label for="">当前时间：&nbsp;</label>
+                                <span>2018-12-04&nbsp;10:25:54</span>
+                            </p>
+                            <ul class="rh_cont">
+                                <li class="show">
+                                    <ul class="list">
+                                        <li>
+                                            <p>出币数量：10000</p>
+                                            <p>进币数量：20000</p>
+                                            <p>盈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收：10000</p>
+                                            <p>1区</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="list">
+                                        <li>
+                                            <p>出币数量：20000</p>
+                                            <p>进币数量：30000</p>
+                                            <p>盈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收：10000</p>
+                                            <p>1区</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="list">
+                                        <li>
+                                            <p>出币数量：40000</p>
+                                            <p>进币数量：50000</p>
+                                            <p>盈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收：10000</p>
+                                            <p>1区</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+package logicserver;
+message InRoom
+{
+    required string userName = 1;
+	required int32 state = 2;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/warning.css">
+    <link rel="stylesheet" href="css/public.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li class="active"><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <!--列表-->
+                <div class="notice">
+                    <div class="noticeLeft fl">
+                        <ul>
+                            <li>时间</li>
+                            <li>2018-12-01&nbsp;14:37:11</li>
+                            <li>2018-12-01&nbsp;14:37:12</li>
+                            <li>2018-12-01&nbsp;14:37:13</li>
+                            <li>2018-12-01&nbsp;14:37:14</li>
+                            <li>2018-12-01&nbsp;14:37:15</li>
+                            <li>2018-12-01&nbsp;14:37:16</li>
+                            <li>2018-12-01&nbsp;14:37:17</li>
+                            <li>2018-12-01&nbsp;14:37:18</li>
+                            <li>2018-12-01&nbsp;14:37:19</li>
+                            <li>2018-12-01&nbsp;14:37:20</li>
+                        </ul>
+                    </div>
+                    <div class="noticeRight fr">
+                        <ul>
+                            <li>事件</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                            <li>玩家XXX在XXX游戏内连续中奖XXX次&nbsp;&nbsp;&nbsp;以服务器发送的消息为准</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--分页-->
+                <div class="pages">
+                    <div class="fenye">
+                        <span>共<em id="total"></em>条，本页显示<em id="Page"></em>条，当前是第<em id="num"></em>页</span>
+                        <a href="javascript:;" class="backpage" onclick="Select_User_infrom(1)" title="上一页"><<</a>
+                        <a href="javascript:;" class="nextpage" onclick="Select_User_infrom(2)" title="下一页">>></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

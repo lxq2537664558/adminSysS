@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/incomeDaily.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/incomeDaily.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/echarts.common.min.js"></script>
+
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>收入日报</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <div class="public">
+                    <div class="chooseTime fl">
+                        <label for="">选择时间：</label>
+                    </div>
+                    <div class="type fl">
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="week">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="week">周报表</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="month">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="month">月报表</label>
+                        </span>
+
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="year">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="year">年报表</label>
+                        </span>
+
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="custom">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="custom">自由时间报表</label>
+                        </span>
+                        <div class="timer fl">
+                            <input type="date" id="beginDate">&nbsp;&nbsp;到&nbsp;&nbsp;<input type="date" id="endDate">
+                        </div>
+                        <div class="search-button fl">
+                            <input class="button" type="button" value="搜索" onclick="search()">
+                        </div>
+                    </div>
+                </div>
+                <div class="dailyList">
+                    <div class="list">
+                        <ul>
+                            <li><p id="Online_001"></p>
+                                <p>总收入</p></li>
+                            <li><p id="Online_002"></p>
+                                <p>总付费用户数</p></li>
+                            <li><p id="Online_003"></p>
+                                <p>用户付费率</p></li>
+                            <li><p id="Online_004"></p>
+                                <p>付费ARPU</p></li>
+                            <li><p id="Online_005"></p>
+                                <p>老用户再次付费收入</p></li>
+                            <li><p id="Online_006"></p>
+                                <p>老用户付费数</p></li>
+                            <li><p id="Online_007"></p>
+                                <p>老用户付费率</p></li>
+                            <li><p id="Online_008"></p>
+                                <p>ARPU</p></li>
+                            <li><p id="Online_009"></p>
+                                <p>付费渗透率</p></li>
+                            <li><p id="Online_010"></p>
+                                <p>LTV</p></li>
+                            <li><p id="Online_011"></p>
+                                <p>新付费用户收入</p></li>
+                            <li><p id="Online_012"></p>
+                                <p>新付费用户数</p></li>
+                            <li><p id="Online_013"></p>
+                                <p>新增用户付费率</p></li>
+                            <li><p id="Online_014"></p>
+                                <p>新增ARPU</p></li>
+                        </ul>
+                    </div>
+                    <input type="button" value="区服详情">
+                    <div class="echarts" id="inecharts"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script src="js/incomeDaily.js"></script>
+<script>
+    $(function () {
+        SetCookie("statice", 1);
+
+        var myDate = new Date();
+        var Fyear = myDate.getFullYear();    //获取完整的年份(4位,1970-????)
+        var mon = myDate.getMonth() + 1;       //获取当前月份(0-11,0代表1月)，+1获取到正确的月份
+        var Da = myDate.getDate();        //获取当前日(1-31)
+        var hour = myDate.getHours();       //获取当前小时数(0-23)
+        var min = myDate.getMinutes();     //获取当前分钟数(0-59)
+        var sec = myDate.getSeconds();     //获取当前秒数(0-59)
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9061" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                UDate: Fyear.toString() + "-" + mon.toString() + "-" + Da.toString() + " " + "00" + ":" + "00" + ":" + "00",
+                DUate: Fyear.toString() + "-" + mon.toString() + "-" + Da.toString() + " " + hour + ":" + min + ":" + sec
+            }));
+            socket.onmessage = function (msg) {
+
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate);
+
+                //用户付费率
+                var UserRate = ((obj.AUser) / (obj.PayUser)).toFixed(2) * 100;
+                //付费ARPU
+                var ARPURate = ((obj.PayUser) / (obj.Get)).toFixed(2) * 100;
+                //老用户再次付费收入
+                var OldUserAgain = ((obj.Get) - (obj.NUserPay));
+                //老用户付费数
+                var OldUserPay = ((obj.PayUser) - (obj.NUser));
+                //老用户付费率
+                var OldUserPayRate = (OldUserPay / OldUserAgain).toFixed(2) * 100;
+                //ARPU
+                var Arpu = (OldUserPay / (obj.PayUser)).toFixed(2) * 100;
+                //付费渗透率
+
+                //LTV
+
+                //新增用户付费率
+                var NewUserRate = ((obj.NUser) / (obj.NUserPay)).toFixed(2) * 100;
+
+                //新增ARPU
+                var NewArpu = ((obj.NUser) / (obj.PayUser)).toFixed(4) * 100;
+
+                $("#Online_001").html(obj.Get);
+                $("#Online_002").html(obj.PayUser);
+                $("#Online_003").html(UserRate + "%");
+                $("#Online_004").html(ARPURate + "%");
+                $("#Online_005").html(OldUserAgain);
+                $("#Online_006").html(OldUserPay);
+                $("#Online_007").html(OldUserPayRate + "%");
+                $("#Online_008").html(Arpu + "%");
+                // $("#Online_009").html(obj.Get);
+                // $("#Online_010").html(obj.Get);
+                $("#Online_011").html(obj.NUserPay);
+                $("#Online_012").html(obj.NUser);
+                $("#Online_013").html(NewUserRate + "%");
+                $("#Online_014").html(NewArpu + "%");
+
+                socket.close();
+
+            }
+        }
+    })
+
+    function search() {
+        var radios = document.getElementsByName("time");
+
+        //周报表
+        if (radios[0].checked == true) {
+
+            var myDate = new Date();
+            var Week = myDate.getDay(); //获取当前星期X(0-6,0代表星期天)
+
+            function getDay(day) {
+                var today = new Date();
+                var targetday_milliseconds = today.getTime() + 1000 * 60 * 60 * 24 * day;
+                today.setTime(targetday_milliseconds); //注意，这行是关键代码
+                var tYear = today.getFullYear();
+                var tMonth = today.getMonth();
+                var tDate = today.getDate();
+                tMonth = doHandleMonth(tMonth + 1);
+                tDate = doHandleMonth(tDate);
+                return tYear + "-" + tMonth + "-" + tDate;
+            }
+
+            function doHandleMonth(month) {
+                var m = month;
+                if (month.toString().length == 1) {
+                    m = "0" + month;
+                }
+                return m;
+            }
+
+
+            var num1 = -(Week - 1);//获取到本周周一
+            var num2 = 7 - Week;//获取到本周周日
+
+            var time1 = getDay(num1)
+            var time2 = getDay(num2)
+
+
+            socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+            socket.onopen = function () {
+                socket.send("1000" + GetCookies("UG"));
+                socket.send("9061" + JSON.stringify({
+                    BG: "",
+                    UG: GetCookies("UG"),
+                    UDate: time1 + " " + "00" + ":" + "00" + ":" + "00",
+                    DUate: time2 + " " + "23" + ":" + "59" + ":" + "59",
+                }));
+                socket.onmessage = function (msg) {
+
+                    var newdate = "";
+                    for (var i = 0; i < msg.data.length; i++) {
+                        if (i > 3) {
+                            newdate = newdate + msg.data[i];
+                        }
+                    }
+                    obj = toJson(newdate);
+
+                    //用户付费率
+                    var UserRate = ((obj.AUser) / (obj.PayUser)).toFixed(2) * 100;
+                    //付费ARPU
+                    var ARPURate = ((obj.PayUser) / (obj.Get)).toFixed(2) * 100;
+                    //老用户再次付费收入
+                    var OldUserAgain = ((obj.Get) - (obj.NUserPay));
+                    //老用户付费数
+                    var OldUserPay = ((obj.PayUser) - (obj.NUser));
+                    //老用户付费率
+                    var OldUserPayRate = (OldUserPay / OldUserAgain).toFixed(2) * 100;
+                    //ARPU
+                    var Arpu = (OldUserPay / (obj.PayUser)).toFixed(2) * 100;
+                    //付费渗透率
+
+                    //LTV
+
+                    //新增用户付费率
+                    var NewUserRate = ((obj.NUser) / (obj.NUserPay)).toFixed(2) * 100;
+
+                    //新增ARPU
+                    var NewArpu = ((obj.NUser) / (obj.PayUser)).toFixed(4) * 100;
+
+                    $("#Online_001").html(obj.Get);
+                    $("#Online_002").html(obj.PayUser);
+                    $("#Online_003").html(UserRate + "%");
+                    $("#Online_004").html(ARPURate + "%");
+                    $("#Online_005").html(OldUserAgain);
+                    $("#Online_006").html(OldUserPay);
+                    $("#Online_007").html(OldUserPayRate + "%");
+                    $("#Online_008").html(Arpu + "%");
+                    // $("#Online_009").html(obj.Get);
+                    // $("#Online_010").html(obj.Get);
+                    $("#Online_011").html(obj.NUserPay);
+                    $("#Online_012").html(obj.NUser);
+                    $("#Online_013").html(NewUserRate + "%");
+                    $("#Online_014").html(NewArpu + "%");
+
+                    socket.close();
+
+                }
+            }
+        }
+
+        //月报表
+        if (radios[1].checked == true) {
+
+            function mGetDate(year, month) {
+                var d = new Date(year, month, 0);
+                return d.getDate();
+            }
+
+            var date = new Date();
+
+            var count = mGetDate(date.getFullYear(), date.getMonth() + 1)
+            var ti = 1 + date.getMonth()
+            var tim = 1 + date.getMonth()
+
+            var beginDay = date.getFullYear() + "-" + ti + "-01";//每个月1号开始
+            var endDay = date.getFullYear() + "-" + tim + "-" + count;//每个月月底结束
+
+            socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+            socket.onopen = function () {
+                socket.send("1000" + GetCookies("UG"));
+                socket.send("9061" + JSON.stringify({
+                    BG: "",
+                    UG: GetCookies("UG"),
+                    UDate: beginDay + " " + "00" + ":" + "00" + ":" + "00",
+                    DUate: endDay + " " + "23" + ":" + "59" + ":" + "59",
+                }));
+                socket.onmessage = function (msg) {
+
+                    var newdate = "";
+                    for (var i = 0; i < msg.data.length; i++) {
+                        if (i > 3) {
+                            newdate = newdate + msg.data[i];
+                        }
+                    }
+                    obj = toJson(newdate);
+
+                    //用户付费率
+                    var UserRate = ((obj.AUser) / (obj.PayUser)).toFixed(2) * 100;
+                    //付费ARPU
+                    var ARPURate = ((obj.PayUser) / (obj.Get)).toFixed(2) * 100;
+                    //老用户再次付费收入
+                    var OldUserAgain = ((obj.Get) - (obj.NUserPay));
+                    //老用户付费数
+                    var OldUserPay = ((obj.PayUser) - (obj.NUser));
+                    //老用户付费率
+                    var OldUserPayRate = (OldUserPay / OldUserAgain).toFixed(2) * 100;
+                    //ARPU
+                    var Arpu = (OldUserPay / (obj.PayUser)).toFixed(2) * 100;
+                    //付费渗透率
+
+                    //LTV
+
+                    //新增用户付费率
+                    var NewUserRate = ((obj.NUser) / (obj.NUserPay)).toFixed(2) * 100;
+
+                    //新增ARPU
+                    var NewArpu = ((obj.NUser) / (obj.PayUser)).toFixed(4) * 100;
+
+                    $("#Online_001").html(obj.Get);
+                    $("#Online_002").html(obj.PayUser);
+                    $("#Online_003").html(UserRate + "%");
+                    $("#Online_004").html(ARPURate + "%");
+                    $("#Online_005").html(OldUserAgain);
+                    $("#Online_006").html(OldUserPay);
+                    $("#Online_007").html(OldUserPayRate + "%");
+                    $("#Online_008").html(Arpu + "%");
+                    // $("#Online_009").html(obj.Get);
+                    // $("#Online_010").html(obj.Get);
+                    $("#Online_011").html(obj.NUserPay);
+                    $("#Online_012").html(obj.NUser);
+                    $("#Online_013").html(NewUserRate + "%");
+                    $("#Online_014").html(NewArpu + "%");
+
+                    socket.close();
+
+                }
+            }
+        }
+
+        //年报表
+        if (radios[2].checked == true) {
+
+            var date = new Date();
+            var year = date.getFullYear();
+
+            socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+            socket.onopen = function () {
+                socket.send("1000" + GetCookies("UG"));
+                socket.send("9061" + JSON.stringify({
+                    BG: "",
+                    UG: GetCookies("UG"),
+                    UDate: year + "-" + "01" + "-" + "01" + " " + "00" + ":" + "00" + ":" + "00",
+                    DUate: year + "-" + "12" + "-" + "31" + " " + "23" + ":" + "59" + ":" + "59",
+                }));
+                socket.onmessage = function (msg) {
+
+                    var newdate = "";
+                    for (var i = 0; i < msg.data.length; i++) {
+                        if (i > 3) {
+                            newdate = newdate + msg.data[i];
+                        }
+                    }
+                    obj = toJson(newdate);
+
+                    //用户付费率
+                    var UserRate = ((obj.AUser) / (obj.PayUser)).toFixed(2) * 100;
+                    //付费ARPU
+                    var ARPURate = ((obj.PayUser) / (obj.Get)).toFixed(2) * 100;
+                    //老用户再次付费收入
+                    var OldUserAgain = ((obj.Get) - (obj.NUserPay));
+                    //老用户付费数
+                    var OldUserPay = ((obj.PayUser) - (obj.NUser));
+                    //老用户付费率
+                    var OldUserPayRate = (OldUserPay / OldUserAgain).toFixed(2) * 100;
+                    //ARPU
+                    var Arpu = (OldUserPay / (obj.PayUser)).toFixed(2) * 100;
+                    //付费渗透率
+
+                    //LTV
+
+                    //新增用户付费率
+                    var NewUserRate = ((obj.NUser) / (obj.NUserPay)).toFixed(2) * 100;
+
+                    //新增ARPU
+                    var NewArpu = ((obj.NUser) / (obj.PayUser)).toFixed(4) * 100;
+
+                    $("#Online_001").html(obj.Get);
+                    $("#Online_002").html(obj.PayUser);
+                    $("#Online_003").html(UserRate + "%");
+                    $("#Online_004").html(ARPURate + "%");
+                    $("#Online_005").html(OldUserAgain);
+                    $("#Online_006").html(OldUserPay);
+                    $("#Online_007").html(OldUserPayRate + "%");
+                    $("#Online_008").html(Arpu + "%");
+                    // $("#Online_009").html(obj.Get);
+                    // $("#Online_010").html(obj.Get);
+                    $("#Online_011").html(obj.NUserPay);
+                    $("#Online_012").html(obj.NUser);
+                    $("#Online_013").html(NewUserRate + "%");
+                    $("#Online_014").html(NewArpu + "%");
+
+                    socket.close();
+
+                }
+            }
+        }
+
+        //自由时间报表
+        if (radios[3].checked == true) {
+
+            var begin = Date.parse($("#beginDate").val());//自由开始时间
+            var end = Date.parse($("#endDate").val());//自由结束时间
+
+            //开始时间不能大于结束时间
+            if (begin > end) {
+                alert("开始时间不能大于结束时间")
+                return
+            }
+
+            //查询时间间隔不能大于30天
+            if (parseInt((end - begin) / 1000 / 60 / 60 / 24) > 30) {
+                alert("查询时间间隔不能大于30天");
+            }
+
+            socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+            socket.onopen = function () {
+                socket.send("1000" + GetCookies("UG"));
+                socket.send("9061" + JSON.stringify({
+                    BG: "",
+                    UG: GetCookies("UG"),
+                    UDate: $("#beginDate").val() + " " + "00" + ":" + "00" + ":" + "00",
+                    DUate: $("#endDate").val() + " " + "23" + ":" + "59" + ":" + "59",
+                }));
+                socket.onmessage = function (msg) {
+
+                    var newdate = "";
+                    for (var i = 0; i < msg.data.length; i++) {
+                        if (i > 3) {
+                            newdate = newdate + msg.data[i];
+                        }
+                    }
+                    obj = toJson(newdate);
+
+                    //用户付费率
+                    var UserRate = ((obj.AUser) / (obj.PayUser)).toFixed(2) * 100;
+                    //付费ARPU
+                    var ARPURate = ((obj.PayUser) / (obj.Get)).toFixed(2) * 100;
+                    //老用户再次付费收入
+                    var OldUserAgain = ((obj.Get) - (obj.NUserPay));
+                    //老用户付费数
+                    var OldUserPay = ((obj.PayUser) - (obj.NUser));
+                    //老用户付费率
+                    var OldUserPayRate = (OldUserPay / OldUserAgain).toFixed(2) * 100;
+                    //ARPU
+                    var Arpu = (OldUserPay / (obj.PayUser)).toFixed(2) * 100;
+                    //付费渗透率
+
+                    //LTV
+
+                    //新增用户付费率
+                    var NewUserRate = ((obj.NUser) / (obj.NUserPay)).toFixed(2) * 100;
+
+                    //新增ARPU
+                    var NewArpu = ((obj.NUser) / (obj.PayUser)).toFixed(4) * 100;
+
+                    $("#Online_001").html(obj.Get);
+                    $("#Online_002").html(obj.PayUser);
+                    $("#Online_003").html(UserRate + "%");
+                    $("#Online_004").html(ARPURate + "%");
+                    $("#Online_005").html(OldUserAgain);
+                    $("#Online_006").html(OldUserPay);
+                    $("#Online_007").html(OldUserPayRate + "%");
+                    $("#Online_008").html(Arpu + "%");
+                    // $("#Online_009").html(obj.Get);
+                    // $("#Online_010").html(obj.Get);
+                    $("#Online_011").html(obj.NUserPay);
+                    $("#Online_012").html(obj.NUser);
+                    $("#Online_013").html(NewUserRate + "%");
+                    $("#Online_014").html(NewArpu + "%");
+
+                    socket.close();
+
+                }
+            }
+        }
+
+        // function search() {
+        //     var radios = document.getElementsByName("time");
+        //     //周报表
+        //     if (radios[0].checked == true) {}
+        //     //月报表
+        //     if (radios[1].checked == true) {}
+        //     //年报表
+        //     if (radios[2].checked == true) {}
+        //     //自由时间报表
+        //     if (radios[3].checked == true) {}
+        // }
+    }
+</script>
+</body>
+
+
+
+
+
+

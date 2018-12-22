@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/shoppingMall.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <!--<script src="js/realTimeDataFishing.js"></script>-->
+    <script src="js/main.js"></script>
+    <script src="js/shoppingMall.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>商城概况</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <ul class="rh_title">
+                    <li class="current">销售明细</li>
+                    <li onclick="detailed()">销售总况</li>
+                </ul>
+                <ul class="rh_cont">
+                    <!--销售总况-->
+                    <li class="show">
+                        <p>
+                            <label for="">出售道具总数:</label>
+                            <span id="sell"></span>
+                            <label for="">销售总额:</label>
+                            <span id="sale"></span>
+                            <label for="">购买人数:</label>
+                            <span id="purchase"></span>
+                        </p>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">用户昵称</li>
+                                    <li class="table-cell">用户ID</li>
+                                    <li class="table-cell">用户账号</li>
+                                    <li class="table-cell">服务器</li>
+                                    <li class="table-cell">销售日期</li>
+                                    <li class="table-cell">发货日期</li>
+                                    <li class="table-cell">产品类别</li>
+                                    <li class="table-cell">产品名称</li>
+                                    <li class="table-cell">产品数量</li>
+                                    <li class="table-cell">产品销售单价</li>
+                                    <li class="table-cell">产品成本价</li>
+                                    <li class="table-cell">单笔购买人数</li>
+                                    <li class="table-cell">单笔销售总额</li>
+                                    <li class="table-cell">单笔成本总额</li>
+                                    <li class="table-cell">单笔利润总额</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group" id="table-body">
+                                <ul class="table-row">
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--分页-->
+                        <div class="pages">
+                            <div class="fenye">
+                                <span>共<em id="total">0</em>条，本页显示<em id="Page">0</em>条，当前是第<em id="num">1</em>页</span>
+                                <a href="javascript:;" class="backpage" onclick="Fpages()" title="上一页"><<</a>
+                                <a href="javascript:;" class="nextpage" onclick="Npages()" title="下一页">>></a>
+                            </div>
+                        </div>
+                    </li>
+                    <!--销售明细-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell detailed">大区编号ID</li>
+                                    <li class="table-cell detailed">服务器ID</li>
+                                    <li class="table-cell detailed">出售日期</li>
+                                    <li class="table-cell detailed">道具大类</li>
+                                    <li class="table-cell detailed">道具名称</li>
+                                    <li class="table-cell detailed">产品购买人数</li>
+                                    <li class="table-cell detailed">产品购买数</li>
+                                    <li class="table-cell detailed">产品销售数</li>
+                                    <li class="table-cell detailed">产品库存数</li>
+                                    <li class="table-cell detailed">产销售总额</li>
+                                    <li class="table-cell detailed">产品成本总额</li>
+                                    <li class="table-cell detailed">产品利润</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group" id="table-body-detailed">
+                                <ul class="table-row">
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script>
+    $(function () {
+        SetCookie("SFpage", 10);
+        SetCookie("SFpage2", 10);
+        var socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9085" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                SN: parseInt(0),
+                NUM: parseInt(10),
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                // alert(msg.data)
+                //计算本页显示页码
+                var num = GetCookies("SFpage") / 10;
+                $("#num").html(num);
+
+                var obj = toJson(newdate)
+                 // alert( msg.data)
+                if (obj.NUM == null) {
+                    alert("未查询到数据");
+                    return
+                }
+
+                //共显示条数
+                $("#total").html(obj.CT);
+                //本页显示
+                $("#Page").html(obj.NUM.length);
+
+                SetCookie("SHlength", obj.NUM.length);
+                //出售道具总数:  销售总额:  购买人数:
+                var total = "";
+                $("#sell").html(obj.CSDJ);
+                $("#sale").html(obj.XSDJ);
+                $("#purchase").html(obj.GMRS);
+
+                var num = "";
+                for (var i = 0; i < obj.NUM.length; i++) {
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].NC +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].UID +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].UNAME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].GM +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].XTIME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].FTIME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CPLB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].ST +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CT +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CTD +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBGM +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBXS +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBCB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBLR +"</li>";
+                    num += "</ul>";
+                }
+                $("#table-body").html(num);
+                socket.close();
+            }
+        }
+    })
+
+    function detailed() {
+        var socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9087" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                SN: parseInt(0),
+                NUM: parseInt(1),
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                var obj = toJson(newdate)
+                // alert( msg.data)
+                if (obj.NUM == null) {
+                    alert("未查询到数据");
+                    return
+                }
+                SetCookie("SHDlength", obj.NUM.length);
+                var num = "";
+                for (var i = 0; i < obj.NUM.length; i++) {
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].NC +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].UID +"</li>";
+                    // num += "<li class=\"table-cell\">"+ obj.NUM[i].CSRQ +"</li>";
+                    num += "<li class=\"table-cell\">"+ '2018-10-19 11:17:54' +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DJDL +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DJMC +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].GMRS +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CPGM +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CPXS +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CPKC +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].XSZE +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CPZE +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CPLR +"</li>";
+                    num += "</ul>";
+                }
+                $("#table-body-detailed").html(num);
+                socket.close();
+            }
+        }
+    }
+    //上一页
+    function Fpages() {
+
+        var SFpage = GetCookies("SFpage");
+        var SFpage2 = GetCookies("SFpage2");
+        var Smsg_01 = parseInt(SFpage2) - 10;
+        SFpage -= parseInt(10);
+        SetCookie("SFpage", SFpage);
+        SetCookie("SFpage2", Smsg_01);
+        var Snextpage =  SFpage - 10;
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9085" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(0),
+                SID: parseInt(0),
+                SN: parseInt(Snextpage),
+                NUM: parseInt(SFpage),
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                //拿到SetCookies值，除以每页显示的条数，就能计算出页码
+                var num = GetCookies("SFpage") / 10;
+                $("#num").html(num);
+                if (Snextpage < 0) {
+                    $("#num").html(1);
+                    alert("当前为第一页")
+                    SetCookie("Fpage2", 0);
+                    return
+
+                }
+                obj = toJson(newdate)
+                if (obj.NUM == null) {
+                    alert("未查询到数据")
+                    return
+                }
+
+                //共显示条数
+                $("#total").html(obj.CT);
+                //本页显示
+                $("#Page").html(obj.NUM.length);
+
+                SetCookie("HPlength", obj.NUM.length)
+
+                var num = ""
+                for (var i = 0; i < obj.NUM.length; i++) {
+                    // var tr = $("<tr>");
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].NC +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].UID +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].UNAME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].GM +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].XTIME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].FTIME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CPLB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].ST +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CT +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CTD +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBGM +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBXS +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBCB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBLR +"</li>";
+                    num += "</ul>";
+                }
+                $("#table-body").html(num)
+                socket.close()
+            }
+        }
+    }
+    //下一页
+    function Npages() {
+        var SFpage = GetCookies("SFpage");
+        var SFpage2 = GetCookies("SFpage2");
+        var Smsg_01 = parseInt(SFpage) + 10;
+        SFpage2 +=  parseInt(10)
+        SetCookie("SFpage2", SFpage2);
+        SetCookie("SFpage", Smsg_01);
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9085" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(0),
+                SID: parseInt(0),
+                SN: parseInt(SFpage),
+                NUM: parseInt(Smsg_01),
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                // alert(msg.data)
+                obj = toJson(newdate)
+                if (obj.NUM == null) {
+                    alert("未查询到数据")
+                    return
+                }
+
+
+                SetCookie("obj_CT", obj.CT)
+                //判断当前页是否为最后一页
+                if(GetCookies("obj_CT") < SFpage){
+                    alert("最后一页");
+                    return
+                }
+
+
+                SetCookie("HPlength", obj.NUM.length)
+                //本页显示
+                $("#Page").html(obj.NUM.length);
+                //计算页码
+                var num = GetCookies("SFpage") / 10;
+                $("#num").html(num);
+
+                var num = ""
+                for (var i = 0; i < obj.NUM.length; i++) {
+                    // var tr = $("<tr>");
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].NC +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].UID +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].UNAME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].GM +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].XTIME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].FTIME +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CPLB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].ST +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CT +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CTD +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].CB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBGM +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBXS +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBCB +"</li>";
+                    num += "<li class=\"table-cell\">"+ obj.NUM[i].DBLR +"</li>";
+                    num += "</ul>";
+                }
+                $("#table-body").html(num)
+                socket.close()
+            }
+        }
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>游戏管理后台</title>
+
+    <style>
+        #mytable {
+            border: black solid 1px;
+            width: 700px;
+            text-align: center;
+            position: relative;
+            margin-top: -26%;
+            margin-left: 38%;
+        }
+        th {
+            font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+            color: #4f6b72;
+            border-right: 1px solid #C1DAD7;
+            border-bottom: 1px solid #C1DAD7;
+            border-top: 1px solid #C1DAD7;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 6px 6px 12px;
+        }
+        td {
+            border-right: 1px solid #C1DAD7;
+            border-bottom: 1px solid #C1DAD7;
+            background: #fff;
+            font-size:11px;
+            padding: 6px 6px 6px 12px;
+            color: #4f6b72;
+        }
+        td.alt {
+            background: #F5FAFA;
+            color: #797268;
+        }
+
+    </style>
+
+
+
+
+    <link id="base-style" href="/static/cs/style.css" rel="stylesheet">
+    <link id="base-style-responsive" href="/static/cs/style-responsive.css" rel="stylesheet">
+
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="/static/new/resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link href="/static/new/resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="/static/new/data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="/static/new/files/index/styles.css" type="text/css" rel="stylesheet"/>
+
+    <script src="/static/new/resources/scripts/prototypePre.js"></script>
+    <script src="/static/new/data/document.js"></script>
+    <script src="/static/new/resources/scripts/prototypePost.js"></script>
+    <script src="/static/new/files/index/data.js"></script>
+    <script src="/static/new/files/index/Gmae_js.js"></script>
+    <script src="/static/table/Table.js"></script>
+
+
+
+    <script src="/static/jss/jquery-1.9.1.min.js"></script>
+    <script src="/static/jss/jquery-migrate-1.0.0.min.js"></script>
+    <script src="/static/jss/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="/static/jss/jquery.ui.touch-punch.js"></script>
+
+
+    <style>
+        li{
+            list-style: none;
+            color: #f0f3f6;
+        }
+
+        hr{
+            width: 180px;
+        }
+    </style>
+
+
+
+    <script type="text/javascript">
+        $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
+        $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
+        $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+
+
+
+
+
+    </script>
+
+
+</head>
+<body data-curpagename="page2" class="body_style1">
+
+<!-- 上底界面 (矩形) -->
+<div id="base" class="">
+
+
+
+
+    <div id="u116" class="ax_default box_1" data-label="上底界面">
+        <div id="u116_div" class=""></div>
+        <!-- Unnamed () -->
+        <div id="u117" class="text" style="display:none; visibility: hidden">
+            <p><span></span></p>
+        </div>
+    </div>
+
+
+
+    <!-- 系统主页 (组合) -->
+    <div id="u118" class="ax_default" data-label="系统主页" data-left="221" data-top="58" data-width="828" data-height="709">
+
+        <!-- Unnamed (矩形) -->
+        <div id="u119" class="ax_default box_2">
+            <div id="u119_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u120" class="text" style="display:none; visibility: hidden">
+                <p><span></span></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (矩形) -->
+        <div id="u121" class="ax_default box_3">
+            <div id="u121_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u122" class="text" style="display:none; visibility: hidden">
+                <p><span></span></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (形状) -->
+        <div id="u131" class="ax_default icon">
+            <img id="u131_img" class="img " src="/static/new/images/index/u5_selected.png"/>
+            <!-- Unnamed () -->
+            <div id="u132" class="text" style="display:none; visibility: hidden">
+                <p><span></span></p>
+            </div>
+        </div>
+
+        <!-- Unnamed (形状) -->
+        <div id="u133" class="ax_default icon">
+            <img id="u133_img" class="img " src="/static/new/images/index/u133.png"/>
+            <!-- Unnamed () -->
+            <div id="u134" class="text" style="display:none; visibility: hidden">
+                <p><span></span></p>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- 系统主页 (矩形) -->
+        <div id="u135" class="ax_default label" data-label="系统主页">
+            <div id="u135_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u136" class="text">
+                <p><span>用户封禁解封</span></p>
+            </div>
+        </div>
+
+        <!-- 系统主页 (矩形) -->
+        <div id="u137" class="ax_default label" data-label="系统主页">
+            <div id="u137_div" class=""></div>
+            <!-- Unnamed () -->
+            <div id="u138" class="text">
+                <p><span>系统主页</span></p>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- Unnamed (矩形) -->
+<div id="u2" class="ax_default box_2">
+    <div id="u2_div" class=""></div>
+    <!-- Unnamed () -->
+    <div id="u3" class="text" style="display:none; visibility: hidden">
+        <p><span></span></p>
+    </div>
+</div>
+
+<!-- 系统主页 (组合) -->
+<div id="u4" class="ax_default" data-label="系统主页" selectiongroup="01" data-left="14" data-top="58" data-width="99" data-height="23">
+
+    <!-- Unnamed (形状) -->
+    <div id="u5" class="ax_default icon selected" selectiongroup="01">
+        <img id="u5_img" class="img " src="/static/new/images/index/u5_selected.png"/>
+        <!-- Unnamed () -->
+        <div id="u6" class="text" style="display:none; visibility: hidden">
+            <p><span></span></p>
+        </div>
+    </div>
+
+    <!-- 系统主页 (矩形) -->
+    <div id="u7" class="ax_default label selected" data-label="系统主页">
+        <div id="u7_div" class="selected"></div>
+        <!-- Unnamed () -->
+        <div id="u8" class="text">
+            <p><span>系统主页</span></p>
+        </div>
+    </div>
+</div>
+
+
+<section  style="position: absolute;margin-top: 112px;margin-left: 20px;color: #f0f3f6"  class="acsdsdsd12">
+
+
+
+</section>
+
+
+
+<div id="content" class="span10" style="position: absolute;margin-top: 124px;margin-left: -20px;background-color: #46466b">
+
+
+  <!-- <span onclick="youxinei()">游戏公告</span> <span onclick="youxinei_Select()">查询公告</span>
+    <hr style="background-color: #00FFFF"> -->
+
+    <div class="row-fluid">
+        <div class="row-fluid sortable">
+            <div class="box span12" style="height: 614px">
+                <div class="box-header" data-original-title>
+                    <h2><i class="halflings-icon white edit"></i><span class="break"></span>邮件管理</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <form class="form-horizontal">
+
+                        <label class="control-label" for="selectError3">渠道选择</label>
+                        <div class="controls">
+                            <select id="PropName">
+                                <option value="1">所有渠道</option>
+                                <option value="1">渠道一</option>
+                                <option value="0">渠道二</option>
+                                <option value="0">渠道三</option>
+                            </select>
+                        </div>
+                        <br>
+
+                        <label class="control-label" for="selectError3">开始时间</label>
+                        <div class="controls">
+
+                            <div class="dpicker01" id="page5_jDateTimePicker1"><input type="text" id="page5_jDateTimePicker1_edit"></div>
+
+                        </div>
+                        <br>
+                        <label class="control-label" for="selectError3">结束时间</label>
+                        <div class="controls">
+                            <div class=" dpicker01" id="page5_jDateTimePicker3"><input type="text" id="page5_jDateTimePicker3_edit"></div>
+                        </div>
+                        <br>
+                        <label class="control-label" for="selectError3">公告标题</label>
+                        <div class="controls">
+                            <input type="text" id="Emilhead">
+                        </div>
+                        <br>
+                        <label class="control-label" for="selectError3">公告图片</label>
+                        <div class="controls">
+                            <input type="text" id="Emilnc">
+                        </div>
+                        <br>
+                        <!--
+                        <label class="control-label" for="selectError3">道具名称</label>
+                        <div class="controls">
+                            <select id="PropName">
+                                <option value="1">钻石</option>
+                                <option value="0">金币</option>
+                            </select>
+                        </div>
+                        <br>
+                        <label class="control-label" for="selectError3">道具数量</label>
+                        <div class="controls">
+                            <input type="text" id="PropNums">
+                        </div>
+                        <br>
+                        <input type="button" onclick="Add_UserProp_Copy_table_o1()" value="添加到附件" style="margin-left: 25%">-->
+                        <br>
+                        <label class="control-label" for="selectError3">公告内容</label>
+                        <div class="controls">
+                            <textarea id="msg_emil_001" style="height: 108px"></textarea>
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="Log_ann_Information_Game()" style="margin-left: 15%">上传公告</button>
+                        <!--
+                        <table id="mytable" cellspacing="0" >
+                            <tr>
+                                <th scope="col" abbr="Configurations" class="nobg">道具名称</th>
+                                <th scope="col" abbr="Dual 1.8">道具数量</th>
+                                <th>删除该行</th>
+                            </tr>
+                        </table>
+-->
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<script src="/static/js/echarts-all.js"></script>
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+
+<script type="text/javascript" src="/static/js/head.js"></script>
+
+<script src="/static/jss/jquery-1.9.1.min.js"></script>
+<script src="/static/jss/jquery-migrate-1.0.0.min.js"></script>
+
+<script src="/static/jss/jquery-ui-1.10.0.custom.min.js"></script>
+
+<script src="/static/jss/jquery.ui.touch-punch.js"></script>
+
+
+
+
+
+<!-- end: JavaScript-->
+
+<script  type="application/javascript">
+
+    $(function(){
+        $("#page5_jDateTimePicker1_edit").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd"
+        });
+    });
+
+    $(function(){
+        $("#page5_jDateTimePicker3_edit").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd"
+        });
+    });
+
+
+    $(document).ready(function () {
+        //常规用法
+        laydate.render({
+            elem: '#enddate'
+        });
+        //常规用法
+        laydate.render({
+            elem: '#maxdate'
+        });
+
+        $("#date-popover").popover({html: true, trigger: "manual"});
+        $("#date-popover").hide();
+        $("#date-popover").click(function (e) {
+            $(this).hide();
+        });
+
+        // $("#my-calendar").zabuto_calendar({
+        //     action: function () {
+        //         return myDateFunction(this.id, false);
+        //     },
+        //     action_nav: function () {
+        //         return myNavFunction(this.id);
+        //     },
+        //     ajax: {
+        //         url: "show_data.php?action=1",
+        //         modal: true
+        //     },
+        //     legend: [
+        //         {type: "text", label: "Special event", badge: "00"},
+        //         {type: "block", label: "Regular event", }
+        //     ]
+        // });
+    });
+
+    //后台添加登录公告
+    function Log_ann_Information_Game(){
+        var enddate = document.getElementById("page5_jDateTimePicker1_edit").value
+        var maxdate = document.getElementById("page5_jDateTimePicker3_edit").value
+        var qu = document.getElementById("PropName").value
+         var fu = document.getElementById("Emilnc").value
+        var ann_001 = document.getElementById("Emilhead").value
+        var ann_inform = document.getElementById("msg_emil_001").value
+        alert(enddate+"=========="+maxdate+"=="+qu+"======"+ann_001+"==="+ann_inform)
+        // var username = document.getElementById("user").value;
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9035" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                SID:parseInt(fu),
+                BTime:enddate,
+                CTime:maxdate,
+                Title:ann_001,
+                Word:ann_inform,
+                Way:qu,
+                Photo:fu
+
+            }));
+            socket.onmessage = function (msg) {
+
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                if (obj.Errcode == -1){
+                    alert("添加成功")
+                    return
+                }else{
+                    alert("添加失败")
+                }
+
+                socket.close()
+            }
+        }
+
+
+
+    }
+
+
+    //添加游戏内公告
+    function Log_ann_Information(){
+        var enddate = document.getElementById("enddate").value
+        var maxdate = document.getElementById("maxdate").value
+        // alert(enddate+"=========="+maxdate)
+        var username = document.getElementById("user").value;
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9035" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                ST:enddate,
+                ET:maxdate,
+                NM:username,
+                SID:parseInt(6),
+                SN:parseInt(0),
+                NUM:parseInt(0)
+
+            }));
+            socket.onmessage = function (msg) {
+
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                if (obj.UA == null){
+                    alert("未查询到数据")
+                    return
+                }
+                $("table:eq(0) tr:gt(0)").remove();
+
+                SetCookie("HPlength",obj.UA.length)
+                for(var i = 0 ;i<obj.UA.length;i++) {
+                    var tr = $("<tr>");
+                    tr.append($("<td>").html(obj.UA[i].NM));
+                    tr.append($("<td>").html(obj.UA[i].NN));
+                    tr.append($("<td>").html(obj.UA[i].NUM));
+                    tr.append($("<td>").html(obj.UA[i].BH));
+                    tr.append($("<td>").html(obj.UA[i].TM));
+                    tr.append($("<td>").html(obj.UA[i].MF));
+                    // alert(obj.UA[i].SA)
+                    // tr.append($("<td>").html( " <select id='Email_06' name='gametype'> <option value='1'>解除禁言</option>    </select> <button  class='btn btn-small btn-primary' onclick='Banned_De_Banned_Post("+obj.BUA[i].ID+")' >执行</button>"));
+
+
+
+                    // tr.append($("<td>").html("<a href='javascript:void(0);' onclick='Delect_shpping("+obj.PR[i].Pid+","+i+");'>删除<input type='hidden' name='fname66' id='fname66"+i+"' value='"+obj.PR[i].Pimg+"'></a> &nbsp;/&nbsp; <a href='javascript:void(0);' onclick='UPDATE("+obj.PR[i].Pid+");'>修改 </a>"));
+                    $("table:eq(0)").append(tr);
+
+
+                }
+                socket.close()
+            }
+        }
+
+
+
+    }
+
+
+
+
+    function Add_UserProp_Copy_table_o1() {
+        // var tr = $("<tr>");
+        var propName = document.getElementById("PropName").value;
+        var propNums = document.getElementById("PropNums").value;
+        var  num  = 0
+        if (propName == 2){
+            propName = "核弹"
+        }else{
+            propName = "元宝"
+        }
+        if (newArr.length == 0){
+            newArr.push([propName,propNums])
+        }else{
+            for (var i = 0;i<newArr.length;i++){
+                if  (newArr[i][0] ==propName ) {
+                    newArr[i][1] = parseInt(newArr[i][1])+parseInt(propNums)
+                }else{
+                    num = 1
+                }
+            }
+        }
+        if (num == 1) {
+            if (newArr.length<=1){
+                newArr.push([propName,propNums])
+            }
+        }
+        // tr.append($("<td>").html(propName));
+        // tr.append($("<td>").html(propNums));
+        //
+        // tr.append($("<td>").html( "<input type='button' onclick='Delete_The_Row("+propName+")' value='删除该行'><br>"));
+        if(propName == null || propNums == 0){
+            alert("道具名称不能为空或者道具数量不能为0");
+        }else {
+            $("table:eq(0) tr:gt(0)").remove();
+            for (var s = 0;s<newArr.length;s++){
+                var tr = $("<tr>");
+                tr.append($("<td>").html(newArr[s][0]));
+                tr.append($("<td>").html(newArr[s][1]));
+                //  tr.append($("<td>").html( "<input type='button' onclick='Delete_The_Row_0001("+newArr[i][0]+")' value='删除该行'><br>"));
+                tr.append($("<td>").html( "<input type='button' onclick='Delete_The_Row_0001("+s+")' value='删除该行'><br>"));
+                $("table:eq(0)").append(tr);
+            }
+        }
+    }
+    function Delete_The_Row_0001(obj) {
+        if (newArr.length <= 1){
+            newArr = []
+        }
+        if (newArr.length == 1) {
+            newArr = new Array();
+        }
+        // alert(newArr)
+        if (obj == 0){
+            newArr.splice(0,1)
+        }else{
+            newArr.splice(obj,obj)
+        }
+        $("table:eq(0) tr:gt(0)").remove();
+        for (var i = 0;i<newArr.length;i++){
+            var tr = $("<tr>");
+            tr.append($("<td>").html(newArr[i][0]));
+            tr.append($("<td>").html(newArr[i][1]));
+            tr.append($("<td>").html( "<input type='button' onclick='Delete_The_Row_0001("+i+")' value='删除该行'><br>"));
+            $("table:eq(0)").append(tr);
+        }
+
+    }
+
+
+
+    function youxinei(){
+        window.location.href = "http://"+IPconf+":"+prot+"/static/html/Game_announcement.html"
+    }
+
+
+    function youxinei_Select(){
+        window.location.href = "http://"+IPconf+":"+prot+"/static/html/Select_Game_ann.html"
+    }
+
+</script>
+
+
+</body>
+</html>

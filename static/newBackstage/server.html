@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/server.css">
+    <link rel="stylesheet" href="css/public.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/server.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li class="active"><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <ul class="rh_title">
+                    <li class="current">停服/开服</li>
+                    <li>邀请码</li>
+                </ul>
+                <!--列表-->
+                <ul class="rh_cont">
+                    <!--停服/开服-->
+                    <li class="show">
+                        <p>
+                            <label for="">游戏种类：</label>
+                            <select class="type" id="">
+                                <option value="">—清选择—</option>
+                                <option value="ATT">ATT</option>
+                                <option value="五星宏辉">五星宏辉</option>
+                                <option value="森林舞会">森林舞会</option>
+                                <option value="金鲨银鲨">金鲨银鲨</option>
+                                <option value="水浒传">水浒传</option>
+                                <option value="牛魔王">牛魔王</option>
+                                <option value="百家乐二号">百家乐二号</option>
+                                <option value="梦幻乐园">梦幻乐园</option>
+                            </select>
+                            <input type="button" class="serverText" value="停止服务器">
+                        </p>
+                        <p>
+                            <label for="" class="editRoom">房间开放数量：</label>
+                            <input type="text">
+                            <input type="button" class="editNum" value="修改房间数">
+                        </p>
+                        <p class="notes">
+                            <label>注：</label>
+                            当游戏种类选择为：<span>百家乐</span>和<span>五星宏辉</span>时，将房间开放数量和修改房间数改为房间最大玩家数和修改玩家数。
+                        </p>
+                    </li>
+                    <!--邀请码-->
+                    <li class="serv">
+                        <div class="searchUser">
+                            <label for="">添加邀请码：</label>
+                            <input type="text" placeholder="输入邀请码（只允许4-6位数字）">
+                            <input type="button" class="search" value="添加">
+                        </div>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">序号</li>
+                                    <li class="table-cell">邀请码</li>
+                                    <li class="table-cell">生成日期</li>
+                                    <li class="table-cell">操作</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group del">
+                                <ul class="table-row">
+                                    <li class="table-cell">01</li>
+                                    <li class="table-cell">1000</li>
+                                    <li class="table-cell">2018-12-01</li>
+                                    <li class="table-cell remove">删除</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">02</li>
+                                    <li class="table-cell">1000</li>
+                                    <li class="table-cell">2018-12-01</li>
+                                    <li class="table-cell remove">删除</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--分页-->
+                        <div class="pages">
+                            <div class="fenye">
+                                <a href="##" class="backpage">上一页</a>
+                                <a href="##"><b>1</b></a>
+                                <a href="##"><b>2</b></a>
+                                <a href="##"><b>3</b></a>
+                                <a href="##"><b>4</b></a>
+                                <a href="##"><b>5</b></a>
+                                <a href="##" class="shenlue">...</a>
+                                <a href="##"><b>100</b></a>
+                                <a href="##" class="nextpage">下一页</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--弹层-->
+                <div class="mask">
+                    <div class="commMask">
+                        <div class="close">
+                            <img src="img/close.png" alt="">
+                        </div>
+                        <!--登陆详情弹层-->
+                        <div class="detailsList">
+                            <div class="detailsLeft fl">
+                                <ul>
+                                    <li><span>时间</span></li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                </ul>
+                            </div>
+                            <div class="detailsRight fr">
+                                <ul>
+                                    <li><span>事件</span></li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--修改密码弹层-->
+                        <form action="" onsubmit="return false">
+                            <div class="changePwdList">
+                                <div class="pwd">
+                                    <label for="">请输入密码：</label>
+                                    <input type="password" class="password" maxlength="18" placeholder="请输入密码">
+                                </div>
+                                <div class="confPwd">
+                                    <label for="">请确认密码：</label>
+                                    <input type="password" class="repeatPwd" maxlength="18" placeholder="请再次输入密码">
+                                </div>
+                                <div class="submit">
+                                    <input type="submit" class="confirm" value="确认">
+                                </div>
+                            </div>
+                        </form>
+                        <!--分页-->
+                        <div class="maskPages">
+                            <div class="fenye">
+                                <a href="##" class="backpage">上一页</a>
+                                <a href="##"><b>1</b></a>
+                                <a href="##"><b>2</b></a>
+                                <a href="##"><b>3</b></a>
+                                <a href="##"><b>4</b></a>
+                                <a href="##"><b>5</b></a>
+                                <a href="##" class="shenlue">...</a>
+                                <a href="##"><b>100</b></a>
+                                <a href="##" class="nextpage">下一页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

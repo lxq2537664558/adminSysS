@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>后台登录</title>
+    <link href="/static/css/jqueryui.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/vjpublic.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/vjpage.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/config.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/js/public.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/chartroom.js"></script>
+</head>
+<body data-curpagename="page1" class="body_style1" style="background-image: url(/static/images/jloginbg01.gif); background-repeat: repeat-x;">
+<div id="page1_jPanel1" class="Panel Panel_Null">
+    <div id="page1_jPanel2" class="Panel Panel_Null">
+        <div id="page1_jHtmlForm1_form">
+            <form id="page1_jHtmlForm1" name="page1_jHtmlForm1" method="post" action="">
+                <div id="page1_jLabel1" class="text">用户名：</div>
+                <input type="text" class="Edit Edit_style1" value="" id="page1_jEdit1"/>
+                <div id="page1_jLabel2" class="text">密　码：</div>
+                <input type="password" class="Edit Edit_style4" value="" id="page1_jEdit2"/>
+                <div class="checkbox checkbox_style1" id="page1_jCheckBox1"></div>
+                <div id="page1_jButton1" class="vjbutton border_radius_3 vjbutton_c_style4"><div class="vjbutton_txtR" onclick="Select_as_Banned()"><span class="btniconcum1"><img src="/static/images/jPngButtonOk.png" width="16" height="16"/></span>登录</div></div>
+            </form>
+        </div>
+
+        <div id="page1_jLabel3" class="text">三国捕鱼</div>
+        <div id="page1_jImages2" class="Timage Timage_style1 Timage_auto"><img src="/static/images/jlogosmall.png" alt="/static/images/jlogosmall.png" title=""/></div>
+        <map name="page1_jImages2_map" id="page1_jImages2_map">
+        </map>
+        <div id="page1_jLabel4" class="text">游戏管理后台</div>
+        <div id="page1_jLabel5" class="text">用户登录</div>
+        <div id="page1_jLabel6" class="text">LOGIN IN</div></div></div>
+
+</body>
+<script type="text/javascript" src="/static/js/Timage.js"></script>
+
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+
+
+
+    <script>
+
+
+
+
+        //客户端请求封禁账户信息
+        function Select_as_Banned() {
+         //   window.location.href = "http://"+IPconf+":"+prot+"/static/html/home.html"
+                var username = document.getElementById("page1_jEdit1").value;
+                var pas = document.getElementById("page1_jEdit2").value;
+
+            socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+            socket.onopen = function() {
+                socket.send("9001" + JSON.stringify({
+                    BG:"",
+                    UN:username,
+                    PW:pas
+                }));
+                socket.onmessage = function (msg) {
+
+                   // alert(msg.data)
+                    var newdate="";
+                    for(var i=0;i<msg.data.length;i++){
+                        if (i>3){
+                            newdate = newdate + msg.data[i];
+                        }
+                    }
+                    obj = toJson(newdate)
+                     //alert(obj.Errcode)
+
+
+                        if (obj.Errcode == -1 ){
+                        SetCookie("UG",obj.UG)
+                        SetCookie("un",obj.UN)
+                        SetCookie("ac",obj.AC)
+                        alert("登录成功")
+                            window.location.href = "http://"+IPconf+":"+prot+"/static/html/home.html"
+                        }else if (obj.Errcode == 2){
+                        alert("密码错误")
+                        }else if (obj.Errcode == 0){
+                            alert("账号不存在")
+                        }else if (obj.Errcode == 3){
+                            alert("权限不足")
+                        }
+                    socket.close()
+                }
+            }
+
+
+
+        }
+
+
+    // $(function () {
+    //     CreateWs(IPconf,prot,"/ws/join");
+    // })
+    // //客户端请求登录
+    // function Login (){
+    //
+    //     var username = document.getElementById("page3_jEdit1").value;
+    //     var pas = document.getElementById("page3_jEdit2").value;
+    //
+    //     //  alert(username+"==="+pas)
+    //     SendMsg("9001",JSON.stringify({
+    //         BG:"",
+    //         UG:"",
+    //         UN:username,
+    //         PW:pas
+    //     }))
+    // }
+    //
+    // function  home_login() {
+    //     window.location.href = "http://"+IPconf+":"+prot+"/static/html/home.html"
+    // }
+
+</script>
+
+
+
+
+
+
+
+
+
+</html>

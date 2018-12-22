@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>游戏管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/login.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <div class="message warning">
+        <div class="inset">
+            <div class="login-head">
+                <h1>游戏后台登录</h1>
+            </div>
+            <form  method="post">
+                <ul>
+                    <li>
+                        <input type="text" class="text" placeholder="用户名" required="required" maxlength="10" id="page1_jEdit1">
+                        <a href="#" class="icon user"></a>
+                    </li>
+                    <li>
+                        <input type="password" placeholder="密码" required="required" maxlength="50" id="page1_jEdit2">
+                        <a href="#" class="icon lock"></a>
+                    </li>
+                </ul>
+                <div class="submit">
+                    <input type="button" value="登陆"  onclick="Select_as_Banned()">
+                    <div class="clear"></div>
+                </div>
+            </form>
+        </div>
+	</div>
+</body>
+
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+<script>
+    //客户端请求封禁账户信息
+    function Select_as_Banned() {
+        //   window.location.href = "http://"+IPconf+":"+prot+"/static/html/home.html"
+        var username = document.getElementById("page1_jEdit1").value;
+        var pas = document.getElementById("page1_jEdit2").value;
+
+       var  socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+        socket.onopen = function() {
+            socket.send("9001" + JSON.stringify({
+                BG:"",
+                UN:username,
+                PW:pas
+            }));
+            socket.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                //alert(obj.Errcode)
+
+
+                if (obj.Errcode == -1 ){
+                    SetCookie("UG",obj.UG)
+                    SetCookie("un",obj.UN)
+                    SetCookie("ac",obj.AC)
+                    alert("登录成功")
+                    window.location.href = "http://"+IPconf+":"+prot+"/static/adminSys/userQuery.html"
+                }else if (obj.Errcode == 2){
+                    alert("密码错误")
+                }else if (obj.Errcode == 0){
+                    alert("账号不存在")
+                }else if (obj.Errcode == 3){
+                    alert("权限不足")
+                }
+                socket.close()
+            }
+        }
+
+
+
+    }
+
+
+
+</script>
+
+
+
+
+</html>

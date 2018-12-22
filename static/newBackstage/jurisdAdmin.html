@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/jurisdAdmin.css">
+    <link rel="stylesheet" href="css/public.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jurisdAdmin.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li class="active"><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <ul class="rh_title">
+                    <li class="current">管理员</li>
+                    <li onclick="">用户</li>
+                </ul>
+                <!--列表-->
+                <ul class="rh_cont">
+                    <!--管理员-->
+                    <li class="show">
+                        <div class="adminList">
+                            <ul>
+                                <li class="account">
+                                    <label for="">管理员账号：</label>
+                                    <input type="text" id="user">
+                                </li>
+                                <li class="password">
+                                    <label for="">管理员密码：</label>
+                                    <input type="text" id="paword">
+                                </li>
+                                <li class="jurisd">
+                                    <label for="">管理员权限：</label>
+                                    <select name="" id="dr">
+                                        <option value="2">客服</option>
+                                        <option value="3">查询</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <input type="button" value="新增" onclick="insert_user_02()">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="table" id="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">用户名</li>
+                                    <li class="table-cell">ID</li>
+                                    <li class="table-cell">权限</li>
+                                    <li class="table-cell">密码</li>
+                                    <li class="table-cell">修改密码</li>
+                                    <li class="table-cell">登陆时间</li>
+                                    <li class="table-cell">删除</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group del">
+                                <ul class="table-row">
+                                    <li class="table-cell">admin</li>
+                                    <li class="table-cell">12121</li>
+                                    <li class="table-cell">
+                                        <select class="jurisdList" name="" id="">
+                                            <option value="">客服</option>
+                                            <option value="">查询</option>
+                                        </select>
+                                    </li>
+                                    <li class="table-cell">111111</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                    <li class="table-cell loginTime">2018-12-1</li>
+                                    <li class="table-cell"><i class="remove"></i></li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group del">
+                                <ul class="table-row">
+                                    <li class="table-cell">admin</li>
+                                    <li class="table-cell">12121</li>
+                                    <li class="table-cell">
+                                        <select class="jurisdList" name="" id="">
+                                            <option value="">客服</option>
+                                            <option value="">查询</option>
+                                        </select>
+                                    </li>
+                                    <li class="table-cell">111111</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                    <li class="table-cell loginTime">2018-12-1</li>
+                                    <li class="table-cell"><i class="remove"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--用户-->
+                    <li>
+                        <div class="searchUser">
+                            <input type="text" placeholder="请输入手机号、账号" id="Game_id">
+                            <input type="button" class="search" value="查询" onclick="Select_user_inform()">
+                        </div>
+                        <div class="table" id="table_012">
+                            <div class="table-row-group">
+                                <ul class="table-row header" >
+                                    <li class="table-cell">ID</li>
+                                    <li class="table-cell">账号</li>
+                                    <li class="table-cell">昵称</li>
+                                    <li class="table-cell">当前状态</li>
+                                    <li class="table-cell">修改状态</li>
+                                    <li class="table-cell">登陆时间</li>
+                                    <li class="table-cell">邀请码</li>
+                                    <li class="table-cell">密码修改</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">01</li>
+                                    <li class="table-cell">12121</li>
+                                    <li class="table-cell">admin</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">
+                                        <select name="" id="">
+                                            <option value="">正常</option>
+                                            <option value="">锁定</option>
+                                            <option value="">标记</option>
+                                            <option value="">删除</option>
+                                        </select>
+                                    </li>
+                                    <li class="table-cell loginTime">2018-12-01&nbsp;13:43:43</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">密码修改</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--分页-->
+                <div class="pages">
+                    <div class="fenye">
+                        <a href="##" class="backpage">上一页</a>
+                        <a href="##"><b>1</b></a>
+                        <a href="##"><b>2</b></a>
+                        <a href="##"><b>3</b></a>
+                        <a href="##"><b>4</b></a>
+                        <a href="##"><b>5</b></a>
+                        <a href="##" class="shenlue">...</a>
+                        <a href="##"><b>100</b></a>
+                        <a href="##" class="nextpage">下一页</a>
+                    </div>
+                </div>
+                <!--弹层-->
+                <div class="mask">
+                    <div class="commMask">
+                        <div class="close">
+                            <img src="img/close.png" alt="">
+                        </div>
+                        <!--登陆详情弹层-->
+                        <div class="detailsList">
+                            <div class="detailsLeft fl">
+                                <ul>
+                                    <li><span>时间</span></li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                </ul>
+                            </div>
+                            <div class="detailsRight fr">
+                                <ul>
+                                    <li><span>事件</span></li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--修改密码弹层-->
+                        <form action="" onsubmit="return false">
+                            <div class="changePwdList">
+                                <div class="pwd">
+                                    <label for="">请输入密码：</label>
+                                    <input type="password" class="password" maxlength="18" placeholder="请输入密码">
+                                </div>
+                                <div class="confPwd">
+                                    <label for="">请确认密码：</label>
+                                    <input type="password" class="repeatPwd" maxlength="18" placeholder="请再次输入密码">
+                                </div>
+                                <div class="submit">
+                                    <input type="submit" class="confirm" value="确认">
+                                </div>
+                            </div>
+                        </form>
+                        <!--分页-->
+                        <div class="maskPages">
+                            <div class="fenye">
+                                <a href="##" class="backpage">上一页</a>
+                                <a href="##"><b>1</b></a>
+                                <a href="##"><b>2</b></a>
+                                <a href="##"><b>3</b></a>
+                                <a href="##"><b>4</b></a>
+                                <a href="##"><b>5</b></a>
+                                <a href="##" class="shenlue">...</a>
+                                <a href="##"><b>100</b></a>
+                                <a href="##" class="nextpage">下一页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+<SCRIPT>
+
+    //sendUserMsg
+
+
+    //添加管理员
+    function insert_user_02() {
+
+        var user = document.getElementById("user").value;
+        var pas = document.getElementById("paword").value;
+        var dr = document.getElementById("dr").value;
+        // alert(user +"========"+pas)
+
+        // socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        // socket.onopen = function () {
+        //     socket.send("1000" + GetCookies("UG"));
+        //     socket.send("9304" + JSON.stringify({
+        //         BG: "",
+        //         UG: GetCookies("UG"),
+        //         US: user,
+        //         PW: pas,
+        //         DR: dr
+        //     }));
+        //     socket.onmessage = function (msg) {
+        //
+        //         var newdate = "";
+        //         for (var i = 0; i < msg.data.length; i++) {
+        //             if (i > 3) {
+        //                 newdate = newdate + msg.data[i];
+        //             }
+        //         }
+        //         obj = toJson(newdate)
+        //         // alert(obj)
+        //         if (obj.Err == -1) {
+        //             alert("添加成功")
+        //             return
+        //         } else {
+        //             alert("添加失败")
+        //         }
+        //
+        //         socket.close()
+        //     }
+        // }
+
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9304" + JSON.stringify({
+                    BG: "",
+                    UG: GetCookies("UG"),
+                    US: user,
+                    PW: pas,
+                    DR: parseInt(dr)
+            }));
+            ws.onmessage = function (msg) {
+                        var newdate = "";
+                        for (var i = 0; i < msg.data.length; i++) {
+                            if (i > 3) {
+                                newdate = newdate + msg.data[i];
+                            }
+                        }
+                        obj = toJson(newdate)
+                        // alert(obj)
+                        if (obj.Err == -1) {
+                            alert("添加成功")
+                            return
+                        } else {
+                            alert("添加失败")
+                        }
+                ws.close()
+            }
+        }
+    }
+
+
+
+
+    $(function () {
+        //查询所有 管理员信息  9314
+
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9314" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+            }));
+            ws.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                 // alert(obj)
+                if (obj.Err == -1) {
+                    // alert("获取信息成功")
+
+                    var  div = "<div class='table-row-group'>" +
+                            "                            <ul class='table-row header'>" +
+                            "                            <li class='table-cell'>用户名</li>" +
+                            "                            <li class='table-cell'>ID</li>" +
+                            "                            <li class='table-cell'>权限</li>" +
+                            "                            <li class='table-cell'>密码</li>" +
+                            "                            <li class='table-cell'>修改密码</li>" +
+                            "                            <li class='table-cell'>登陆时间</li>" +
+                            "                            <li class='table-cell'>删除</li>" +
+                            "                            </ul>" +
+                            "                            </div>"
+
+
+                    for (var i = 0; i < obj.AS.length ; i++){
+
+                        var table_div = " <div class='table-row-group del;>" +
+                                "                                <ul class='table-row'>" +
+                                "                                    <li class='table-cell'>"+obj.AS[i].User+"</li>" +
+                                "                                    <li class='table-cell'>"+obj.AS[i].Id+"</li>" +
+                                "                                    <li class='table-cell'>" +
+                                "                                        <select class='jurisdList' name='' id=''>"
+                        div += table_div
+                        if ( obj.AS[i].Door ==2  ){
+                            var table_div02 = "<option value=''>客服</option> <option value=''>查询</option><option value=''>查询</option>"
+                            div += table_div02
+                        }else if ( obj.AS[i].Door ==3 ) {
+                            var table_div02 = "<option value=''>查询</option> <option value=''>查询</option><option value=''>客服</option>"
+                            div += table_div02
+                        }else {
+                            var table_div02 = "<option value=''>管理</option> <option value=''>查询</option><option value=''>客服</option>"
+                            div += table_div02
+                        }
+
+                        var  table_div03 =       "                                        </select>" +
+                                "                                    </li>" +
+                                "                                    <li class='table-cell'>"+obj.AS[i].PassWord+"</li>" +
+                                "                                    <li class='table-cell changePwd'>修改</li>" +
+                                "                                    <li class='table-cell loginTime'>2018-12-1</li>" +
+                                "                                    <li class='table-cell'><i class='remove'><a onclick='Delect_admins()'>删除<a/></i></li>" +
+                                "                                </ul>" +
+                                "                            </div>"
+                        div += table_div03
+                    }
+
+
+                    $("#table").html(div);
+
+                    return
+                } else {
+                    alert("添加失败")
+                }
+                ws.close()
+            }
+        }
+
+
+
+
+
+    })
+
+
+    //查询用户信息
+    function Select_user_inform() {
+
+
+
+        var pas = document.getElementById("Game_id").value;
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        var list = [];
+        list.push(pas)
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9310" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                SID: parseInt(0),
+                UID: list,
+                NN: "",
+                SN: parseInt(0),
+                NUM: parseInt(10)
+            }));
+            ws.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj.Errcode)
+                if (obj.Errcode == 0 || obj.Errcode == -1 ){
+                    // alert("获取成功")
+
+                    // var  num = "<div class='table-row-group'>"+
+                    //         "<ul class='able-row header'>"+
+                    //         "<li class='table-cell'>ID</li>"+
+                    //         "<li class='table-cell'>账号</li>"+
+                    //         "<li class='table-cell'>昵称</li>"+
+                    //         "<li class='table-cell'>当前状态</li>"+
+                    //
+                    //         "<li class='table-cell'>修改状态</li>"+
+                    //         "<li class='table-cell'>登陆时间</li>"+
+                    //         "<li class='table-cell'>邀请码</li>"+
+                    //         "<li class='table-cell'>密码修改</li>"+
+                    //         "</ul>"+
+                    //         "</div>"
+
+                    var  num = "<div class='table-row-group'>" +
+                            "                            <ul class='table-row header' >" +
+                            "                            <li class='table-cell'>ID</li>" +
+                            "                    <li class='table-cell'>账号</li>" +
+                            "                    <li class='table-cell'>昵称</li>" +
+                            "                    <li class='table-cell'>当前状态</li>" +
+                            "                    <li class='table-cell'>修改状态</li>" +
+                            "                    <li class='table-cell'>登陆时间</li>" +
+                            "                    <li class='table-cell'>邀请码</li>" +
+                            "                    <li class='table-cell'>密码修改</li>" +
+                            "                    </ul></div>"
+
+
+
+                    for(var  i = 0 ; i < obj.UMG.length;i++){
+
+                        // var     nums = "<div class='table-row-group' >"+
+                        //         "<ul class='table-row' >"+
+                        //         "<li class='table-cell'>"+i+"</li>"+
+                        //         "<li class='table-cell'>"+obj.UMG[i].Id+" </li>"+
+                        //         "<li class='table-cell'>"+obj.UMG[i].Uid+" </li>"+
+                        //         "<li class='table-cell'>"+obj.UMG[i].NickName+" </li>"+
+                        //         "<li class='table-cell'>正常</li>"+
+                        //         "<li class='table-cell'>1</li>"+
+                        //         "<li class='able-cell loginTime'>"+obj.UMG[i].LGTM+"</li>"+
+                        //         "<li class='table-cell'>邀请码</li>"+
+                        //         "<li  class='table-cell changePwd'>修改密码</li>"+
+                        //         "</ul>"+
+                        //         "</div>"
+
+                        var numa = "<div class=table-row-group>" +
+                                "                                <ul class='table-row'>" +
+                                "                                    <li class='table-cell'>"+i+"</li>" +
+                                "                                    <li class='table-cell'>"+obj.UMG[i].Id+"</li>" +
+                                "                                    <li class='table-cell'>"+obj.UMG[i].NickName+"</li>" +
+                                "                                    <li class='table-cell'>正常</li>" +
+                                "                                    <li class='table-cell'>" +
+                                "                                        <select name='' id=''>" +
+                                "                                            <option value=''>正常</option>" +
+                                "                                            <option value=''>锁定</option>" +
+                                "                                            <option value=''>标记</option>" +
+                                "                                            <option value=''>删除</option>" +
+                                "                                        </select>" +
+                                "                                    </li>" +
+                                "                                    <li class='table-cell loginTime'>"+obj.UMG[i].LGTM+"</li>" +
+                                "                                    <li class='table-cell'>邀请码</li>" +
+                                "                                    <li class='table-cell changePwd'>修改密码</li>" +
+                                "                                </ul>" +
+                                "                            </div>"
+
+
+                        num = num +  numa
+
+                    }
+                    $("#table_012").html(num)
+
+                    // $("#zhucewanjia").html(obj.USZC)
+                    // $("#dangqianzaiixanwanjia").html(obj.USZX)
+                    // $("#lixianwanjia").html(obj.USLX)
+                    // $("#yichangwanjia").html(obj.USYC)
+                    //
+                    // $("#zhucewanjia1").html(obj.USZC)
+                    // $("#dangqianzaiixanwanjia1").html(obj.USZX)
+                    // $("#lixianwanjia1").html(obj.USLX)
+                    // $("#yichangwanjia1").html(obj.USYC)
+
+
+
+                }else{
+                    alert("获取失败")
+                }
+                ws.close()
+            }
+        }
+
+
+    }
+
+
+    
+    function Delect_admins() {
+        alert("删除成功")
+    }
+    
+    
+
+</SCRIPT>
+
+
+
+</html>

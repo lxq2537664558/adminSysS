@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" >
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>新页面2</title>
+
+</head>
+<body >
+
+
+
+<div style="width: 102% ;height: 100%; background-color: #7ab5d3 ;text-align: center; line-height: 230%">
+
+
+    <div onclick="huadongy1()">华东一区</div>
+    <div onclick="huadongy2()">华东二区</div>
+    <div onclick="huadongy3()">华东三区</div>
+    <div onclick="huadongy4()">华东四区</div>
+    <div onclick="huadongy5()">华东五区</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/static/page14/js/echarts-all.js"></script>
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script type="text/javascript" src="/static/js/head.js"></script>
+<script type="text/javascript" src="/static/js/Game_js.js"></script>
+
+
+<!-- end: JavaScript-->
+
+
+
+
+
+<script type="application/javascript">
+
+    //客户端请求华东一
+    function huadongy1() {
+        alert("华东一区")
+    }
+    function huadongy2() {
+        alert("华东二区")
+    }
+    function huadongy3() {
+        alert("华东三区")
+    }
+    function huadongy4() {
+        alert("华东四区")
+    }
+    function huadongy5() {
+        alert("华东五区")
+    }
+
+
+    //客户端请求修改服务器档位
+    function Update_Game_dw() {
+        // var PropName1 = document.getElementById("PropName1").value;
+        var PropName2 = document.getElementById("PropName2").value;  //Emilnc1
+        var Emilnc1 = document.getElementById("Emilnc1").value;  //Emilnc1
+        //  var Emilnc2 = document.getElementById("Emilnc2").value;  //Emilnc1
+
+
+
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9500" + JSON.stringify({
+                Room:parseInt(Emilnc1),
+                Guid:"",
+                Mgd:GetCookies("UG"),
+                Rt:parseInt(PropName2),
+            }));
+            socket.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj.Err)
+                if (obj.Err == -1 ){
+                    alert("修改成功")
+                }else{
+                    alert("修改失败")
+                }
+                socket.close()
+            }
+        }
+
+
+
+    }
+
+
+
+
+
+    //请求禁言用户
+    function Banned_Banned_To_Post(msg) {
+        // var Email_05 = document.getElementById("Email_06").value;
+
+        var input_001 = document.getElementById("input_001").value;
+        var select_001 = document.getElementById("select_001").value;
+        // alert(input_001+"======"+select_001)
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9007" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                Nickname:GetCookies("User"),
+                SID:parseInt(0),
+                WhClose:input_001,
+                Close:parseInt(select_001)
+            }));
+            socket.onmessage = function (msg) {
+                //alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                if(obj.Errcode == -1){
+                    alert("封禁成功")
+                    window.location.href="/static/html/banned_to_post.html"
+                }else{
+                    alert("封禁失败")
+                    window.location.href="/static/html/banned_to_post.html"
+                }
+                socket.close()
+            }
+        }
+
+
+    }
+
+
+
+
+
+</script>
+
+
+
+<script>
+
+    //请求数据
+    $(function () {
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9502" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+
+            }));
+            socket.onmessage = function (msg) {
+                //alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                //alert(obj.AP)
+                // var mycars = new Array(23)
+                //Inform_chart(obj.AP)
+                // for (var i = 0 ; i < obj.AP.length;i++ ){
+                //     //alert("======Inform_chart====="+msg[i].Tm.substring(11,14))
+                //     console.log("======Inform_chart====="+obj.AP[i].Tm.substring(11,14))
+                //     mycars[i][0] = obj.AP[i].Win
+                //     mycars[i][1] = obj.AP[i].Los
+                //     mycars[i][3] =  obj.AP[i].Win - obj.AP[i].Los
+                // }
+                c100 = document.querySelector("#chart-composite-1");
+                var  num = []
+                var  num1 = []
+                var  num3 = []
+                var  count_time = []
+                for (var i = 0 ;i< obj.AP.length;i++){
+                    //  alert( obj.AP[i].Win+"==========="+obj.AP[i].Los)
+                    num1.push(obj.AP[i].Los )
+                    num.push(obj.AP[i].Win )
+                    num3.push(obj.AP[i].Win - obj.AP[i].Los)
+                    count_time.push(i)
+
+                }
+
+
+
+                $(document).ready(function(){
+
+                    var page14_jChart2_chart = echarts.init(document.getElementById('page14_jChart2'));
+                    page14_jChart2_chart.setOption({
+                        tooltip : {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data:['收入（元宝）','输出（元宝）']
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: count_time
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value'
+                            }
+                        ],
+                        series : [
+                            {
+                                name:'收入（元宝）',
+                                type:'line',
+                                data:num
+                            },
+                            {
+                                name:'输出（元宝）',
+                                type:'line',
+                                data:num1
+                            },
+                            {
+                                name:'差值（元宝）',
+                                type:'line',
+                                data:num3
+                            }
+                        ]
+                    });
+                });
+
+
+                // reportCountLists = num;
+                //
+                // lineCompositeDatas = {
+                //     labels: count_time,
+                //     yMarkers: [
+                //         {
+                //             label: "按小时",
+                //             value: 800,
+                //         }
+                //     ],
+                //
+                //     datasets: [{
+                //         "name": "元宝",
+                //         "values": reportCountLists
+                //     }]
+                // };
+                //
+                //
+                //
+                // lineCompositeChart = new Chart (c100, {
+                //     title: "",
+                //     data: lineCompositeDatas,
+                //     type: 'line',
+                //     height: 290,
+                //     colors: ['green'],
+                //     isNavigable: 1,
+                //     valuesOverPoints: 1,
+                //
+                //     lineOptions: {
+                //         dotSize: 8
+                //     },
+                //     // yAxisMode: 'tick'
+                //     // regionFill: 1
+                // });
+
+
+
+                socket.close()
+            }
+        }
+
+    })
+
+
+
+</script>
+
+
+</body>
+</html>

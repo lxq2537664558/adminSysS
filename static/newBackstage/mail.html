@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/mail.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mail.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li class="active"><a href="mail.html">邮件公告</a></li>
+                <li><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <div class="usertitle">
+                    <ul>
+                        <li class="useractive"><a href="mail.html">邮件功能</a></li>
+                        <li><a href="notice.html">公告功能</a></li>
+                    </ul>
+                </div>
+                <form>
+                    <div class="formList">
+                        <div class="formTitle">
+                            <label for="">标题邮件：</label>
+                            <input type="text" maxlength="35" placeholder="文章标题" id="Emilhead">
+                            <span>标题字数限制在35个字符</span>
+                        </div>
+                        <div class="formCollect">
+                            <label for="" >收件人ID：</label>
+                            <input type="text" maxlength="9" onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="收件人ID" id="Emilnc">
+                            <span>只允许数字</span>
+                        </div>
+                        <div class="formSele">
+                            <label for="">收件人范围：</label>
+                            <label for="all"><input type="checkbox" id="all" name="sProblem" value="1" >所有人</label>
+
+                        </div>
+                        <div class="formContent">
+                            <label for="">邮件内容：</label>
+                            <textarea id="content"></textarea>
+                        </div>
+                        <div class="formSubmit">
+                            <input type="button" value="发送邮件" onclick="Select_Bpuser_Emil_00012()">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<!--
+<script type="text/javascript" src="/static/js/head.js"></script>
+-->
+
+<script>
+
+
+    //客户端请求发送客户端邮件  UL
+    function Select_Bpuser_Emil_00012() {
+
+
+
+
+        var username = document.getElementById("Emilnc").value;   //昵称
+        var head = document.getElementById("Emilhead").value; //标题
+        var msg_emil = document.getElementById("content").value; //内容
+
+        var checkboxValue= new Array();
+        var checkboxText= new Array();
+
+        var checkboxStr=document.getElementsByName("sProblem");
+
+        for(var i=0; i<checkboxStr.length; i++){
+            if(checkboxStr[i].checked){
+                //alert(checkboxStr[i].value+","+checkboxStr[i].nextSibling.nodeValue);
+                checkboxValue.push(checkboxStr[i].value);
+                checkboxText.push(checkboxStr[i].nextSibling.nodeValue);
+            }
+        }
+        // //输出值和文本
+        // alert("checkboxValue:"+checkboxValue);
+        // alert("checkboxText:"+checkboxText);
+
+
+
+        // var endtime1 = document.getElementById("PropName1111");   //昵称
+
+
+
+        var  pa  = new Array()
+
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        // socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        // alert(username +"==="+head+"====="+msg_emil+"===="+checkboxValue+"===="+pa);
+        // socket.onopen = function() {
+        //     socket.send("1000"+GetCookies("UG"));
+        //     socket.send("9029" + JSON.stringify({
+        //         BG:"",
+        //         UG:GetCookies("UG"),
+        //         SID:parseInt(0),
+        //         NN:username,
+        //         TT:head,
+        //         MS:msg_emil,
+        //         PA:pa,
+        //         SA:username,
+        //         BTime:"2018-11-12",
+        //         CTime:"2018-11-12",
+        //         UL:checkboxValue
+        //     }));
+        //     socket.onmessage = function (msg) {
+        //
+        //         // alert(msg.data)
+        //         var newdate="";
+        //         for(var i=0;i<msg.data.length;i++){
+        //             if (i>3){
+        //                 newdate = newdate + msg.data[i];
+        //             }
+        //         }
+        //         obj = toJson(newdate)
+        //         // alert(obj.Errcode)
+        //         if (obj.Errcode == 0 || obj.Errcode == -1 ){
+        //             alert("添加成功")
+        //         }else{
+        //             alert("添加失败")
+        //         }
+        //         socket.close()
+        //     }
+        // }
+
+
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+
+
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9029" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                SID:parseInt(0),
+                NN:username,
+                TT:head,
+                MS:msg_emil,
+                PA:pa,
+                SA:username,
+                BTime:"2018-11-12",
+                CTime:"2018-11-12",
+                UL:checkboxValue
+            }));
+            ws.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj.Errcode)
+                if (obj.Errcode == 0 || obj.Errcode == -1 ){
+                    alert("添加成功")
+                }else{
+                    alert("添加失败")
+                }
+                ws.close()
+            }
+        }
+
+
+
+
+        // ws.onopen = function(evt) {
+        //     console.log("Connection open ...");
+        //     ws.send("Hello WebSockets!");
+        // };
+        //
+        // ws.onmessage = function(evt) {
+        //     console.log("Received Message: " + evt.data);
+        //     ws.close();
+        // };
+        //
+        // ws.onclose = function(evt) {
+        //     console.log("Connection closed.");
+        // }
+    }
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mailAnnouncement.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>邮件管理</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <div class="mailList fl">
+                    <div class="startTime dom">
+                        <span>开始时间</span>
+                        <input type="date" id="BTime">
+                    </div>
+                    <div class="endTime dom">
+                        <span>失效时间</span>
+                        <input type="date" id="CTime">
+                    </div>
+                    <div class="mailTitle dom">
+                        <span>邮件标题</span>
+                        <input type="text" id="Emilhead">
+                    </div>
+                    <div class="ID dom">
+                        <span>收件人昵称或ID</span>
+                        <input type="text" id="Emilnc">
+                    </div>
+                    <div class="range dom">
+                        <span>收件人范围</span>
+                        <p class="checkbox">
+                            <label for="all"><input type="checkbox" value="1" name="sProblem" class="vselect" id="all">所有人</label><br>
+                            <label for="vip1"><input type="checkbox" value="2" name="sProblem" class="vsele" id="vip1">VIP1</label>
+                            <label for="vip2"><input type="checkbox" value="3" name="sProblem" class="vsele" id="vip2">VIP2</label>
+                            <label for="vip3"><input type="checkbox" value="4" name="sProblem" class="vsele" id="vip3">VIP3</label>
+                            <label for="vip4"><input type="checkbox" value="5" name="sProblem" class="vsele" id="vip4">VIP4</label>
+                            <label for="vip5"><input type="checkbox" value="6" name="sProblem" class="vsele" id="vip5">VIP5</label><br>
+                            <label for="vip6"><input type="checkbox" value="7" name="sProblem" class="vsele" id="vip6">VIP6</label>
+                            <label for="vip7"><input type="checkbox" value="8" name="sProblem" class="vsele" id="vip7">VIP7</label>
+                            <label for="vip8"><input type="checkbox" value="9" name="sProblem" class="vsele" id="vip8">VIP8</label>
+                            <label for="vip9"><input type="checkbox" value="10" name="sProblem" class="vsele" id="vip9">VIP9</label>
+                            <label for="vip10"><input type="checkbox" value="11" name="sProblem" class="vsele" id="vip10">VIP10</label>
+                        </p>
+                    </div>
+                    <div class="propName dom">
+                        <span>道具名称</span>
+                        <select id="PropName">
+                            <option value="1">房卡</option>
+                            <option value="2">核弹</option>
+                            <option value="3">玫瑰</option>
+                            <option value="4">元宝</option>
+                            <option value="5">参赛劵</option>
+                        </select>
+                    </div>
+                    <div class="propNum dom">
+                        <span>道具数量</span>
+                        <input type="text" id="PropNums">
+                    </div>
+                    <div class="addEnclosure dom">
+                        <span></span>
+                        <input type="button" class="add" value="添加到附件" onclick="Add_UserProp_Copy_table_o1()">
+                    </div>
+                    <div class="mailCont dom">
+                        <span>邮件内容</span>
+                        <textarea id="content"></textarea>
+                    </div>
+                    <div class="submit dom">
+                        <span></span>
+                        <input type="submit" value="发送邮件" onclick="Select_Bpuser_Email_00012()">
+                    </div>
+                </div>
+                <div class="tableList fl">
+                    <div class="table">
+                        <div class="table-row-group propSendUl">
+                            <table id="mytable" cellspacing="0">
+                                <tr>
+                                    <th scope="col" abbr="Configurations" class="nobg">道具名称</th>
+                                    <th scope="col" abbr="Dual 1.8">道具数量</th>
+                                    <th>删除该行</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script>
+    var newArr = new Array();
+
+    function Add_UserProp_Copy_table_o1() {
+        // var tr = $("<tr>");
+        var propName = document.getElementById("PropName").value;
+        var propNums = document.getElementById("PropNums").value;
+        var num = 0
+
+        if (propNums == 0) {
+            alert("数量不能为0")
+            return
+        }
+
+
+        if (propName == 1) {
+            propName = "房卡"
+        } else if (propName == 2) {
+            propName = "核弹"
+        } else if (propName == 3) {
+            propName = "玫瑰"
+        } else if (propName == 4) {
+            propName = "元宝"
+        } else if (propName == 5) {
+            propName = "参赛券"
+        }
+
+        if (newArr.length == 0) {
+            newArr.push([propName, propNums])
+        } else {
+            for (var i = 0; i < newArr.length; i++) {
+                if (newArr[i][0] == propName) {
+                    newArr[i][1] = parseInt(newArr[i][1]) + parseInt(propNums)
+                    num = 1
+                }
+            }
+            if (num == 0) {
+                newArr.push([propName, propNums])
+            }
+        }
+
+        if (propName == null || propNums == 0) {
+            alert("道具名称不能为空或者道具数量不能为0");
+        } else {
+            $("table:eq(0) tr:gt(0)").remove();
+            for (var s = 0; s < newArr.length; s++) {
+                var tr = $("<tr>");
+                tr.append($("<td>").html(newArr[s][0]));
+                tr.append($("<td>").html(newArr[s][1]));
+                tr.append($("<td>").html("<input type='button' onclick='Delete_The_Row_0001(" + s + ")' value='删除'><br>"));
+                $("table:eq(0)").append(tr);
+            }
+        }
+    }
+
+    function Delete_The_Row_0001(obj) {
+        if (newArr.length <= 1) {
+            newArr = []
+        }
+        if (newArr.length == 1) {
+            newArr = new Array();
+        }
+        // alert(newArr)
+        if (obj == 0) {
+            newArr.splice(0, 1)
+        } else {
+            newArr.splice(obj, 1)
+        }
+        $("table:eq(0) tr:gt(0)").remove();
+        for (var i = 0; i < newArr.length; i++) {
+            var tr = $("<tr>");
+            tr.append($("<td>").html(newArr[i][0]));
+            tr.append($("<td>").html(newArr[i][1]));
+            tr.append($("<td>").html("<input type='button' class='delProp' onclick='Delete_The_Row_0001(" + i + ")' value='删除'><br>"));
+            $("table:eq(0)").append(tr);
+        }
+    }
+
+
+    //
+    $(function () {
+        SetCookie("state01", 3)
+    })
+
+    //客户端请求发送客户邮件
+    function Select_Bpuser_Email_00012() {
+        var begin = document.getElementById("BTime").value;//开始时间
+        var end = document.getElementById("CTime").value;//结束时间
+        var username = document.getElementById("Emilnc").value;//昵称
+        var head = document.getElementById("Emilhead").value;//标题
+        var msg_emil = document.getElementById("content").value;//内容
+
+        var checkboxValue = new Array();
+        var checkboxText = new Array();
+
+        var checkboxStr = document.getElementsByName("sProblem");
+
+        for (var i = 0; i < checkboxStr.length; i++) {
+            if (checkboxStr[i].checked) {
+                checkboxValue.push(checkboxStr[i].value);
+                checkboxText.push(checkboxStr[i].nextSibling.nodeValue);
+            }
+        }
+
+        console.log(checkboxValue, checkboxText);
+        var pa = new Array();
+
+        //输入验证
+        if (head.length == 0) {alert("请输入标题内容");return }
+        if (head.length >15) {alert("标题不能超过15个字符");return }
+        if (username == "" && checkboxValue[0] != 1  ){alert("请选择收件人或者收件人范围");return }
+
+        if (msg_emil.length == 0) {alert("请输入邮件内容");return }
+        if (msg_emil.length >50) {alert("邮件内容不能超过50个字符");return }
+
+        var socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+        socket.onopen = function(){
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9029" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                SID:parseInt(0),
+                NN:username,
+                TT:head,
+                MS:msg_emil,
+                PA:pa,
+                SA:username,
+                BTime:begin,
+                CTime:end,
+                UL:checkboxValue
+            }));
+        }
+
+        socket.onmessage = function (msg) {
+            var newdata = "";
+            for(var i=0;i<msg.data.length;i++){
+                if(i>3){
+                    newdata = newdata + msg.data[i];
+                }
+            }
+            obj = toJson(newdata);
+            if(obj.Errcode == 0 || obj.Errcode == -1){
+                alert("添加成功")
+            }else {
+                alert("添加失败")
+            }
+            socket.close();
+        }
+
+    }
+
+</script>

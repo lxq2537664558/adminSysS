@@ -1,0 +1,957 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>收入日报</title>
+    <link href="/static/home/css/jqueryui.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/layout-default.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/tlayout.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/vjpublic.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/ui.jqgrid.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/cum.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/vjpage.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/config.css" rel="stylesheet" type="text/css"/>
+
+    <!-- start: CSS -->
+    <link id="bootstrap-style" href="/static/cs/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/cs/bootstrap-responsive.min.css" rel="stylesheet">
+    <link id="base-style" href="/static/cs/style.css" rel="stylesheet">
+    <link id="base-style-responsive" href="/static/cs/style-responsive.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext'
+          rel='stylesheet' type='text/css'>
+    <!-- end: CSS -->
+
+    <link href='/static/yangshi/stylesheets/light-theme.css' id='color-settings-body-color' media='all' rel='stylesheet'
+          type='text/css'/>
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    <link id="ie-style" href="/static/cs/ie.css" rel="stylesheet">
+    <![endif]-->
+
+    <!--[if IE 9]>
+    <link id="ie9style" href="/static/cs/ie9.css" rel="stylesheet">
+    <![endif]-->
+
+    <!-- start: Favicon -->
+
+    <!-- end: Favicon -->
+    <link href="/static/table/page14/jqueryui.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/table/page14/vjpublic.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/table/page14/chart.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/table/page14/vjpage.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/table/page14/config.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="/static/table/page14/public.js"></script>
+    <script type="text/javascript" src="/static/table/page14/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="/static/table/page14/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/table/page14/page14.js"></script>
+
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    <link id="ie-style" href="/static/cs/ie.css" rel="stylesheet">
+    <![endif]-->
+
+    <!--[if IE 9]>
+    <link id="ie9style" href="/static/cs/ie9.css" rel="stylesheet">
+    <![endif]-->
+
+    <script src="/static/page5/jquery-ui.min.js"></script>
+    <script src="/static/page5/jquery.js"></script>
+    <!-- start: Favicon -->
+
+
+    <link href="/static/home/css/jqueryui.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/vjpublic.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/chart.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/zTreeStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/treeview.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/vjpage.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/home/css/config.css" rel="stylesheet" type="text/css"/>
+
+
+    <script type="text/javascript" src="/static/home/js/public.js"></script>
+    <script type="text/javascript" src="/static/home/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="/static/home/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/home/js/resizeComponents.js"></script>
+
+
+    <script type="text/javascript" src="/static/page15/page14.js"></script>
+
+    <script type="text/javascript" src="/static/page14/time.js"></script>
+</head>
+<body data-curpagename="page14" class="body_style1">
+<div id="head">
+</div>
+
+<div id="content" class="span10" style="position: absolute;margin-top: 124px;margin-left: -20px">
+    收入日报
+    <hr style="background-color: #00FFFF">
+    <button type="button" class="btn btn-primary" onclick="zhou()">周度查询</button>
+    <button type="button" class="btn btn-primary" onclick="yue()">月查询</button>
+    <button type="button" class="btn btn-primary" onclick="jidu()">季度查询</button>
+    <!-- <SPAN onclick="yue()">月</SPAN> <span onclick="zhou()">周</span> <span onclick="jidu()">季度查询</span>-->
+    <br> <br> <br>
+    <div class='row-fluid'>
+        <div class='span12 box box-transparent'>
+            <div class='row-fluid'>
+                <div class='span2 box-quick-link blue-background' style="margin-left: 19%" onclick="yue_ooo1(1)">
+                    <a href='#'>
+                        <div class='header'>
+
+                            <span id="Onlin_001">213213213</span>
+                        </div>
+                        <div class='content'>总收入</div>
+                    </a>
+                </div>
+                <div class='span2 box-quick-link green-background' onclick="yue_ooo1(2)">
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_002">213213213</span>
+                        </div>
+                        <div class='content'>总付费用户数</div>
+                    </a>
+                </div>
+                <div class='span2 box-quick-link purple-background' onclick="yue_ooo1(3)">
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_004">213213213</span>
+                        </div>
+                        <div class='content'>用户付费率</div>
+                    </a>
+                </div>
+                <div class='span2 box-quick-link orange-background' onclick="yue_ooo1(4)">
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_003">213213213</span>
+                        </div>
+                        <div class='content'>付费ARPPU</div>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class='row-fluid'>
+        <div class='span12 box box-transparent'>
+            <div class='row-fluid'>
+
+                <div class='span2 box-quick-link red-background' style="margin-left: 19%" onclick="yue_ooo1(5)">
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_0011">213213213</span>
+                        </div>
+                        <div class='content'>新付费用户收入</div>
+                    </a>
+                </div>
+                <div class='span2 box-quick-link muted-background' onclick="yue_ooo1(6)">
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_0012">213213213</span>
+                            <span></span>
+                        </div>
+                        <div class='content'>新付费用户数</div>
+                    </a>
+                </div>
+
+
+                <div class='span2 box-quick-link blue-background' onclick="yue_ooo1(7)">
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_007">213213213</span>
+                        </div>
+                        <div class='content'>新增用户付费率</div>
+                    </a>
+                </div>
+
+                <div class='span2 box-quick-link purple-background' onclick="yue_ooo1(8)">
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_0010">213213213</span>
+                        </div>
+                        <div class='content'>新增ARPPU</div>
+                    </a>
+                </div>
+
+                <!--  第三排-->
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class='row-fluid'>
+        <div class='span12 box box-transparent'>
+
+
+            <!--
+                <div class='span2 box-quick-link blue-background'>
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_0013">213213213</span>
+                        </div>
+                        <div class='content'>首次付费用户数</div>
+                    </a>
+                </div>
+                <div class='span2 box-quick-link green-background'>
+                    <a href='#'>
+                        <div class='header'>
+                            <span id="Onlin_0014">213213213</span>
+                        </div>
+                        <div class='content'>首次付费金额</div>
+                    </a>
+                </div>
+ -->
+
+
+            <div class='span2 box-quick-link blue-background' style="margin-left: 19%" onclick="yue_ooo1(9)">
+                <a href='#'>
+                    <div class='header'>
+                        <span id="Onlin_0013">213213213</span>
+                    </div>
+                    <div class='content'>老用户再次付费输入</div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link green-background' onclick="yue_ooo1(10)">
+                <a href='#'>
+                    <div class='header'>
+                        <span id="Onlin_0014">213213213</span>
+                    </div>
+                    <div class='content'>老用户付费数</div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link blue-background' onclick="yue_ooo1(11)">
+                <a href='#'>
+                    <div class='header'>
+                        <span id="Onlin_0013">213213213</span>
+                    </div>
+                    <div class='content'>老用户付费率</div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link green-background' onclick="yue_ooo1(12)">
+                <a href='#'>
+                    <div class='header'>
+                        <span id="Onlin_0014">213213213</span>
+                    </div>
+                    <div class='content'>ARPU</div>
+                </a>
+            </div>
+
+
+            <br> <br> <br> <br> <br>
+
+            <div class='span2 box-quick-link orange-background' style="margin-left: 19%" onclick="yue_ooo1(13)">
+                <a href='#'>
+                    <div class='header'>
+                        <span id="Onlin_0015">213213213</span>
+                    </div>
+                    <div class='content'>付费渗透率</div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link purple-background' onclick="yue_ooo1(14)">
+                <a href='#'>
+                    <div class='header'>
+                        <span id="Onlin_0016">213213213</span>
+                    </div>
+                    <div class='content'>LTV</div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link red-background' onclick="yue_ooo1(15)">
+                <a href='#'>
+                    <div class='header'>
+                        <span id="Onlin_0017">213213213</span>
+                    </div>
+                    <div class='content'>渠道收入</div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link muted-background' onclick="yue_ooo1(16)">
+                <a href='#'>
+                    <div class='header'>
+                        <span id="Onlin_0018">213213213</span>
+                        <span></span>
+                    </div>
+                    <div class='content'>区服收入</div>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+</div><!--/.fluid-container-->
+<br> <br> <br> <br> <br>
+<div style="position: absolute;margin-top: 33%;margin-left: 32%">
+
+    &nbsp;&nbsp;&nbsp;
+    <center style="float: left;margin-left: 17px">
+        开始时间： <input type="text" class="sang_Calender" id="time_pork_01_daily"/>
+    </center>
+
+    <center style="float: left">
+        结束时间： <input type="text" class="sang_Calender" id="time_pork_02_daily"/>
+
+    </center>
+    <div style="margin-top: -170px;margin-left: 15rem" id="page2_jButton5"
+         class="vjbutton vjbutton_c_style1 border_radius_3">
+        <div class="vjbutton_txtR" onclick=""><span class="btniconcum1"><img src="/static/home/images/jzoom.png"
+                                                                             width="16" height="16"/></span><span
+                class="btniconcum2"><img src="/static/home/images/jzoom.png" width="16" height="16"/></span><span
+                class="btntxt"></span>查询
+        </div>
+    </div>
+    <!--
+
+     <span>开始日期：</span><span id="time_pork_01_daily">12321321</span>  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+     <span>结束日期：</span> <span id="time_pork_02_daily">166666666</span> -->
+</div>
+
+<div style="margin-left: -10%;margin-top: 123px" id="page14_jChart1" class="TJChart"></div>
+
+<script src="/static/table/page14/echarts-all.js"></script>
+
+
+<script type="text/javascript" src="/static/jquery-simple-datepicker/datetime.js"></script>
+
+<script>
+
+    // $("#time_pork_01").html(getQuarterStartDate())
+    // $("#time_pork_02").html(getQuarterEndDate())
+
+
+    function yue_ooo1(num) {
+
+
+        // alert(num)
+
+        var statics = GetCookies("statice")
+        var count_time = []
+
+        var num_666 = ""
+        if (statics == 1) { //1 为周查询
+
+            switch (num) {
+                case  1 :
+                    num_666 = "总收入周查询 (元)"
+                    break
+                case  2 :
+                    num_666 = "总付费用户数周查询 (元)"
+                    break
+                case  3 :
+                    num_666 = "用户付费率周查询 (元)"
+                    break
+                case  4 :
+                    num_666 = "付费ARPPU周查询 (元)"
+                    break
+                case  5 :
+                    num_666 = "新付费用户收入周查询 (元)"
+                    break
+                case  6 :
+                    num_666 = "新付费用户数周查询 (元)"
+                    break
+                case  7 :
+                    num_666 = "新增用户付费率周查询 (元)"
+                    break
+                case  8 :
+                    num_666 = "新增ARPPU周查询 (元)"
+                    break
+                case  9 :
+                    num_666 = "老用户再次付费输入周查询 (元)"
+                    break
+                case  10 :
+                    num_666 = "老用户付费数周查询 (元)"
+                    break
+                case  11 :
+                    num_666 = "老用户付费率周查询 (元)"
+                    break
+                case  12 :
+                    num_666 = "ARPU周查询 (元)"
+                    break
+                case  13 :
+                    num_666 = "付费渗透率周查询 (元)"
+                    break
+                case 14 :
+                    num_666 = "LTV周查询 (元)"
+                    break
+                case  15 :
+                    num_666 = "渠道收入周查询 (元)"
+                    break
+                case 16 :
+                    num_666 = "区服收入周查询 (元)"
+                    break
+            }
+
+            for (var i = 0; i < 7; i++) {
+
+                count_time.push(GetRandomNum(100, 1000))
+            }
+
+
+            var page14_jChart1_chart = echarts.init(document.getElementById('page14_jChart1'));
+
+            SetCookie("statice", 1)
+            var times = getDay(0)
+
+            var time = getDay(-6)
+            times = times.substring(0, 10)
+            time = time.substring(0, 10)
+            $("#time_pork_01_daily").val(time)
+            $("#time_pork_02_daily").val(times)
+
+            var time8 = getDay(-6)
+            var time7 = getDay(-5)
+            var time6 = getDay(-4)
+            var time5 = getDay(-3)
+            var time4 = getDay(-2)
+            var time3 = getDay(-1)
+            var time2 = getDay(0)
+
+            $("#page14_jChart1").css("width", "1200px")
+            page14_jChart1_chart.setOption({
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: [num_666]
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: [time8, time7, time6, time5, time4, time3, time2]
+
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '收入（元）',
+                        type: 'bar',
+                        data: count_time
+                    }
+                ]
+            });
+
+
+        } else if (statics == 2) { //2 为月份
+
+
+            var num_666 = ""
+
+
+            switch (num) {
+                case  1 :
+                    num_666 = "总收入月查询 (元)"
+                    break
+                case  2 :
+                    num_666 = "总付费用户数月查询 (元)"
+                    break
+                case  3 :
+                    num_666 = "用户付费率月查询 (元)"
+                    break
+                case  4 :
+                    num_666 = "付费ARPPU月查询 (元)"
+                    break
+                case  5 :
+                    num_666 = "新付费用户收入月查询 (元)"
+                    break
+                case  6 :
+                    num_666 = "新付费用户数月查询 (元)"
+                    break
+                case  7 :
+                    num_666 = "新增用户付费率月查询 (元)"
+                    break
+                case  8 :
+                    num_666 = "新增ARPPU月查询 (元)"
+                    break
+                case  9 :
+                    num_666 = "老用户再次付费输入月查询 (元)"
+                    break
+                case  10 :
+                    num_666 = "老用户付费数月查询 (元)"
+                    break
+                case  11 :
+                    num_666 = "老用户付费率月查询 (元)"
+                    break
+                case  12 :
+                    num_666 = "ARPU月查询 (元)"
+                    break
+                case  13 :
+                    num_666 = "付费渗透率月查询 (元)"
+                    break
+                case 14 :
+                    num_666 = "LTV月查询 (元)"
+                    break
+                case  15 :
+                    num_666 = "渠道收入月查询 (元)"
+                    break
+                case 16 :
+                    num_666 = "区服收入月查询 (元)"
+                    break
+            }
+
+            // alert(statics)
+            var page14_jChart1_chart = echarts.init(document.getElementById('page14_jChart1'));
+
+            var count_time = []
+            SetCookie("statice", 2)
+            for (var i = 0; i < 30; i++) {
+                count_time.push(GetRandomNum(10000, 100000))
+            }
+
+            var date = new Date();
+
+            var count = mGetDate(date.getFullYear(), date.getMonth() + 1)
+            var ti = 1 + date.getMonth()
+            var tim = 1 + date.getMonth()
+
+            var times = date.getFullYear() + "-" + ti + "-01"
+            var time = date.getFullYear() + "-" + tim + "-" + count
+            $("#time_pork_01_daily").val(times)
+            $("#time_pork_02_daily").val(time)
+
+
+            // count_time.sort()
+
+            $("#page14_jChart1").css("width", "1200px")
+            page14_jChart1_chart.setOption({
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: [num_666]
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '收入（元）',
+                        type: 'bar',
+                        data: count_time
+                    }
+                ]
+
+            });
+
+
+        } else if (statics == 3) {  //3 为季度
+
+            var num_666 = ""
+
+            switch (num) {
+                case  1 :
+                    num_666 = "总收入季度查询 (元)"
+                    break
+                case  2 :
+                    num_666 = "总付费用户数季度查询 (元)"
+                    break
+                case  3 :
+                    num_666 = "用户付费率季度查询 (元)"
+                    break
+                case  4 :
+                    num_666 = "付费ARPPU季度查询 (元)"
+                    break
+                case  5 :
+                    num_666 = "新付费用户收入季度查询 (元)"
+                    break
+                case  6 :
+                    num_666 = "新付费用户数季度查询 (元)"
+                    break
+                case  7 :
+                    num_666 = "新增用户付费率季度查询 (元)"
+                    break
+                case  8 :
+                    num_666 = "新增ARPPU季度查询 (元)"
+                    break
+                case  9 :
+                    num_666 = "老用户再次付费输入季度查询 (元)"
+                    break
+                case  10 :
+                    num_666 = "老用户付费数季度查询 (元)"
+                    break
+                case  11 :
+                    num_666 = "老用户付费率季度查询 (元)"
+                    break
+                case  12 :
+                    num_666 = "ARPU季度查询 (元)"
+                    break
+                case  13 :
+                    num_666 = "付费渗透率季度查询 (元)"
+                    break
+                case 14 :
+                    num_666 = "LTV季度查询 (元)"
+                    break
+                case  15 :
+                    num_666 = "渠道收入季度查询 (元)"
+                    break
+                case 16 :
+                    num_666 = "区服收入季度查询 (元)"
+                    break
+            }
+
+
+            var count_time = []
+            for (var i = 0; i < 4; i++) {
+                count_time.push(GetRandomNum(100000, 1000000))
+            }
+            // count_time.sort()
+            var page14_jChart1_chart = echarts.init(document.getElementById('page14_jChart1'));
+            SetCookie("statice", 3)
+
+            $("#time_pork_01_daily").val("")
+            $("#time_pork_02_daily").val("")
+
+
+            var num4 = nowYear + "-01-01 ~ " + nowYear + "-03-" + getMonthDays(3)
+            var num5 = nowYear + "-04-01 ~ " + nowYear + "-06-" + getMonthDays(6)
+
+            var num1 = nowYear + "-07-01 ~ " + nowYear + "-09-" + getMonthDays(9)
+            var num2 = nowYear + "-10-01 ~ " + nowYear + "-12-" + getMonthDays(12)
+
+            $("#page14_jChart1").css("width", "1200px")
+            page14_jChart1_chart.setOption({
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: [num_666]
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: [num4, num5, num1, num2]
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '收入（元）',
+                        type: 'bar',
+                        data: count_time
+                    }
+                ]
+            });
+
+
+        }
+
+
+    }
+
+
+    function yue() {
+        var page14_jChart1_chart = echarts.init(document.getElementById('page14_jChart1'));
+
+
+        SetCookie("statice", 2)
+
+        var date = new Date();
+
+        var count = mGetDate(date.getFullYear(), date.getMonth() + 1)
+        var ti = 1 + date.getMonth()
+        var tim = 1 + date.getMonth()
+
+        var times = date.getFullYear() + "-" + ti + "-01"
+        var time = date.getFullYear() + "-" + tim + "-" + count
+        $("#time_pork_01_daily").val(times)
+        $("#time_pork_02_daily").val(time)
+
+
+        $("#page14_jChart1").css("width", "1200px")
+        page14_jChart1_chart.setOption({
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['一月总盈利（元）']
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '收入（元）',
+                    type: 'bar',
+                    data: [267, 306, 220, 330, 360, 267, 306, 220, 330, 360, 267, 306, 220, 330, 356, 267, 306, 220, 330, 360, 360, 267, 306, 220, 330, 360, 267, 306, 220, 330, 360]
+                }
+            ]
+
+        });
+    }
+
+
+    function zhou() {
+        var page14_jChart1_chart = echarts.init(document.getElementById('page14_jChart1'));
+
+        SetCookie("statice", 1)
+        var times = getDay(0)
+
+        var time = getDay(-6)
+        times = times.substring(0, 10)
+        time = time.substring(0, 10)
+        $("#time_pork_01_daily").val(time)
+        $("#time_pork_02_daily").val(times)
+
+        var time8 = getDay(-6)
+        var time7 = getDay(-5)
+        var time6 = getDay(-4)
+        var time5 = getDay(-3)
+        var time4 = getDay(-2)
+        var time3 = getDay(-1)
+        var time2 = getDay(0)
+
+
+        $("#page14_jChart1").css("width", "1200px")
+        page14_jChart1_chart.setOption({
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['一周总盈利（元）']
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [time8, time7, time6, time5, time4, time3, time2]
+
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '收入（元）',
+                    type: 'bar',
+                    data: [2345, 3456, 4567, 6789, 7893, 8934, 9456]
+                }
+            ]
+        });
+    }
+
+
+    function jidu() {
+        var page14_jChart1_chart = echarts.init(document.getElementById('page14_jChart1'));
+        SetCookie("statice", 3)
+
+        $("#time_pork_01_daily").val("")
+        $("#time_pork_02_daily").val("")
+
+        // var  num1 = getQuarterStartDate()+"~"+getQuarterEndDate()
+        //
+        // var  list_time =   getPreviousSeason()
+        //
+        // var  num2 = formatDate(list_time[0])+"~"+formatDate(list_time[1])
+        //
+        //  var   list_time3  = getPreviousSeasonnext()
+        //
+        // var  num3 = formatDate(list_time3[0])+"~"+formatDate(list_time3[1])
+        // alert(formatDate(list_time3[0])+"==123213213===="+formatDate(list_time3[1]))
+
+        // alert(formatDate(list_time[0]))
+        // alert(formatDate(list_time[1]))
+
+        var num4 = nowYear + "-01-01 ~ " + nowYear + "-03-" + getMonthDays(3)
+        var num5 = nowYear + "-04-01 ~ " + nowYear + "-06-" + getMonthDays(6)
+
+        var num1 = nowYear + "-07-01 ~ " + nowYear + "-09-" + getMonthDays(9)
+        var num2 = nowYear + "-10-01 ~ " + nowYear + "-12-" + getMonthDays(12)
+
+        $("#page14_jChart1").css("width", "1200px")
+        page14_jChart1_chart.setOption({
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['季度总盈利（元）']
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [num4, num5, num1, num2]
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '收入（元）',
+                    type: 'bar',
+                    data: [32345, 23456, 44567, 56789]
+                }
+            ]
+        });
+    }
+
+
+</script>
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+<script type="text/javascript" src="/static/js/head.js"></script>
+
+<script src="/static/jss/jquery-1.9.1.min.js"></script>
+<script src="/static/jss/jquery-migrate-1.0.0.min.js"></script>
+
+<script src="/static/jss/jquery-ui-1.10.0.custom.min.js"></script>
+
+<script src="/static/jss/jquery.ui.touch-punch.js"></script>
+
+<script src="/static/jss/modernizr.js"></script>
+
+<script src="/static/jss/bootstrap.min.js"></script>
+
+<script src="/static/jss/jquery.cookie.js"></script>
+
+<script src='/static/jss/fullcalendar.min.js'></script>
+
+<script src='/static/jss/jquery.dataTables.min.js'></script>
+
+<script src="/static/jss/excanvas.js"></script>
+<script src="/static/jss/jquery.flot.js"></script>
+<script src="/static/jss/jquery.flot.pie.js"></script>
+<script src="/static/jss/jquery.flot.stack.js"></script>
+<script src="/static/jss/jquery.flot.resize.min.js"></script>
+
+<script src="/static/jss/jquery.chosen.min.js"></script>
+
+<script src="/static/jss/jquery.uniform.min.js"></script>
+
+<script src="/static/jss/jquery.cleditor.min.js"></script>
+
+<script src="/static/jss/jquery.noty.js"></script>
+
+<script src="/static/jss/jquery.elfinder.min.js"></script>
+
+<script src="/static/jss/jquery.raty.min.js"></script>
+
+<script src="/static/jss/jquery.iphone.toggle.js"></script>
+
+<script src="/static/jss/jquery.uploadify-3.1.min.js"></script>
+
+<script src="/static/jss/jquery.gritter.min.js"></script>
+
+<script src="/static/jss/jquery.imagesloaded.js"></script>
+
+<script src="/static/jss/jquery.masonry.min.js"></script>
+
+<script src="/static/jss/jquery.knob.modified.js"></script>
+
+<script src="/static/jss/jquery.sparkline.min.js"></script>
+
+<script src="/static/jss/counter.js"></script>
+
+<script src="/static/jss/retina.js"></script>
+
+<script src="/static/jss/custom.js"></script>
+<!-- end: JavaScript-->
+
+
+<script>
+    $(function () {
+        $("#page14_jChart1").css("width", "1200px")
+
+
+        $("#page14_jChart1").css("width", "1200px")
+
+        yue()
+
+        var date = new Date();
+
+        var count = mGetDate(date.getFullYear(), date.getMonth() + 1)
+        var ti = 1 + date.getMonth()
+        var tim = 1 + date.getMonth()
+
+        var times = date.getFullYear() + "-" + ti + "-01"
+        var time = date.getFullYear() + "-" + tim + "-" + count
+        $("#time_pork_01_daily").html(times)
+        $("#time_pork_02_daily").html(time)
+
+        SetCookie("statice", 1)
+
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9061" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG")
+            }));
+            socket.onmessage = function (msg) {
+
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+
+                $("#Onlin_001").html(obj.Get)
+                $("#Onlin_002").html(obj.PayUser)
+                $("#Onlin_003").html(obj.AUser + "")
+                $("#Onlin_004").html(obj.RpayUser + "")
+                $("#Onlin_005").html(obj.FUser + "")
+                $("#Onlin_006").html(obj.NUserPay + "")
+                $("#Onlin_007").html(obj.NUserPay + "%")
+                $("#Onlin_008").html(obj.NUserPay + "%")
+                $("#Onlin_009").html(obj.NUserPay + "%")
+                $("#Onlin_0010").html(obj.NUserPay + "%")
+                $("#Onlin_0011").html(obj.NUserPay + "%")
+                $("#Onlin_0012").html(obj.NUserPay)
+                $("#Onlin_0013").html(obj.NUserPay + "")
+                $("#Onlin_0014").html(obj.NUserPay + "%")
+                $("#Onlin_0015").html(obj.NUserPay + "%")
+                $("#Onlin_0016").html(obj.NUserPay + "%")
+                $("#Onlin_0017").html(obj.NUserPay + "%")
+                $("#Onlin_0018").html(obj.NUserPay + "%")
+
+
+                socket.close()
+
+
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

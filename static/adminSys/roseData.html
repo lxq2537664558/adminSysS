@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/roseData.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <!--<script src="js/realTimeDataFishing.js"></script>-->
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>玫瑰花数据总汇</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <div class="searchUser">
+                    <input type="text" id="sid" placeholder="请输入昵称或ID" value="你好我叫12" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')">
+                    <input type="button" class="search" id="search" value="查询">
+                </div>
+                <ul class="rh_title">
+                    <li class="current" onclick="exChange()">兑换数量</li>
+                    <li onclick="give()">赠送数量</li>
+                    <li onclick="use()">使用数量</li>
+                </ul>
+                <ul class="rh_cont">
+                    <!--兑换-->
+                    <li class="show">
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">用户信息</li>
+                                    <li class="table-cell">兑换时间</li>
+                                    <li class="table-cell">兑换数量</li>
+                                    <li class="table-cell">使用状态</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group" id="exchangeList">
+                                <ul class="table-row">
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--分页-->
+                        <div class="pages">
+                            <div class="fenye" id="fenye1">
+                                <span>共<em id="total1">0</em>条，本页显示<em id="Page1">0</em>条，当前是第<em id="num1"></em>页</span>
+                                <a href="javascript:;" class="backpage" onclick="Fpages1()" title="上一页"><<</a>
+                                <a href="javascript:;" class="nextpage" onclick="Npages1()" title="下一页">>></a>
+                            </div>
+                        </div>
+                    </li>
+                    <!--赠送-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">用户信息</li>
+                                    <li class="table-cell">赠送时间</li>
+                                    <li class="table-cell">赠送数量</li>
+                                    <li class="table-cell">使用状态</li>
+                                    <li class="table-cell">受赠人</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group" id="giveList">
+                                <ul class="table-row">
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--分页-->
+                        <div class="pages">
+                            <div class="fenye" id="fenye2">
+                                <span>共<em id="total2">0</em>条，本页显示<em id="Page2">0</em>条，当前是第<em id="num2"></em>页</span>
+                                <a href="javascript:;" class="backpage" onclick="Fpages2()" title="上一页"><<</a>
+                                <a href="javascript:;" class="nextpage" onclick="Npages2()" title="下一页">>></a>
+                            </div>
+                        </div>
+                    </li>
+                    <!--使用-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">用户信息</li>
+                                    <li class="table-cell">剩余数量</li>
+                                    <li class="table-cell">使用状态</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group" id="useList">
+                                <ul class="table-row">
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                    <li class="table-cell"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--分页-->
+                        <div class="pages">
+                            <div class="fenye" id="fenye3">
+                                <span>共<em id="total3">0</em>条，本页显示<em id="Page3">0</em>条，当前是第<em id="num3"></em>页</span>
+                                <a href="javascript:;" class="backpage" onclick="Fpages3()" title="上一页"><<</a>
+                                <a href="javascript:;" class="nextpage" onclick="Npages3()" title="下一页">>></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script>
+    //兑换数量
+    $(function () {
+        SetCookie("ROst",1)
+        SetCookie("ROFpage", 10);
+        SetCookie("ROFpage2", 10);
+        var socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(1),
+                SN: parseInt(0),
+                NUM: parseInt(10)
+            }));
+
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                var obj = toJson(newdate)
+
+                if(obj.USERS != null){
+                    //计算本页显示页码
+                    var num1 = GetCookies("ROFpage") / 10;
+                    $("#num1").html(num1);
+                    //共显示条数
+                    $("#total1").html(obj.CT);
+                    //本页显示
+                    $("#Page1").html(obj.USERS.length);
+                }
+                if(obj.USERS != null){
+                    // alert(obj.CT);
+                    SetCookie("HPlength",obj.USERS.length)
+                    //计算本页显示页码
+                    var num1 = GetCookies("ROFpage") / 10;
+                    $("#num1").html(num1);
+                    //共显示条数
+                    $("#total1").html(obj.CT);
+                    //本页显示
+                    $("#Page1").html(obj.USERS.length);
+                    var num = "";
+                    for (var i = 0; i < obj.USERS.length; i++) {
+                        num += "<ul class=\"table-row\">";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                        num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                        num += "</ul>";
+                    }
+                    $("#exchangeList").html(num);
+                }
+                socket.close();
+            }
+        }
+    })
+    //兑换数量
+    function exChange() {
+        SetCookie("ROst",1)
+        SetCookie("ROFpage", 10);
+        SetCookie("ROFpage2", 10);
+        var socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(1),
+                SN: parseInt(0),
+                NUM: parseInt(10)
+            }));
+
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                var obj = toJson(newdate)
+
+                if(obj.USERS != null){
+                    //计算本页显示页码
+                    var num1 = GetCookies("ROFpage") / 10;
+                    $("#num1").html(num1);
+                    //共显示条数
+                    $("#total1").html(obj.CT);
+                    //本页显示
+                    $("#Page1").html(obj.USERS.length);
+                }
+                if(obj.USERS != null){
+                    // alert(obj.CT);
+                    SetCookie("HPlength",obj.USERS.length)
+                    //计算本页显示页码
+                    var num1 = GetCookies("ROFpage") / 10;
+                    $("#num1").html(num1);
+                    //共显示条数
+                    $("#total1").html(obj.CT);
+                    //本页显示
+                    $("#Page1").html(obj.USERS.length);
+                    var num = "";
+                    for (var i = 0; i < obj.USERS.length; i++) {
+                        num += "<ul class=\"table-row\">";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                        num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                        num += "</ul>";
+                    }
+                    $("#exchangeList").html(num);
+                }
+                socket.close();
+            }
+        }
+    }
+
+    //赠送数量
+    function give() {
+        SetCookie("ROst",2)
+        SetCookie("ROFpage", 10);
+        SetCookie("ROFpage2", 10);
+        var socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(2),
+                SN: parseInt(0),
+                NUM: parseInt(10)
+            }));
+
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                obj = toJson(newdate)
+
+                if(obj.USERS == null){
+                    //计算本页显示页码
+                    $("#num2").html(1);
+                    //共显示条数
+                    $("#total2").html(0);
+                    //本页显示
+                    $("#Page2").html(0);
+                }else if(obj.USERS != null){
+                    // alert(obj.CT);
+                    SetCookie("HPlength",obj.USERS.length)
+                    //计算本页显示页码
+                    var num2 = GetCookies("ROFpage") / 10;
+                    $("#num2").html(num2);
+                    //共显示条数
+                    $("#total2").html(obj.CT);
+                    //本页显示
+                    $("#Page2").html(obj.USERS.length);
+                    var num = "";
+                    for (var i = 0; i < obj.USERS.length; i++) {
+                        num += "<ul class=\"table-row\">";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].GETTYPE + "</li>";
+                        num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].GetNickname + "</li>";
+                        num += "</ul>";
+                    }
+                    $("#giveList").html(num);
+                }
+                socket.close();
+            }
+        }
+    }
+    //使用数量
+    function use() {
+        SetCookie("ROst",3)
+        SetCookie("ROFpage", 10);
+        SetCookie("ROFpage2", 10);
+        var socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(3),
+                SN: parseInt(0),
+                NUM: parseInt(10)
+            }));
+
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                var obj = toJson(newdate)
+                SetCookie("HPlength",obj.USERS.length)
+
+                if(obj.USERS != null){
+                    // alert(obj.CT);
+                    SetCookie("HPlength",obj.USERS.length)
+                    //计算本页显示页码
+                    var num3 = GetCookies("ROFpage") / 10;
+                    $("#num3").html(num3);
+                    //共显示条数
+                    $("#total3").html(obj.CT);
+                    //本页显示
+                    $("#Page3").html(obj.USERS.length);
+                    var num = "";
+                    for (var i = 0; i < obj.USERS.length; i++) {
+                        num += "<ul class=\"table-row\">";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                        num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                        num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                        num += "</ul>";
+                    }
+                    $("#useList").html(num);
+                }
+                socket.close();
+            }
+        }
+    }
+
+    //查询
+    $("#search").click(function () {
+        var SID = document.getElementById("sid").value;
+        if(SID == ""){
+            alert("昵称或ID不能为空")
+            return
+        }
+        var SSt = GetCookies("ROst");
+        var socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(SSt),
+                SN: parseInt(0),
+                NUM: parseInt(10),
+                SidUName:SID
+            }));
+        }
+
+        socket.onmessage = function (msg) {
+            var newdate = "";
+            for (var i = 0; i < msg.data.length; i++) {
+                if (i > 3) {
+                    newdate = newdate + msg.data[i];
+                }
+            }
+            var obj = toJson(newdate)
+            if (obj.USERS == null) {
+                alert("未查询到数据")
+                return
+            }
+            SetCookie("HPlength",obj.USERS)
+
+            if(("#fenye1")){
+                //计算本页显示页码
+                var num1 = GetCookies("ROFpage") / 10;
+                $("#num1").html(num1);
+                //共显示条数
+                $("#total1").html(obj.CT);
+                //本页显示
+                $("#Page1").html(obj.USERS.length);
+            }else if(("#fenye2")){
+                //计算本页显示页码
+                var num2 = GetCookies("ROFpage") / 10;
+                $("#num2").html(num2);
+                //共显示条数
+                $("#total2").html(obj.CT);
+                //本页显示
+                $("#Page2").html(obj.USERS.length);
+            }else if(("#fenye3")){
+                //计算本页显示页码
+                var num2 = GetCookies("ROFpage") / 10;
+                $("#num2").html(num2);
+                //共显示条数
+                $("#total2").html(obj.CT);
+                //本页显示
+                $("#Page2").html(obj.USERS.length);
+            }
+
+            var num = "";
+            if(GetCookies("ROst") == 1){
+                // var num = "";
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "</ul>";
+                }
+                $("#exchangeList").html(num);
+            }
+            if(GetCookies("ROst") == 2){
+                // var num = "";
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].GETTYPE + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].GetNickname + "</li>";
+                    num += "</ul>";
+                }
+                $("#giveList").html(num);
+            }
+            if(GetCookies("ROst") == 3){
+                // var num = "";
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "</ul>";
+                }
+                $("#useList").html(num);
+            }
+            socket.close();
+        }
+    })
+
+    //兑换分页
+    //上一页
+    function Fpages1() {
+
+        var ROFpage = GetCookies("ROFpage");
+        var ROFpage2 = GetCookies("ROFpage2");
+        var ROmsg_01 = parseInt(ROFpage2) - 10;
+        ROFpage -= parseInt(10);
+        SetCookie("ROFpage", ROFpage);
+        SetCookie("ROFpage2", ROmsg_01);
+        var ROnextpage =  ROFpage - 10;
+
+        if (ROnextpage < 0) {
+            $("#num1").html(1);
+            alert("当前为第一页")
+            SetCookie("Fpage2", 0);
+            return
+
+        }
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(1),
+                SN: parseInt(ROnextpage),
+                NUM: parseInt(ROFpage),
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+
+                obj = toJson(newdate)
+                if (obj.USERS == null) {
+                    alert("未查询到数据")
+                    return
+                }
+
+                SetCookie("HPlength", obj.USERS.length)
+
+                if(("#fenye1")){
+                    //拿到SetCookies值，除以每页显示的条数，就能计算出页码
+                    var num1 = GetCookies("ROFpage") / 10;
+                    $("#num1").html(num1);
+                    //本页显示
+                    $("#Page1").html(obj.USERS.length);
+                    //计算页码
+                    var num1 = GetCookies("ROFpage") / 10;
+                    $("#num1").html(num1);
+                }
+
+                var num = ""
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "</ul>";
+                }
+                $("#exchangeList").html(num)
+                socket.close()
+            }
+        }
+    }
+    //下一页
+    function Npages1() {
+        var ROFpage = GetCookies("ROFpage");
+        var ROFpage2 = GetCookies("ROFpage2");
+        var ROmsg_01 = parseInt(ROFpage) + 10;
+        ROFpage2 +=  parseInt(10)
+        SetCookie("ROFpage2", ROFpage2);
+        SetCookie("ROFpage", ROmsg_01);
+
+        // var SSt = GetCookies("ROst");
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(1),
+                SN: parseInt(ROFpage),
+                NUM: parseInt(ROmsg_01)
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                obj = toJson(newdate)
+                if (obj.USERS == null) {
+                    alert("未查询到数据")
+                    return
+                }
+
+                SetCookie("ROobj1_CT", obj.CT)
+                //判断当前页是否为最后一页
+                if(GetCookies("ROobj1_CT") < ROFpage){
+                    alert("最后一页");
+                    return
+                }
+
+
+                SetCookie("HPlength", obj.USERS.length)
+                if(("#fenye1")){
+                    //拿到SetCookies值，除以每页显示的条数，就能计算出页码
+                    var num1 = GetCookies("ROFpage") / 10;
+                    $("#num1").html(num1);
+                    //本页显示
+                    $("#Page1").html(obj.USERS.length);
+                    //计算页码
+                    var num1 = GetCookies("ROFpage") / 10;
+                    $("#num1").html(num1);
+                }
+                var num = ""
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    // var tr = $("<tr>");
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "</ul>";
+                }
+                $("#exchangeList").html(num)
+                socket.close()
+            }
+        }
+    }
+
+    //赠送分页
+    //上一页
+    function Fpages2() {
+
+        var ROFpage = GetCookies("ROFpage");
+        var ROFpage2 = GetCookies("ROFpage2");
+        var ROmsg_01 = parseInt(ROFpage2) - 10;
+        ROFpage -= parseInt(10);
+        SetCookie("ROFpage", ROFpage);
+        SetCookie("ROFpage2", ROmsg_01);
+        var ROnextpage =  ROFpage - 10;
+
+        if (nextpage < 0) {
+            $("#num2").html(1);
+            alert("当前为第一页")
+            SetCookie("ROFpage2", 0);
+            return
+
+        }
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(2),
+                SN: parseInt(ROnextpage),
+                NUM: parseInt(ROFpage),
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                obj = toJson(newdate)
+                if (obj.USERS == null) {
+                    alert("未查询到数据")
+                    return
+                }
+
+                SetCookie("HPlength", obj.USERS.length)
+
+                if(("#fenye2")){
+                    //拿到SetCookies值，除以每页显示的条数，就能计算出页码
+                    var num2 = GetCookies("ROFpage") / 10;
+                    $("#num2").html(num2);
+                    //本页显示
+                    $("#Page2").html(obj.USERS.length);
+                    //计算页码
+                    var num2 = GetCookies("ROFpage") / 10;
+                    $("#num2").html(num2);
+                }
+
+                var num = ""
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].GETTYPE + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].GetNickname + "</li>";
+                    num += "</ul>";
+                }
+                $("#giveList").html(num)
+                socket.close()
+            }
+        }
+    }
+    //下一页
+    function Npages2() {
+        var Fpage = GetCookies("Fpage");
+        var Fpage2 = GetCookies("Fpage2");
+        var msg_01 = parseInt(Fpage) + 10;
+        Fpage2 +=  parseInt(10)
+        SetCookie("Fpage2", Fpage2);
+        SetCookie("Fpage", msg_01);
+
+        // var SSt = GetCookies("ROst");
+
+
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(2),
+                SN: parseInt(Fpage),
+                NUM: parseInt(msg_01)
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                obj = toJson(newdate)
+                if (obj.USERS == null) {
+                    alert("未查询到数据")
+                    return
+                }
+
+                SetCookie("ROobj2_CT", obj.CT)
+                //判断当前页是否为最后一页
+                if(GetCookies("ROobj2_CT") < Fpage){
+                    alert("最后一页");
+                    return
+                }
+
+                SetCookie("HPlength", obj.USERS.length)
+                if(("#fenye2")){
+                    //拿到SetCookies值，除以每页显示的条数，就能计算出页码
+                    var num2 = GetCookies("Fpage") / 10;
+                    $("#num2").html(num2);
+                    //本页显示
+                    $("#Page2").html(obj.USERS.length);
+                    //计算页码
+                    var num2 = GetCookies("Fpage") / 10;
+                    $("#num2").html(num2);
+                }
+
+                var num = ""
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    // var tr = $("<tr>");
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].TIME + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].GETTYPE + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].GetNickname + "</li>";
+                    num += "</ul>";
+                }
+                $("#giveList").html(num)
+                socket.close()
+            }
+        }
+    }
+
+    //使用分页
+    //上一页
+    function Fpages3() {
+
+        var ROFpage = GetCookies("ROFpage");
+        var ROFpage2 = GetCookies("ROFpage2");
+        var ROmsg_01 = parseInt(ROFpage2) - 10;
+        ROFpage -= parseInt(10);
+        SetCookie("ROFpage", ROFpage);
+        SetCookie("ROFpage2", ROmsg_01);
+        var ROnextpage =  ROFpage - 10;
+
+        if (ROnextpage < 0) {
+            $("#num3").html(1);
+            alert("当前为第一页")
+            SetCookie("ROFpage2", 0);
+            return
+
+        }
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(3),
+                SN: parseInt(ROnextpage),
+                NUM: parseInt(ROFpage),
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                obj = toJson(newdate)
+                if (obj.USERS == null) {
+                    alert("未查询到数据")
+                    return
+                }
+
+                SetCookie("HPlength", obj.USERS.length)
+
+                if(("#fenye3")){
+                    //拿到SetCookies值，除以每页显示的条数，就能计算出页码
+                    var num3 = GetCookies("ROFpage") / 10;
+                    $("#num3").html(num3);
+                    //本页显示
+                    $("#Page3").html(obj.USERS.length);
+                    //计算页码
+                    var num3 = GetCookies("ROFpage") / 10;
+                    $("#num3").html(num3);
+                }
+
+                var num = ""
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "</ul>";
+                }
+                $("#useList").html(num)
+                socket.close()
+            }
+        }
+    }
+    //下一页
+    function Npages3() {
+        var ROFpage = GetCookies("ROFpage");
+        var ROFpage2 = GetCookies("ROFpage2");
+        var ROmsg_01 = parseInt(ROFpage) + 10;
+        ROFpage2 +=  parseInt(10)
+        SetCookie("ROFpage2", ROFpage2);
+        SetCookie("ROFpage", ROmsg_01);
+
+        // var SSt = GetCookies("ROst");
+
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9079" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ST: parseInt(2),
+                QueType: parseInt(3),
+                SN: parseInt(ROFpage),
+                NUM: parseInt(ROmsg_01)
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+
+                obj = toJson(newdate)
+                if (obj.USERS == null) {
+                    alert("未查询到数据")
+                    return
+                }
+
+                SetCookie("ROobj_CT3", obj.CT)
+                //判断当前页是否为最后一页
+                if(GetCookies("ROobj3_CT") < ROFpage){
+                    alert("最后一页");
+                    return
+                }
+
+                SetCookie("HPlength", obj.USERS.length)
+                if(("#fenye3")){
+                    //拿到SetCookies值，除以每页显示的条数，就能计算出页码
+                    var num3 = GetCookies("ROFpage") / 10;
+                    $("#num3").html(num3);
+                    //本页显示
+                    $("#Page3").html(obj.USERS.length);
+                    //计算页码
+                    var num3 = GetCookies("ROFpage") / 10;
+                    $("#num3").html(num3);
+                }
+
+                var num = ""
+                for (var i = 0; i < obj.USERS.length; i++) {
+                    // var tr = $("<tr>");
+                    num += "<ul class=\"table-row\">";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].User + "</li>";
+                    num += "<li class=\"table-cell\">" + obj.USERS[i].NUM + "</li>";
+                    num += "<li class=\"table-cell\">" + '未使用' + "</li>";
+                    num += "</ul>";
+                }
+                $("#useList").html(num)
+                socket.close()
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>新页面2</title>
+    <link href="/static/home/css/jqueryui.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/layout-default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/tlayout.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/vjpublic.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/cum.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/vjpage.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/config.css" rel="stylesheet" type="text/css" />
+
+    <!-- start: CSS -->
+    <link id="bootstrap-style" href="/static/cs/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/cs/bootstrap-responsive.min.css" rel="stylesheet">
+    <link id="base-style" href="/static/cs/style.css" rel="stylesheet">
+    <link id="base-style-responsive" href="/static/cs/style-responsive.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+    <!-- end: CSS -->
+
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    <link id="ie-style" href="/static/cs/ie.css" rel="stylesheet">
+    <![endif]-->
+
+    <!--[if IE 9]>
+    <link id="ie9style" href="/static/cs/ie9.css" rel="stylesheet">
+    <![endif]-->
+
+    <script src="/static/page5/jquery-ui.min.js"></script>
+    <script src="/static/page5/jquery.js"></script>
+    <!-- start: Favicon -->
+
+    <link href="/static/home/css/jqueryui.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/vjpublic.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/chart.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/zTreeStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/treeview.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/vjpage.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/config.css" rel="stylesheet" type="text/css" />
+</head>
+<body data-curpagename="page2" class="body_style1">
+<div id="head">
+</div>
+
+<div id="content" class="span10" style="position: absolute;margin-top: 124px;margin-left: -20px">
+    玫瑰花数据汇总
+    <hr style="background-color: #00FFFF">
+
+
+
+    <h3>
+        <span style="color: #5bc0de">道具名称：玫瑰花</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color: #0e90d2">总兑换数量 ：
+            <span id="countzong" >500</span>个
+            <button onclick="select_Rose_inform(1)">查看详情</button>
+        </span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color: #BC6060">总赠送数量 ：
+            <span id="countzeng" >500</span>个
+            <button onclick="select_Rose_inform(2)">查看详情</button>
+        </span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color: #4fbd4f">总使用：
+            <span id="countyong" >500</span>个
+            <button onclick="select_Rose_inform(3)">查看详情</button>
+        </span>
+        <span style="color: #6fcc87">总剩余 ：
+            <span id="countsheng">500</span>个
+            <button onclick="select_Rose_inform(4)">查看详情</button>
+        </span>
+    </h3>
+    <!--
+        服务器选择：   <select>
+        <option>一区</option>
+        <option>二区</option>
+        <option>三区</option>
+    </select> -->
+    <br>
+    用户昵称或ID：<input id="user">
+    <button class="btn btn-small btn-primary" onclick="Select_Usert_Bomb()" >查询</button>  <br>
+    <span>   &nbsp;</span>
+
+    <div class="row-fluid sortable">
+        <div class="box span12">
+
+            <div class="box-header">
+                <h2>用户信息</h2>
+                <div class="box-icon">
+                    <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                    <tr>
+                        <th id="user">用户信息</th>
+                        <th id="time_dui">兑换时间</th>
+                        <th id="dui_count">兑换数量</th>
+                        <th id="st_shi">使用状态</th>
+                        <th id="dui_bi">兑换货币</th>
+                        <th id="User_DE">受赠人</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>66666</td>
+                        <td class="center">2012/01/01</td>
+                        <td class="center">2012/01/01</td>
+                        <td class="center">
+                            <span class="label label-success">1456836896542</span>
+                        </td>
+                        <td class="center">2012/01/01</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="pagination pagination-centered">
+                    <ul>
+                        <li><a href="#">上一页</a></li>
+                        <li class="active">
+                            <a href="#">1</a>
+                        </li>
+                        <li><a href="#">下一页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--/span-->
+    </div><!--/row-->
+
+
+
+
+</div><!--/.fluid-container-->
+
+
+
+<script src="/static/js/echarts-all.js"></script>
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script type="text/javascript" src="/static/js/head.js"></script>
+
+<script src="/static/jss/jquery-1.9.1.min.js"></script>
+<script src="/static/jss/jquery-migrate-1.0.0.min.js"></script>
+
+<script src="/static/jss/jquery-ui-1.10.0.custom.min.js"></script>
+
+<script src="/static/jss/jquery.ui.touch-punch.js"></script>
+
+
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+
+
+
+
+
+<script>
+
+
+
+    $(function () {
+
+
+
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9075" + JSON.stringify({
+
+                UG:GetCookies("UG"),
+                St:2
+            }));
+            socket.onmessage = function (msg) {
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                $('#countzong').html(obj.BbCt)
+                $('#countzeng').html(obj.BbGv)
+                $('#countyong').html(obj.BbUe)
+                $('#countsheng').html(obj.BbUT)
+
+
+                socket.close()
+            }
+        }
+
+
+    })
+
+    // http://192.168.1.118:7041/static/PointCard/index.html
+
+    //客户端请求用户数据
+    function Select_Usert_Bomb() {
+
+        var username = document.getElementById("user").value;
+        // // alert(username)
+        // // alert(username)
+        // // SendMsg("1000",GetCookies("UG"))
+        // // SendMsg("9003",JSON.stringify({
+        // //     BG:"",
+        // //     UG:GetCookies("UG"),
+        // //     SID:parseInt(0),
+        // //     NN:username,
+        // //     SN:parseInt(0),
+        // //     NUM:parseInt(6)
+        // // }))
+        //
+        // var  msg = document.getElementById("1")
+        // var  num  = siblings(msg).length
+        // for (var i = 0 ; i<num ; i++){
+        //     //  alert(num+6666)
+        //     document.getElementById("1").remove();
+        // }
+        //
+        // BG 	string	//后台guid
+        // UG 	string	//用户的guid
+        // SID 	int	//大区id
+        // UID    []string   //用户sid和用户名
+        // NN 	string	//查询用户的昵称（昵称为空查询所有）
+        // SN 	int	//开始下标
+        // NUM 	int	//每页显示的个数
+
+        var list = [];
+
+        list.push(username)
+
+
+
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9003" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                SID:parseInt(0),
+                UID:list,
+                NN:username,
+                SN:parseInt(0),
+                NUM:parseInt(6)
+            }));
+            socket.onmessage = function (msg) {
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                //  alert(obj.UG)
+                SetCookie("HPlength",obj.UMG.length)
+
+                $("table:eq(0) tr:gt(0)").remove();
+
+                SetCookie("HPlength", obj.UMG.length)
+                for (var i = 0; i < obj.UMG.length; i++) {
+                    var tr = $("<tr>");
+                    //tr.append($("<td>").html(obj.Viplist[i].BegainTime));
+                    tr.append($("<td>").html(obj.UMG[i].NickName));
+                    tr.append($("<td>").html(obj.UMG[i].Id));
+                    tr.append($("<td>").html(obj.UMG[i].Uid));
+                    tr.append($("<td>").html(obj.UMG[i].Lv));
+                    tr.append($("<td>").html(obj.UMG[i].Vip));
+
+                    // alert(obj.UA[i].SA)
+                    // tr.append($("<td>").html( " <select id='Email_06' name='gametype'> <option value='1'>解除禁言</option>    </select> <button  class='btn btn-small btn-primary' onclick='Banned_De_Banned_Post("+obj.BUA[i].ID+")' >执行</button>"));
+
+
+                    //tr.append($("<td>").html("&nbsp; <a href='javascript:void(0);' onclick='Game_Update_ann_activity("+obj.Backnotice[i].Id+");'>修改 </a>"));
+                    $("table:eq(0)").append(tr);
+                }
+
+                socket.close()
+            }
+        }
+
+
+    }
+
+    function siblings(elm) {
+        var a = [];
+        var p = elm.parentNode.children;
+        for(var i =0,pl= p.length;i<pl;i++) {
+            if(p[i] !== elm) a.push(p[i]);
+        }
+        return a;
+    }
+
+
+
+
+
+
+    function Insert_money() {
+        window.location.href = "insert_Money.html"
+    }
+
+    //http://192.168.1.118:7041/static/html/Game_inform.html
+
+
+    function User_game() {
+        window.location.href = "http://"+IPconf+":"+prot+"/static/html/Game_inform.html"
+    }
+
+    function User_game_GPU() {
+        window.location.href = "http://"+IPconf+":"+prot+"/static/html/Game_GPU.html"
+    }
+
+
+    function select_Rose_inform(num) {
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9081" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                ST:parseInt(2),
+                QueType:num,
+                SN:parseInt(0),
+                NUM:parseInt(6)
+            }));
+            socket.onsmessage = function (msg) {
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                //  alert(obj.UG)
+                SetCookie("HPlength",obj.UMG.length)
+
+                $("table:eq(0) tr:gt(0)").remove();
+
+                SetCookie("HPlength", obj.UMG.length)
+                for (var i = 0; i < obj.UMG.length; i++) {
+                    var tr = $("<tr>");
+                    //tr.append($("<td>").html(obj.Viplist[i].BegainTime));
+                    tr.append($("<td>").html(obj.UMG[i].NickName));
+                    tr.append($("<td>").html(obj.UMG[i].Id));
+                    tr.append($("<td>").html(obj.UMG[i].Uid));
+                    tr.append($("<td>").html(obj.UMG[i].Lv));
+                    tr.append($("<td>").html(obj.UMG[i].Vip));
+
+                    // alert(obj.UA[i].SA)
+                    // tr.append($("<td>").html( " <select id='Email_06' name='gametype'> <option value='1'>解除禁言</option>    </select> <button  class='btn btn-small btn-primary' onclick='Banned_De_Banned_Post("+obj.BUA[i].ID+")' >执行</button>"));
+
+
+                    //tr.append($("<td>").html("&nbsp; <a href='javascript:void(0);' onclick='Game_Update_ann_activity("+obj.Backnotice[i].Id+");'>修改 </a>"));
+                    $("table:eq(0)").append(tr);
+                }
+
+                socket.close()
+            }
+        }
+
+
+
+    }
+
+
+
+
+
+
+    //
+    // //查看核弹兑换 赠送  使用  剩余 详细信息
+    // function select_Rose_inform(num) {
+    //     /*
+    //     * 兑换用户信息 兑换时间 兑换数量  使用状态  兑换 货币
+    //     *
+    //     * 兑换用户信息 兑换时间 赠送数量  受赠人  使用状态  赠送时间
+    //     *
+    //     * 兑换用户信息 兑换时间 赠送数量  受赠人  使用状态  使用时间
+    //     *
+    //     * 使用用户信息 兑换时间 赠送时间  赠送人  使用状态  使用时间
+    //     * */
+    //
+    //     // alert(123)
+    //     if (num == 1) {
+    //         $("#user").html("用户信息")
+    //         $("#time_dui").html("兑换时间")
+    //         $("#dui_count").html("兑换数量")
+    //         $("#st_shi").html("使用状态")
+    //         $("#dui_bi").html("兑换货币")
+    //         $("#User_DE").html("受赠人")
+    //
+    //
+    //         $("table:eq(0) tr:gt(0)").remove();
+    //
+    //         // SetCookie("HPlength", obj.UMG.length)
+    //         // for (var i = 0; i < obj.UMG.length; i++) {
+    //         var tr = $("<tr>");
+    //         //tr.append($("<td>").html(obj.Viplist[i].BegainTime));
+    //         tr.append($("<td>").html("李四"));
+    //
+    //         tr.append($("<td>").html("2012/01/05"));
+    //         tr.append($("<td>").html("100"));
+    //         tr.append($("<td>").html("张三"));
+    //         tr.append($("<td>").html("彩卷"));
+    //         tr.append($("<td>").html("李四"));
+    //         $("table:eq(0)").append(tr);
+    //         var tr = $("<tr>");
+    //         tr.append($("<td>").html("常绽放情花"));
+    //
+    //         tr.append($("<td>").html("2012/06/01"));
+    //         tr.append($("<td>").html("50"));
+    //         tr.append($("<td>").html("郎巧香"));
+    //         tr.append($("<td>").html("彩卷"));
+    //         tr.append($("<td>").html("常绽放情花"));
+    //         $("table:eq(0)").append(tr);
+    //         var tr = $("<tr>");
+    //         tr.append($("<td>").html("张飞"));
+    //
+    //         tr.append($("<td>").html("2012/02/11"));
+    //         tr.append($("<td>").html("50"));
+    //         tr.append($("<td>").html("马超"));
+    //         tr.append($("<td>").html("彩卷"));
+    //         tr.append($("<td>").html("暂无"));
+    //
+    //         // alert(obj.UA[i].SA)
+    //         // tr.append($("<td>").html( " <select id='Email_06' name='gametype'> <option value='1'>解除禁言</option>    </select> <button  class='btn btn-small btn-primary' onclick='Banned_De_Banned_Post("+obj.BUA[i].ID+")' >执行</button>"));
+    //
+    //
+    //         //tr.append($("<td>").html("&nbsp; <a href='javascript:void(0);' onclick='Game_Update_ann_activity("+obj.Backnotice[i].Id+");'>修改 </a>"));
+    //         $("table:eq(0)").append(tr);
+    //         // }
+    //
+    //     } else if (num == 2) {
+    //         $("#user").html("用户信息")
+    //         $("#time_dui").html("兑换时间")
+    //         $("#dui_count").html("赠送数量")
+    //         $("#st_shi").html("受赠人")
+    //         $("#dui_bi").html("使用状态")
+    //         $("#User_DE").html("赠送时间")
+    //
+    //
+    //         $("table:eq(0) tr:gt(0)").remove();
+    //
+    //         // SetCookie("HPlength", obj.UMG.length)
+    //         // for (var i = 0; i < obj.UMG.length; i++) {
+    //         var tr = $("<tr>");
+    //         //tr.append($("<td>").html(obj.Viplist[i].BegainTime));
+    //         tr.append($("<td>").html("倪时光老去"));
+    //         tr.append($("<td>").html("2012/01/05"));
+    //         tr.append($("<td>").html("100"));
+    //         tr.append($("<td>").html("挖宝你欧尼撒"));
+    //         tr.append($("<td>").html("未使用"));
+    //         tr.append($("<td>").html("暂无"));
+    //         $("table:eq(0)").append(tr);
+    //         var tr = $("<tr>");
+    //         tr.append($("<td>").html("褚烧青酒"));
+    //         tr.append($("<td>").html("2012/06/01"));
+    //         tr.append($("<td>").html("50"));
+    //         tr.append($("<td>").html("郎巧香"));
+    //         tr.append($("<td>").html("已使用"));
+    //         tr.append($("<td>").html("2018-10-16"));
+    //         $("table:eq(0)").append(tr);
+    //         var tr = $("<tr>");
+    //         tr.append($("<td>").html("速度"));
+    //         tr.append($("<td>").html("2012/02/11"));
+    //         tr.append($("<td>").html("50"));
+    //         tr.append($("<td>").html("马超"));
+    //         tr.append($("<td>").html("已使用"));
+    //         tr.append($("<td>").html("2018-10-17"));
+    //
+    //         // alert(obj.UA[i].SA)
+    //         // tr.append($("<td>").html( " <select id='Email_06' name='gametype'> <option value='1'>解除禁言</option>    </select> <button  class='btn btn-small btn-primary' onclick='Banned_De_Banned_Post("+obj.BUA[i].ID+")' >执行</button>"));
+    //
+    //
+    //         //tr.append($("<td>").html("&nbsp; <a href='javascript:void(0);' onclick='Game_Update_ann_activity("+obj.Backnotice[i].Id+");'>修改 </a>"));
+    //         $("table:eq(0)").append(tr);
+    //         // }
+    //
+    //
+    //     } else if (num == 3) {
+    //         $("#user").html("用户信息")
+    //         $("#time_dui").html("兑换时间")
+    //         $("#dui_count").html("赠送数量")
+    //         $("#st_shi").html("受赠人")
+    //         $("#dui_bi").html("使用状态")
+    //         $("#User_DE").html("赠送时间")
+    //
+    //
+    //         $("table:eq(0) tr:gt(0)").remove();
+    //
+    //         // SetCookie("HPlength", obj.UMG.length)
+    //         // for (var i = 0; i < obj.UMG.length; i++) {
+    //         var tr = $("<tr>");
+    //         //tr.append($("<td>").html(obj.Viplist[i].BegainTime));
+    //         tr.append($("<td>").html("史静香"));
+    //         tr.append($("<td>").html("2012/01/05"));
+    //         tr.append($("<td>").html("100"));
+    //         tr.append($("<td>").html("张飞"));
+    //         tr.append($("<td>").html("未使用"));
+    //         tr.append($("<td>").html("暂无"));
+    //         $("table:eq(0)").append(tr);
+    //         var tr = $("<tr>");
+    //         tr.append($("<td>").html("臧八角"));
+    //         tr.append($("<td>").html("2012/06/01"));
+    //         tr.append($("<td>").html("50"));
+    //         tr.append($("<td>").html("黄徐长卿"));
+    //         tr.append($("<td>").html("已使用"));
+    //         tr.append($("<td>").html("2018-10-16"));
+    //         $("table:eq(0)").append(tr);
+    //         var tr = $("<tr>");
+    //         tr.append($("<td>").html("窦山川情诗"));
+    //         tr.append($("<td>").html("2012/02/11"));
+    //         tr.append($("<td>").html("50"));
+    //         tr.append($("<td>").html("史海秋"));
+    //         tr.append($("<td>").html("已使用"));
+    //         tr.append($("<td>").html("2018-10-17"));
+    //
+    //         // alert(obj.UA[i].SA)
+    //         // tr.append($("<td>").html( " <select id='Email_06' name='gametype'> <option value='1'>解除禁言</option>    </select> <button  class='btn btn-small btn-primary' onclick='Banned_De_Banned_Post("+obj.BUA[i].ID+")' >执行</button>"));
+    //
+    //
+    //         //tr.append($("<td>").html("&nbsp; <a href='javascript:void(0);' onclick='Game_Update_ann_activity("+obj.Backnotice[i].Id+");'>修改 </a>"));
+    //         $("table:eq(0)").append(tr);
+    //         // }
+    //
+    //
+    //     } else if (num == 4) {
+    //         $("#user").html("用户信息")
+    //         $("#time_dui").html("兑换时间")
+    //         $("#dui_count").html("赠送数量")
+    //         $("#st_shi").html("赠送人")
+    //         $("#dui_bi").html("使用状态")
+    //         $("#User_DE").html("赠送时间")
+    //
+    //
+    //         $("table:eq(0) tr:gt(0)").remove();
+    //
+    //         // SetCookie("HPlength", obj.UMG.length)
+    //         // for (var i = 0; i < obj.UMG.length; i++) {
+    //         var tr = $("<tr>");
+    //         //tr.append($("<td>").html(obj.Viplist[i].BegainTime));
+    //         tr.append($("<td>").html("倪时光老去"));
+    //         tr.append($("<td>").html("2012/01/05"));
+    //         tr.append($("<td>").html("100"));
+    //         tr.append($("<td>").html("挖宝你欧尼撒"));
+    //         tr.append($("<td>").html("未使用"));
+    //         tr.append($("<td>").html("暂无"));
+    //         $("table:eq(0)").append(tr);
+    //         var tr = $("<tr>");
+    //         tr.append($("<td>").html("褚烧青酒"));
+    //         tr.append($("<td>").html("2012/06/01"));
+    //         tr.append($("<td>").html("50"));
+    //         tr.append($("<td>").html("郎巧香"));
+    //         tr.append($("<td>").html("已使用"));
+    //         tr.append($("<td>").html("2018-10-16"));
+    //         $("table:eq(0)").append(tr);
+    //         var tr = $("<tr>");
+    //         tr.append($("<td>").html("速度"));
+    //         tr.append($("<td>").html("2012/02/11"));
+    //         tr.append($("<td>").html("50"));
+    //         tr.append($("<td>").html("马超"));
+    //         tr.append($("<td>").html("已使用"));
+    //         tr.append($("<td>").html("2018-10-17"));
+    //
+    //         // alert(obj.UA[i].SA)
+    //         // tr.append($("<td>").html( " <select id='Email_06' name='gametype'> <option value='1'>解除禁言</option>    </select> <button  class='btn btn-small btn-primary' onclick='Banned_De_Banned_Post("+obj.BUA[i].ID+")' >执行</button>"));
+    //
+    //
+    //         //tr.append($("<td>").html("&nbsp; <a href='javascript:void(0);' onclick='Game_Update_ann_activity("+obj.Backnotice[i].Id+");'>修改 </a>"));
+    //         $("table:eq(0)").append(tr);
+    //         // }
+    //
+    //
+    //     }
+    //
+    //
+    // }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end: JavaScript-->
+</body>
+</html>

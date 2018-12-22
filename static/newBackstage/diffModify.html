@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/diffModify.css">
+    <link rel="stylesheet" href="css/public.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/diffModify.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li class="active"><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <ul class="rh_title">
+                    <li class="current">ATT</li>
+                    <li>五星宏辉</li>
+                    <li>森林舞会</li>
+                    <li>金鲨银鲨</li>
+                    <li>水浒传</li>
+                    <li>牛魔王</li>
+                    <li>百家乐二号</li>
+                    <li>梦幻乐园</li>
+                </ul>
+                <!--查询列表-->
+                <ul class="rh_cont">
+                    <!--ATT-->
+                    <li class="show">
+                        <div class="title">
+                            <span>ATT总难度：</span>
+                            <select name="" id="">
+                                <option value="">—请选择—</option>
+                                <option value="">超易</option>
+                                <option value="">容易</option>
+                                <option value="">简单</option>
+                                <option value="">普通</option>
+                                <option value="">稍难</option>
+                                <option value="">偏难</option>
+                                <option value="">很难</option>
+                                <option value="">非常难</option>
+                                <option value="">死难</option>
+                                <option value="">最难</option>
+                            </select>
+                            <input type="button" value="确认">
+                        </div>
+                        <div class="contList">
+                            <ul>
+                                <li>
+                                   <p>当前难度：<span>容易</span></p>
+                                   <p>
+                                       修改难度：
+                                       <select name="" id="">
+                                           <option value="">—请选择—</option>
+                                           <option value="">超易</option>
+                                           <option value="">容易</option>
+                                           <option value="">简单</option>
+                                           <option value="">普通</option>
+                                           <option value="">稍难</option>
+                                           <option value="">偏难</option>
+                                           <option value="">很难</option>
+                                           <option value="">非常难</option>
+                                           <option value="">死难</option>
+                                           <option value="">最难</option>
+                                       </select>
+                                       <input type="button" value="确认">
+                                   </p>
+                                   <p>1号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>2号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>3号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>2号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>3号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>2号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>3号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>2号房间</p>
+                                </li>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>3号房间</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--五星宏辉-->
+                    <li>
+                        <div class="title">
+                            <span>五星宏辉总难度：</span>
+                            <select name="" id="">
+                                <option value="">—请选择—</option>
+                                <option value="">超易</option>
+                                <option value="">容易</option>
+                                <option value="">简单</option>
+                                <option value="">普通</option>
+                                <option value="">稍难</option>
+                                <option value="">偏难</option>
+                                <option value="">很难</option>
+                                <option value="">非常难</option>
+                                <option value="">死难</option>
+                                <option value="">最难</option>
+                            </select>
+                            <input type="button" value="确认">
+                        </div>
+                        <div class="contList">
+                            <ul>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--森林舞会-->
+                    <li>
+                        <div class="title">
+                            <span>森林舞会总难度：</span>
+                            <select name="" id="">
+                                <option value="">—请选择—</option>
+                                <option value="">超易</option>
+                                <option value="">容易</option>
+                                <option value="">简单</option>
+                                <option value="">普通</option>
+                                <option value="">稍难</option>
+                                <option value="">偏难</option>
+                                <option value="">很难</option>
+                                <option value="">非常难</option>
+                                <option value="">死难</option>
+                                <option value="">最难</option>
+                            </select>
+                            <input type="button" value="确认">
+                        </div>
+                        <div class="contList">
+                            <ul>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--金鲨银鲨-->
+                    <li>
+                        <div class="title">
+                            <span>金鲨银鲨总难度：</span>
+                            <select name="" id="">
+                                <option value="">—请选择—</option>
+                                <option value="">超易</option>
+                                <option value="">容易</option>
+                                <option value="">简单</option>
+                                <option value="">普通</option>
+                                <option value="">稍难</option>
+                                <option value="">偏难</option>
+                                <option value="">很难</option>
+                                <option value="">非常难</option>
+                                <option value="">死难</option>
+                                <option value="">最难</option>
+                            </select>
+                            <input type="button" value="确认">
+                        </div>
+                        <div class="contList">
+                            <ul>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--水浒传-->
+                    <li>
+                        <div class="title">
+                            <span>水浒传总难度：</span>
+                            <select name="" id="">
+                                <option value="">—请选择—</option>
+                                <option value="">超易</option>
+                                <option value="">容易</option>
+                                <option value="">简单</option>
+                                <option value="">普通</option>
+                                <option value="">稍难</option>
+                                <option value="">偏难</option>
+                                <option value="">很难</option>
+                                <option value="">非常难</option>
+                                <option value="">死难</option>
+                                <option value="">最难</option>
+                            </select>
+                            <input type="button" value="确认">
+                        </div>
+                        <div class="contList">
+                            <ul>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--牛魔王-->
+                    <li>
+                        <div class="title">
+                            <span>牛魔王总难度：</span>
+                            <select name="" id="">
+                                <option value="">—请选择—</option>
+                                <option value="">超易</option>
+                                <option value="">容易</option>
+                                <option value="">简单</option>
+                                <option value="">普通</option>
+                                <option value="">稍难</option>
+                                <option value="">偏难</option>
+                                <option value="">很难</option>
+                                <option value="">非常难</option>
+                                <option value="">死难</option>
+                                <option value="">最难</option>
+                            </select>
+                            <input type="button" value="确认">
+                        </div>
+                        <div class="contList">
+                            <ul>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--百家乐二号-->
+                    <li>
+                        <div class="title">
+                            <span>百家乐二号总难度：</span>
+                            <select name="" id="">
+                                <option value="">—请选择—</option>
+                                <option value="">超易</option>
+                                <option value="">容易</option>
+                                <option value="">简单</option>
+                                <option value="">普通</option>
+                                <option value="">稍难</option>
+                                <option value="">偏难</option>
+                                <option value="">很难</option>
+                                <option value="">非常难</option>
+                                <option value="">死难</option>
+                                <option value="">最难</option>
+                            </select>
+                            <input type="button" value="确认">
+                        </div>
+                        <div class="contList">
+                            <ul>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--梦幻乐园-->
+                    <li>
+                        <div class="title">
+                            <span>梦幻乐园总难度：</span>
+                            <select name="" id="">
+                                <option value="">—请选择—</option>
+                                <option value="">超易</option>
+                                <option value="">容易</option>
+                                <option value="">简单</option>
+                                <option value="">普通</option>
+                                <option value="">稍难</option>
+                                <option value="">偏难</option>
+                                <option value="">很难</option>
+                                <option value="">非常难</option>
+                                <option value="">死难</option>
+                                <option value="">最难</option>
+                            </select>
+                            <input type="button" value="确认">
+                        </div>
+                        <div class="contList">
+                            <ul>
+                                <li>
+                                    <p>当前难度：<span>容易</span></p>
+                                    <p>
+                                        修改难度：
+                                        <select name="" id="">
+                                            <option value="">—请选择—</option>
+                                            <option value="">超易</option>
+                                            <option value="">容易</option>
+                                            <option value="">简单</option>
+                                            <option value="">普通</option>
+                                            <option value="">稍难</option>
+                                            <option value="">偏难</option>
+                                            <option value="">很难</option>
+                                            <option value="">非常难</option>
+                                            <option value="">死难</option>
+                                            <option value="">最难</option>
+                                        </select>
+                                        <input type="button" value="确认">
+                                    </p>
+                                    <p>1号房间</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <!--分页-->
+                <div class="pages">
+                    <div class="fenye">
+                        <a href="##" class="backpage">上一页</a>
+                        <a href="##"><b>1</b></a>
+                        <a href="##"><b>2</b></a>
+                        <a href="##"><b>3</b></a>
+                        <a href="##"><b>4</b></a>
+                        <a href="##"><b>5</b></a>
+                        <a href="##" class="shenlue">...</a>
+                        <a href="##"><b>100</b></a>
+                        <a href="##" class="nextpage">下一页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

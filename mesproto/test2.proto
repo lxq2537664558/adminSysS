@@ -1,0 +1,12 @@
+package mesprotobuf;
+
+enum FOO{ X = 1;};
+
+message Test{
+	required string Label = 1;
+	optional int32 Type = 2 [default= 77];
+	repeated int64 Reps = 3;
+	optional group OptionGroup = 4{
+		required string RequiredField = 5;
+	}
+}

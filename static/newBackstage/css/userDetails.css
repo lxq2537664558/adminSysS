@@ -1,0 +1,299 @@
+.content>.rightList>.box>.rh_title {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+.content>.rightList>.box>.usertitle{
+    height: 70px;
+}
+.content>.rightList>.box>.usertitle>ul>li{
+    width: 183px;
+    background: #ccc;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    font-size: 15px;
+    /*border-bottom: 1px solid #ccc;*/
+}
+.content>.rightList>.box>.usertitle>ul>li>a{
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+.content>.rightList>.box>.usertitle>ul>.useractive {
+    background: #199ed8;
+}
+.content>.rightList>.box>.rh_title>li {
+    width: 11%;
+    height: 50px;
+    /*background: #fff;*/
+    text-align: center;
+    line-height: 27px;
+    float: left;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.content>.rightList>.box>.rh_title>.current {
+    /*background: #ccc;*/
+    color: #168abd;
+    border-bottom: 2px solid #168abd;
+}
+.content>.rightList>.box>.rh_cont {
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+}
+
+.content>.rightList>.box>.rh_cont>li {
+    display: none;
+}
+
+.content>.rightList>.box>.rh_cont>.show {
+    display: block;
+}
+.table{
+    display: table;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin: 0 10px 0 10px;
+}
+.tabletit{
+    margin-bottom: 10px;
+}
+.table-row-group {
+    display: table-row-group;
+}
+.table-header-row{
+    display: table-row;
+    background: #169bd5;
+    color: #fff;
+}
+.table-row {
+    display: table-row;
+}
+
+.table-row-group .table-row:hover,.table-footer-group .table-row:hover {
+    background: #f6f6f6;
+}
+
+.table-cell {
+    display: table-cell;
+    padding: 10px 19px;
+    /*border: 1px solid #000;*/
+    text-align: center;
+    font-size: 14px;
+}
+.table-cell a{
+    text-decoration: none;
+    color: blue;
+}
+.table-header-group {
+    display: table-header-group;
+    background: #eee;
+    font-weight: bold;
+}
+
+.table-footer-group {
+    display: table-footer-group;
+}
+.table-row-group .recharge,.exchange,.give,.details,.changePwd{
+    color: blue;
+    cursor: pointer;
+}
+/*弹出层*/
+.mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9;
+    display: none;
+}
+/*充值，兑换，赠分弹层样式*/
+.mask>.commMask{
+    position: relative;
+    width: 50%;
+    height: 500px;
+    margin: 10% 25% 0 25%;
+    background: #fff;
+}
+.mask>.commMask>.close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.mask>.commMask>.close>img{
+    width: 30px;
+    height: 30px;
+    padding-top: 10px;
+}
+/*累计充值弹层*/
+.mask>.commMask>.rechargeList{
+    padding-top: 50px;
+    display: none;
+}
+.mask>.commMask>.rechargeList>.rechargeLeft{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    height: 325px;
+}
+.mask>.commMask>.rechargeList>.rechargeRight{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    height: 325px;
+}
+.mask>.commMask>.rechargeList>.rechargeLeft,.rechargeRight>ul>li{
+    line-height: 30px;
+    font-size: 15px;
+}
+.mask>.commMask>.rechargeList>.rechargeLeft>ul>li>span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.mask>.commMask>.rechargeList>.rechargeRight>ul>li>span{
+    font-size: 18px;
+    font-weight: bold;
+}
+/*累计兑换弹层*/
+.mask>.commMask>.exchangeList{
+    padding-top: 50px;
+    display: none;
+}
+.mask>.commMask>.exchangeList>.exchangeLeft{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    height: 325px;
+}
+.mask>.commMask>.exchangeList>.exchangeRight{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    height: 325px;
+}
+.mask>.commMask>.exchangeList>.exchangeLeft,.exchangeRight>ul>li{
+    line-height: 30px;
+    font-size: 15px;
+}
+.mask>.commMask>.exchangeList>.exchangeLeft>ul>li>span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.mask>.commMask>.exchangeList>.exchangeRight>ul>li>span{
+    font-size: 18px;
+    font-weight: bold;
+}
+/*累计赠分弹层*/
+.mask>.commMask>.giveList{
+    padding-top: 50px;
+    display: none;
+}
+.mask>.commMask>.giveList>.giveLeft{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    height: 325px;
+}
+.mask>.commMask>.giveList>.giveRight{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    height: 325px;
+}
+.mask>.commMask>.giveList>.giveLeft,.giveRight>ul>li{
+    line-height: 30px;
+    font-size: 15px;
+}
+.mask>.commMask>.giveList>.giveLeft>ul>li>span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.mask>.commMask>.giveList>.giveRight>ul>li>span{
+    font-size: 18px;
+    font-weight: bold;
+}
+/*登陆详情弹层*/
+.mask>.commMask>.detailsList{
+    padding-top: 50px;
+    display: none;
+}
+.mask>.commMask>.detailsList>.detailsLeft{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    height: 325px;
+}
+.mask>.commMask>.detailsList>.detailsRight{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    height: 325px;
+}
+.mask>.commMask>.detailsList>.detailsLeft,.detailsRight>ul>li{
+    line-height: 30px;
+    font-size: 15px;
+}
+.mask>.commMask>.detailsList>.detailsLeft>ul>li>span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.mask>.commMask>.detailsList>.detailsRight>ul>li>span{
+    font-size: 18px;
+    font-weight: bold;
+}
+/*密码修改弹层*/
+.mask>.commMask>form>.changePwdList{
+    padding-top: 200px;
+    display: none;
+    width: 60%;
+    height: auto;
+    margin: 0 20% 0 20%;
+    /*background: #000;*/
+}
+.mask>.commMask>form>.changePwdList>div{
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.mask>.commMask>form>.changePwdList>div>label{
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.mask>.commMask>form>.changePwdList>div>input{
+    width: 260px;
+    height: 30px;
+    padding: 0 10px 0 10px;
+    letter-spacing: 3px;
+}
+.mask>.commMask>form>.changePwdList>div.submit{
+    width: 50%;
+    margin-left: 35%;
+}
+.mask>.commMask>form>.changePwdList>div>input[type=submit]{
+    width: 100px;
+    height: 30px;
+    padding: 0 10px 0 10px;
+    outline: none;
+    border: none;
+    background: orange;
+    color: #fff;
+    cursor: pointer;
+}
+@media screen and (min-width:1200px) and (max-width:1623px){
+    .table-cell{
+        padding: 5px 9px;
+    }
+    .mask>.commMask>form>.changePwdList {
+        width: 65%;
+    }
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/realTimeDataOverview.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/realTimeDataOverview.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>游戏实时数据</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <ul class="riTitle">
+                    <li><a href="realTimeDataOverview.html" class="active">总览</a></li>
+                    <li><a href="realTimeDataFishing.html">捕鱼</a></li>
+                    <li><a href="realTimeDataHappy.html">欢乐牌机</a></li>
+                    <li><a href="realTimeDataFraction.html">经典压分</a></li>
+                    <li><a href="realTimeDataDroiyan.html">决战百人</a></li>
+                    <li><a href="realTimeDataInsane.html">疯狂滚轮</a></li>
+                </ul>
+                <div class="listDown">
+                    <div class="table">
+                        <div class="table-row-group">
+                            <ul class="table-header-row">
+                                <li class="table-cell">详情/种类</li>
+                                <li class="table-cell">用户数量</li>
+                                <li class="table-cell">进币数量</li>
+                                <li class="table-cell">出币数量</li>
+                                <li class="table-cell">盈利</li>
+                            </ul>
+                        </div>
+                        <div class="table-row-group">
+                            <ul class="table-row">
+                                <li class="table-cell">捕鱼</li>
+                                <li class="table-cell UserNum" onclick="UserNums()">1000</li>
+                                <li class="table-cell">10000</li>
+                                <li class="table-cell">5000</li>
+                                <li class="table-cell">5000</li>
+                            </ul>
+                        </div>
+                        <div class="table-row-group">
+                            <ul class="table-row">
+                                <li class="table-cell">欢乐牌机</li>
+                                <li class="table-cell UserNum" onclick="UserNums()">1000</li>
+                                <li class="table-cell">10000</li>
+                                <li class="table-cell">5000</li>
+                                <li class="table-cell">5000</li>
+                            </ul>
+                        </div>
+                        <div class="table-row-group">
+                            <ul class="table-row">
+                                <li class="table-cell">经典压分</li>
+                                <li class="table-cell UserNum" onclick="UserNums()">1000</li>
+                                <li class="table-cell">10000</li>
+                                <li class="table-cell">5000</li>
+                                <li class="table-cell">5000</li>
+                            </ul>
+                        </div>
+                        <div class="table-row-group">
+                            <ul class="table-row">
+                                <li class="table-cell">决战百人</li>
+                                <li class="table-cell UserNum" onclick="UserNums()">1000</li>
+                                <li class="table-cell">10000</li>
+                                <li class="table-cell">5000</li>
+                                <li class="table-cell">5000</li>
+                            </ul>
+                        </div>
+                        <div class="table-row-group">
+                            <ul class="table-row">
+                                <li class="table-cell">疯狂滚轮</li>
+                                <li class="table-cell UserNum" onclick="UserNums()">1000</li>
+                                <li class="table-cell">10000</li>
+                                <li class="table-cell">5000</li>
+                                <li class="table-cell">5000</li>
+                            </ul>
+                        </div>
+                        <div class="table-row-group">
+                            <ul class="table-row">
+                                <li class="table-cell">总盈收</li>
+                                <li class="table-cell UserNum" onclick="UserNums()">1000</li>
+                                <li class="table-cell">10000</li>
+                                <li class="table-cell">5000</li>
+                                <li class="table-cell">5000</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--弹层-->
+                    <div class="mask">
+                        <div class="commMask">
+                            <div class="close">
+                                <img src="img/close.png" alt="X">
+                            </div>
+                            <div class="table maskTab">
+                                <div class="table-row-group">
+                                    <ul class="table-header-row">
+                                        <li class="table-cell">序号</li>
+                                        <li class="table-cell">用户昵称</li>
+                                        <li class="table-cell">账号</li>
+                                        <li class="table-cell">用户ID</li>
+                                        <li class="table-cell">用户UID</li>
+                                        <li class="table-cell">等级</li>
+                                        <li class="table-cell">VIP等级</li>
+                                        <li class="table-cell">元宝数量（单位/个）</li>
+                                        <li class="table-cell">金币数量（单位/个）</li>
+                                        <li class="table-cell">玫瑰花数量（单位/个）</li>
+                                        <li class="table-cell">核弹数量（单位/个）</li>
+                                        <li class="table-cell">充值总额（单位/元）</li>
+                                        <li class="table-cell">赢取总数</li>
+                                        <li class="table-cell">在线总时长</li>
+                                        <li class="table-cell">设备</li>
+                                    </ul>
+                                </div>
+                                <div class="table-row-group" id="table-body">
+                                    <ul class="table-row">
+                                        <li class="table-cell"></li>
+                                        <li class="table-cell">倪时光老去</li>
+                                        <li class="table-cell">15319975064</li>
+                                        <li class="table-cell">10029</li>
+                                        <li class="table-cell">100029</li>
+                                        <li class="table-cell">8</li>
+                                        <li class="table-cell">10</li>
+                                        <li class="table-cell">5999979</li>
+                                        <li class="table-cell">964365300</li>
+                                        <li class="table-cell">2811</li>
+                                        <li class="table-cell">0</li>
+                                        <li class="table-cell">0</li>
+                                        <li class="table-cell">0</li>
+                                        <li class="table-cell">0</li>
+                                        <li class="table-cell">设备暂无</li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <!--分页-->
+                        <div class="pages">
+                            <div class="fenye">
+                                <span>共<em id="total"></em>条，本页显示<em id="Page"></em>条，当前是第<em id="num"></em>页</span>
+                                <a href="javascript:;" class="backpage" onclick="Select_User_infrom(1)" title="上一页">&lt;&lt;</a>
+                                <a href="javascript:;" class="nextpage" onclick="Select_User_infrom(2)" title="下一页">&gt;&gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function UserNums() {
+        $(".mask").fadeToggle(200);
+        $(".UserNumList").show(200);
+        $(".maskPages").show(200);
+    }
+</script>
+</html>

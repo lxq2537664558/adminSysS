@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/userDetails.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/userDetails.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li class="active"><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <div class="usertitle">
+                    <ul>
+                        <li class="useractive"><a href="userDetails.html">用户详情</a></li>
+                        <li><a href="userQuery.html">用户查询</a></li>
+                    </ul>
+                </div>
+                <ul class="rh_title">
+                    <li class="current">
+                        <p>注册玩家</p>
+                        <p id="zhucewanjia">数量：10000</p>
+                    </li>
+                    <li>
+                        <p>当前在线玩家</p>
+                        <p id="dangqianzaiixanwanjia">数量：10000</p>
+                    </li>
+                    <li>
+                        <p>离线玩家</p>
+                        <p id="lixianwanjia">数量：10000</p>
+                    </li>
+                    <li>
+                        <p>异常玩家</p>
+                        <p id="yichangwanjia">数量：10000</p>
+                    </li>
+                </ul>
+                <!--查询列表-->
+                <ul class="rh_cont">
+                    <!--注册玩家-->
+                    <li class="show">
+                        <div class="tabletit">
+                            注册玩家在线人数： <span id="zhucewanjia1"> 10000</span>
+                        </div>
+                        <div class="table" id="table_001">
+
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">1</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </li>
+                    <!--当前在线玩家-->
+                    <li>
+                        <div class="tabletit">
+                            当前在线玩家在线人数： <span id="dangqianzaiixanwanjia1"> 10000</span>
+                        </div>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">序号</li>
+                                    <li class="table-cell">ID</li>
+                                    <li class="table-cell">账号</li>
+                                    <li class="table-cell">昵称</li>
+                                    <li class="table-cell">当前状态</li>
+                                    <li class="table-cell">手机号码</li>
+                                    <li class="table-cell">金币数量</li>
+                                    <li class="table-cell">游戏充值</li>
+                                    <li class="table-cell">累计充值</li>
+                                    <li class="table-cell">累计兑换</li>
+                                    <li class="table-cell">累计赠分</li>
+                                    <li class="table-cell">盈利值</li>
+                                    <li class="table-cell">登陆时间</li>
+                                    <li class="table-cell">邀请码</li>
+                                    <li class="table-cell">密码修改</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">1</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">2</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">3</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">4</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">5</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">6</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">7</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">8</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">9</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--离线玩家-->
+                    <li>
+                        <div class="tabletit">
+                            离线玩家在线人数： <span id="lixianwanjia1"> 10000</span>
+                        </div>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">序号</li>
+                                    <li class="table-cell">ID</li>
+                                    <li class="table-cell">账号</li>
+                                    <li class="table-cell">昵称</li>
+                                    <li class="table-cell">当前状态</li>
+                                    <li class="table-cell">手机号码</li>
+                                    <li class="table-cell">金币数量</li>
+                                    <li class="table-cell">游戏充值</li>
+                                    <li class="table-cell">累计充值</li>
+                                    <li class="table-cell">累计兑换</li>
+                                    <li class="table-cell">累计赠分</li>
+                                    <li class="table-cell">盈利值</li>
+                                    <li class="table-cell">登陆时间</li>
+                                    <li class="table-cell">邀请码</li>
+                                    <li class="table-cell">密码修改</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">1</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">2</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">3</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">4</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">5</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">6</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">7</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">8</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">9</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--异常玩家-->
+                    <li>
+                        <div class="tabletit">
+                            异常玩家在线人数： <span id="yichangwanjia1"> 10000</span>
+                        </div>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">序号</li>
+                                    <li class="table-cell">ID</li>
+                                    <li class="table-cell">账号</li>
+                                    <li class="table-cell">昵称</li>
+                                    <li class="table-cell">当前状态</li>
+                                    <li class="table-cell">手机号码</li>
+                                    <li class="table-cell">金币数量</li>
+                                    <li class="table-cell">游戏充值</li>
+                                    <li class="table-cell">累计充值</li>
+                                    <li class="table-cell">累计兑换</li>
+                                    <li class="table-cell">累计赠分</li>
+                                    <li class="table-cell">盈利值</li>
+                                    <li class="table-cell">登陆时间</li>
+                                    <li class="table-cell">邀请码</li>
+                                    <li class="table-cell">密码修改</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">1</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">2</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">3</li>
+                                    <li class="table-cell">10</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">XXX</li>
+                                    <li class="table-cell">正常</li>
+                                    <li class="table-cell">18888888888</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell recharge">100</li>
+                                    <li class="table-cell exchange">100</li>
+                                    <li class="table-cell give">100</li>
+                                    <li class="table-cell">100</li>
+                                    <li class="table-cell details">2018-11-29&nbsp;17:25:56</li>
+                                    <li class="table-cell">001</li>
+                                    <li class="table-cell changePwd">修改</li>
+                                </ul>
+
+
+
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--分页-->
+                <div class="pages">
+                    <div class="fenye">
+                        <a href="##" class="backpage">上一页</a>
+                        <a href="##"><b>1</b></a>
+                        <a href="##"><b>2</b></a>
+                        <a href="##"><b>3</b></a>
+                        <a href="##"><b>4</b></a>
+                        <a href="##"><b>5</b></a>
+                        <a href="##" class="shenlue">...</a>
+                        <a href="##"><b>100</b></a>
+                        <a href="##" class="nextpage">下一页</a>
+                    </div>
+                </div>
+                <!--弹出层-->
+                <div class="mask">
+                    <div class="commMask">
+                        <div class="close">
+                            <img src="img/close.png" alt="">
+                        </div>
+                        <!--累计充值弹层-->
+                        <div class="rechargeList">
+                            <div class="rechargeLeft fl">
+                                <ul>
+                                    <li><span>时间</span></li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                </ul>
+                            </div>
+                            <div class="rechargeRight fr">
+                                <ul>
+                                    <li><span>事件</span></li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                    <li>玩家XXX充值：10000000000元</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--累计兑换弹层-->
+                        <div class="exchangeList">
+                            <div class="exchangeLeft fl">
+                                <ul>
+                                    <li><span>时间</span></li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                </ul>
+                            </div>
+                            <div class="exchangeRight fr">
+                                <ul>
+                                    <li><span>事件</span></li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                    <li>玩家XXX兑换：10000000000元</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--累计赠分弹层-->
+                        <div class="giveList">
+                            <div class="giveLeft fl">
+                                <ul>
+                                    <li><span>时间</span></li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                </ul>
+                            </div>
+                            <div class="giveRight fr">
+                                <ul>
+                                    <li><span>事件</span></li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                    <li>玩家XXX赠分：10000000000元</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--登陆详情弹层-->
+                        <div class="detailsList">
+                            <div class="detailsLeft fl">
+                                <ul>
+                                    <li><span>时间</span></li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                    <li>2018-11-29&nbsp;&nbsp;17:25:25</li>
+                                </ul>
+                            </div>
+                            <div class="detailsRight fr">
+                                <ul>
+                                    <li><span>事件</span></li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                    <li>登陆失败</li>
+                                    <li>登陆成功</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--修改密码弹层-->
+                        <form action="">
+                            <div class="changePwdList">
+                                <div class="pwd">
+                                    <label for="">请输入密码：</label>
+                                    <input type="password" class="password" maxlength="18" placeholder="请输入密码">
+                                </div>
+                                <div class="confPwd">
+                                    <label for="">请确认密码：</label>
+                                    <input type="password" class="repeatPwd" maxlength="18" placeholder="请再次输入密码">
+                                </div>
+                                <div class="submit">
+                                    <input type="submit" class="confirm" value="确认">
+                                </div>
+                            </div>
+                        </form>
+                        <!--分页-->
+                        <div class="maskPages">
+                            <div class="fenye">
+                                <a href="##" class="backpage">上一页</a>
+                                <a href="##"><b>1</b></a>
+                                <a href="##"><b>2</b></a>
+                                <a href="##"><b>3</b></a>
+                                <a href="##"><b>4</b></a>
+                                <a href="##"><b>5</b></a>
+                                <a href="##" class="shenlue">...</a>
+                                <a href="##"><b>100</b></a>
+                                <a href="##" class="nextpage">下一页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script>
+
+
+    $(function () {
+
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        var list = [];
+        list.push()
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9310" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                SID: parseInt(0),
+                UID: list,
+                NN: "",
+                SN: parseInt(0),
+                NUM: parseInt(10)
+            }));
+            ws.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj.Errcode)
+                if (obj.Errcode == 0 || obj.Errcode == -1 ){
+                    // alert("获取成功")   等一会  都没走
+
+
+
+                    var  num = "<div class='table-row-group'>"+
+                    "<ul class='table-header-row'>"+
+                    "<li class='table-cell'>序号</li>"+
+                    "<li class='table-cell'>ID</li>"+
+                    "<li class='table-cell'>账号</li>"+
+                    "<li class='table-cell'>昵称</li>"+
+                    "<li class='table-cell'>当前状态</li>"+
+                    "<li class='table-cell'>手机号码</li>"+
+                    " <li class='table-cell'>金币数量</li>"+
+                    "<li class='table-cell'>游戏币数量</li>"+
+                    "<li class='table-cell'>累计充值</li>"+
+                    "<li class='table-cell'>累计兑换</li>"+
+                    "<li class='table-cell'>累计赠分</li>"+
+                    "<li class='table-cell'>盈利值</li>"+
+                    "<li class='table-cell'>登陆时间</li>"+
+                    "<li class='table-cell'>邀请码</li>"+
+                    "<li class='table-cell'>密码修改</li>"+
+                    "</ul>"+
+                    "</div>"
+
+                   for(var  i = 0 ; i < obj.UMG.length;i++){
+                      var   num_001 = obj.UMG[i].CZ-obj.UMG[i].TF
+
+                    var     nums = "<div class='table-row-group' >"+
+                               "<ul class='table-row' >"+
+                               "<li class='table-cell'>"+i+"</li>"+
+                               "<li class='table-cell'>"+obj.UMG[i].Id+" </li>"+
+                            "<li class='table-cell'>"+obj.UMG[i].Uid+" </li>"+
+                               "<li class='table-cell'>"+obj.UMG[i].NickName+" </li>"+
+                               "<li class='table-cell'>在线</li>"+
+                               "<li class='table-cell'>手机号暂无</li>"+
+                               "<li class='table-cell'>"+obj.UMG[i].GoldN+"</li>"+
+                               "<li class='table-cell recharge'>"+obj.UMG[i].Coin+"</li>"+
+
+                            "<li class='table-cell exchange'>"+obj.UMG[i].CZ+"</li>"+
+                               "<li class='table-cell exchange'>"+obj.UMG[i].CZ+"</li>"+
+                               "<li class='table-cell give'>"+obj.UMG[i].TF+"</li>"+
+                               "<li class='table-cell'>"+num_001+"</li>"+
+
+                               "<li class='table-cell recharge'>"+obj.UMG[i].LGTM+"</li>"+
+                               // "<li class='table-cell'>"+obj.UMG[i].ZCYQM+"</li>"+
+                            "<li class='table-cell'>邀请码</li>"+
+                               "<li  class='table-cell changePwd'>修改密码</li>"+
+                               "</ul>"+
+                               "</div>"
+                       num = num +  nums
+
+                   }
+                    $("#table_001").html(num)
+
+                    $("#zhucewanjia").html(obj.USZC)
+                    $("#dangqianzaiixanwanjia").html(obj.USZX)
+                    $("#lixianwanjia").html(obj.USLX)
+                    $("#yichangwanjia").html(obj.USYC)
+
+                    $("#zhucewanjia1").html(obj.USZC)
+                    $("#dangqianzaiixanwanjia1").html(obj.USZX)
+                    $("#lixianwanjia1").html(obj.USLX)
+                    $("#yichangwanjia1").html(obj.USYC)
+
+
+
+                }else{
+                    alert("获取失败")
+                }
+                ws.close()
+            }
+        }
+
+
+
+    })
+
+
+
+    //客户端请求当前时间数据
+    function Select_Time_informe() {
+
+
+
+
+
+        var pas = document.getElementById("Game_id").value;
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        var list = [];
+        list.push(pas)
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9310" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                SID: parseInt(0),
+                UID: list,
+                NN: "",
+                SN: parseInt(0),
+                NUM: parseInt(10)
+            }));
+            ws.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj.Errcode)
+                if (obj.Errcode == 0 || obj.Errcode == -1 ){
+                    // alert("获取成功")
+
+                    var  num = "<div class='table-row-group'>"+
+                            "<ul class='table-header-row'>"+
+                            "<li class='table-cell'>序号</li>"+
+                            "<li class='table-cell'>ID</li>"+
+                            "<li class='table-cell'>账号</li>"+
+                            "<li class='table-cell'>昵称</li>"+
+                            "<li class='table-cell'>当前状态</li>"+
+                            "<li class='table-cell'>手机号码</li>"+
+                            " <li class='table-cell'>金币数量</li>"+
+                            "<li class='table-cell'>游戏币数量</li>"+
+                            "<li class='table-cell'>累计充值</li>"+
+                            "<li class='table-cell'>累计兑换</li>"+
+                            "<li class='table-cell'>累计赠分</li>"+
+                            "<li class='table-cell'>盈利值</li>"+
+                            "<li class='table-cell'>登陆时间</li>"+
+                            "<li class='table-cell'>邀请码</li>"+
+                            "<li class='table-cell'>密码修改</li>"+
+                            "</ul>"+
+                            "</div>"
+
+                    for(var  i = 0 ; i < obj.UMG.length;i++){
+                        var   num_001 = obj.UMG[i].CZ-obj.UMG[i].TF
+
+                        var     nums = "<div class='table-row-group' >"+
+                                "<ul class='table-row' >"+
+                                "<li class='table-cell'>"+i+"</li>"+
+                                "<li class='table-cell'>"+obj.UMG[i].Id+" </li>"+
+                                "<li class='table-cell'>"+obj.UMG[i].Uid+" </li>"+
+                                "<li class='table-cell'>"+obj.UMG[i].NickName+" </li>"+
+                                "<li class='table-cell'>在线</li>"+
+                                "<li class='table-cell'>手机号暂无</li>"+
+                                "<li class='table-cell'>"+obj.UMG[i].GoldN+"</li>"+
+                                "<li class='table-cell recharge'>"+obj.UMG[i].Coin+"</li>"+
+
+                                "<li class='table-cell exchange'>"+obj.UMG[i].CZ+"</li>"+
+                                "<li class='table-cell exchange'>"+obj.UMG[i].CZ+"</li>"+
+                                "<li class='table-cell give'>"+obj.UMG[i].TF+"</li>"+
+                                "<li class='table-cell'>"+num_001+"</li>"+
+
+                                "<li class='table-cell recharge'>"+obj.UMG[i].LGTM+"</li>"+
+                                // "<li class='table-cell'>"+obj.UMG[i].ZCYQM+"</li>"+
+                                "<li class='table-cell'>邀请码</li>"+
+                                "<li  class='table-cell changePwd'>修改密码</li>"+
+                                "</ul>"+
+                                "</div>"
+                        num = num +  nums
+
+                    }
+                    $("#table_001").html(num)
+
+                    $("#zhucewanjia").html(obj.USZC)
+                    $("#dangqianzaiixanwanjia").html(obj.USZX)
+                    $("#lixianwanjia").html(obj.USLX)
+                    $("#yichangwanjia").html(obj.USYC)
+
+                    $("#zhucewanjia1").html(obj.USZC)
+                    $("#dangqianzaiixanwanjia1").html(obj.USZX)
+                    $("#lixianwanjia1").html(obj.USLX)
+                    $("#yichangwanjia1").html(obj.USYC)
+
+
+
+                }else{
+                    alert("获取失败")
+                }
+                ws.close()
+            }
+        }
+
+
+
+
+    }
+
+
+
+
+</script>
+</html>

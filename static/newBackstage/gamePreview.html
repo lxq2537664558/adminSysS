@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/gamePreview.css">
+    <link rel="stylesheet" href="css/public.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/gamePreview.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li class="active"><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <ul class="rh_title">
+                    <li class="current">ATT</li>
+                    <li onclick="Select_gAME_001(22)">五星宏辉</li>
+                    <li onclick="Select_gAME_001(28)">森林舞会</li>
+                    <li onclick="Select_gAME_001(16)">金鲨银鲨</li>
+                    <li onclick="Select_gAME_001(21)">水浒传</li>
+                    <li onclick="Select_gAME_001(22)">牛魔王</li>
+                    <li onclick="Select_gAME_001(12)">百家乐二号</li>
+                    <li onclick="Select_gAME_001(38)">梦幻乐园</li>
+                </ul>
+                <div class="public fl">
+                    <div class="chooseTime fl">
+                        <label for="">选择时间：</label>
+                    </div>
+                    <div class="type fl">
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="today" checked>
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="today">当日</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="week">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="week">近一周</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="month">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="month">近一月</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="year">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="year">近一年</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="custom">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="custom">自定义</label>
+                        </span>
+                        <div class="timer fl">
+                            <input type="date">&nbsp;&nbsp;到&nbsp;&nbsp;<input type="date">
+                        </div>
+                        <div class="search-button fl">
+                            <input class="button" type="button" value="搜索">
+                        </div>
+                    </div>
+                </div>
+                <!--左下侧列表-->
+                <div class="leftDown fl">
+                    <ul>
+                        <li class="ldActive"><a href="gamePreview.html">概览</a></li>
+                        <li><a href="gameDetails.html">房间详情</a></li>
+                    </ul>
+                </div>
+                <!--查询列表-->
+                <ul class="rh_cont">
+                    <!--ATT-->
+                    <li class="show">
+                        <div class="table" id="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">开奖明细</li>
+                                    <li class="table-cell">进分值</li>
+                                    <li class="table-cell">出分值</li>
+                                    <li class="table-cell">差值</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">ATT金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--五星宏辉-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">开奖明细</li>
+                                    <li class="table-cell">进分值</li>
+                                    <li class="table-cell">出分值</li>
+                                    <li class="table-cell">差值</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">五星宏辉金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--森林舞会-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">开奖明细</li>
+                                    <li class="table-cell">进分值</li>
+                                    <li class="table-cell">出分值</li>
+                                    <li class="table-cell">差值</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">森林舞会金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--金鲨银鲨-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">开奖明细</li>
+                                    <li class="table-cell">进分值</li>
+                                    <li class="table-cell">出分值</li>
+                                    <li class="table-cell">差值</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">金鲨银鲨金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--水浒传-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">开奖明细</li>
+                                    <li class="table-cell">进分值</li>
+                                    <li class="table-cell">出分值</li>
+                                    <li class="table-cell">差值</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">水浒传金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--牛魔王-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">开奖明细</li>
+                                    <li class="table-cell">进分值</li>
+                                    <li class="table-cell">出分值</li>
+                                    <li class="table-cell">差值</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">牛魔王金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--百家乐二号-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">开奖明细</li>
+                                    <li class="table-cell">进分值</li>
+                                    <li class="table-cell">出分值</li>
+                                    <li class="table-cell">差值</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">百家乐二号金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <!--梦幻乐园-->
+                    <li>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-row header">
+                                    <li class="table-cell">开奖明细</li>
+                                    <li class="table-cell">进分值</li>
+                                    <li class="table-cell">出分值</li>
+                                    <li class="table-cell">差值</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">梦幻乐园金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                                <ul class="table-row">
+                                    <li class="table-cell">金币</li>
+                                    <li class="table-cell">1212</li>
+                                    <li class="table-cell">2323</li>
+                                    <li class="table-cell">4545</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--分页-->
+                <div class="pages">
+                    <div class="fenye">
+                        <a href="##" class="backpage">上一页</a>
+                        <a href="##"><b>1</b></a>
+                        <a href="##"><b>2</b></a>
+                        <a href="##"><b>3</b></a>
+                        <a href="##"><b>4</b></a>
+                        <a href="##"><b>5</b></a>
+                        <a href="##" class="shenlue">...</a>
+                        <a href="##"><b>100</b></a>
+                        <a href="##" class="nextpage">下一页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script>
+
+    function insert_monery_copy_01() {
+        var username = document.getElementById("numinput").value;
+        alert(username)
+
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9312" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                CT: parseInt(12),
+                PAGE: parseInt(0),
+                NUM: parseInt(5),
+                LGD:"",
+                RM: parseInt(-1),
+                BT: "2018-11-29 16:52:45",
+                ET: "2018-12-01 16:52:45"
+            }));
+            socket.onmessage = function (msg) {
+
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                // alert(newdate)
+                obj = toJson(newdate)
+                alert(obj.Err)
+
+
+            }
+
+            socket.close()
+        }
+
+
+
+    }
+$(function () {
+    var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+    ws.onopen = function() {
+        ws.send("1000"+GetCookies("UG"));
+        ws.send("9312" + JSON.stringify({
+            BG: "",
+            UG: GetCookies("UG"),
+            CT: parseInt(11),
+            PAGE: parseInt(0),
+            NUM: parseInt(10),
+            LGD:"",
+            RM: parseInt(-1),
+            BT: "2018-11-29 16:52:45",
+            ET: "2018-11-30 16:52:45"
+        }));
+        ws.onmessage = function (msg) {
+
+            // alert(msg.data)
+            var newdate="";
+            for(var i=0;i<msg.data.length;i++){
+                if (i>3){
+                    newdate = newdate + msg.data[i];
+                }
+            }
+                    // alert(newdate)
+                    obj = toJson(newdate)
+                    // alert(obj.Err)
+
+                var  div = "   <div class='table-row-group'>" +
+                        "                                <ul class='table-row header'>" +
+                        "                                    <li class='table-cell'>开奖明细</li>" +
+                        "                                    <li class='table-cell'>进分值</li>" +
+                        "                                    <li class='table-cell'>出分值</li>" +
+                        "                                    <li class='table-cell'>差值</li>" +
+                        "                                    <li class='table-cell'>返还</li>" +
+                        "                                </ul>" +
+                        "                            </div>"
+
+
+
+                    for (var i = 0 ; i < obj.GDL.length;i++){
+                        var cha = obj.GDL[i].Win - obj.GDL[i].Los
+
+
+                        var  fanhuan = 0
+
+                        if (obj.GDL[i].Los == 0  || obj.GDL[i].Win == 0){
+                            fanhuan =  100
+                        }else {
+                            fanhuan =   obj.GDL[i].Los/obj.GDL[i].Win
+                        }
+                        fanhuan = fanhuan.toFixed(2);
+
+                        var  div_01 = "                            <div class='table-row-group'>" +
+                                "                                <ul class='table-row'>" +
+                                "                                    <li class='table-cell'><a>详情</a></li>" +
+                                "                                    <li class='table-cell'>"+obj.GDL[i].Win+"</li>" +
+                                "                                    <li class='table-cell'>"+obj.GDL[i].Los+"</li>" +
+                                "                                    <li class='table-cell'>"+cha+"</li>" +
+                                "                                    <li class='table-cell'>"+fanhuan+"%</li>" +
+                                "                                </ul>" +
+                                "                            </div>"
+                        div += div_01
+                    }
+
+
+
+            $("#table").html(div);
+            ws.close()
+        }
+    }
+
+
+
+})
+
+
+
+
+    function Select_gAME_001(num) {
+
+
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9312" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                CT: parseInt(num),
+                PAGE: parseInt(0),
+                NUM: parseInt(10),
+                LGD:"",
+                RM: parseInt(-1),
+                BT: "2018-11-29 16:52:45",
+                ET: "2018-11-30 16:52:45"
+            }));
+            ws.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                // alert(newdate)
+                obj = toJson(newdate)
+                // alert(obj.Err)
+
+                var  div = "   <div class='table-row-group'>" +
+                        "                                <ul class='table-row header'>" +
+                        "                                    <li class='table-cell'>开奖明细</li>" +
+                        "                                    <li class='table-cell'>进分值</li>" +
+                        "                                    <li class='table-cell'>出分值</li>" +
+                        "                                    <li class='table-cell'>差值</li>" +
+                        "                                    <li class='table-cell'>返还</li>" +
+                        "                                </ul>" +
+                        "                            </div>"
+
+
+
+                for (var i = 0 ; i < obj.GDL.length;i++){
+                    var cha = obj.GDL[i].Win - obj.GDL[i].Los
+
+                    var  fanhuan = 0
+
+                    if (obj.GDL[i].Los == 0  || obj.GDL[i].Win == 0){
+                        fanhuan =  100
+                    }else {
+                        fanhuan =   obj.GDL[i].Los/obj.GDL[i].Win
+                    }
+                    fanhuan = fanhuan.toFixed(2);
+                    var  div_01 = "                            <div class='table-row-group'>" +
+                            "                                <ul class='table-row'>" +
+                            "                                    <li class='table-cell'><a>详情</a></li>" +
+                            "                                    <li class='table-cell'>"+obj.GDL[i].Win+"</li>" +
+                            "                                    <li class='table-cell'>"+obj.GDL[i].Los+"</li>" +
+                            "                                    <li class='table-cell'>"+cha+"</li>" +
+                            "                                    <li class='table-cell'>"+fanhuan+"%</li>" +
+                            "                                </ul>" +
+                            "                            </div>"
+                    div += div_01
+                }
+
+
+
+                $(".table").html(div);
+                ws.close()
+            }
+        }
+
+    }
+
+
+
+</script>
+
+
+</html>

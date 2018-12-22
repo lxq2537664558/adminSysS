@@ -1,0 +1,9 @@
+.rankingList>.sub{
+    display: block;
+}
+.rankingList>.sub>li>.all{
+    color: #f60;
+}
+.rankingList>.sub>li>.other{
+    color: #f60;
+}

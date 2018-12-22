@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/gameNotice.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <!--<script src="js/realTimeDataFishing.js"></script>-->
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>游戏公告</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <div class="loginList fl">
+                    <div class="channelSelection dom">
+                        <span>渠道选择</span>
+                        <select name="" id="PropName">
+                            <option value="">所有渠道</option>
+                            <option value="">渠道一</option>
+                            <option value="">渠道二</option>
+                            <option value="">渠道三</option>
+                        </select>
+                    </div>
+                    <div class="startTime dom">
+                        <span>开始时间</span>
+                        <input type="date" id="page5_jDateTimePicker1_edit">
+                    </div>
+                    <div class="endTime dom">
+                        <span>结束时间</span>
+                        <input type="date" id="page5_jDateTimePicker3_edit">
+                    </div>
+                    <div class="loginTitle dom">
+                        <span>公告标题</span>
+                        <input type="text" id="Emilhead">
+                    </div>
+                    <div class="mailCont dom">
+                        <span>邮件内容</span>
+                        <textarea id="msg_emil_001"></textarea>
+                    </div>
+                    <div class="submit dom">
+                        <span></span>
+                        <input type="submit" value="发布公告" onclick="Log_ann_Information_Game()">
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script>
+
+    //游戏公告
+    function Log_ann_Information_Game() {
+        //拿到各个ID
+        var enddate = document.getElementById("page5_jDateTimePicker1_edit").value;
+        var maxdate = document.getElementById("page5_jDateTimePicker3_edit").value;
+        var ann_001 = document.getElementById("Emilhead").value;
+        var ann_inform = document.getElementById("msg_emil_001").value;
+        var qu = document.getElementById("PropName").value;
+
+        //判断输入的情况
+        if(enddate.length == 0){alert("开始时间不能为空");return}
+        if(maxdate.length == 0){alert("结束时间不能为空");return}
+        if(ann_001.length == 0 || ann_001.length > 15){alert("标题不能为空或不能超过15个字");return}
+        if(ann_inform.length == 0 || ann_inform.length > 50){alert("内容不能为空或不能超过50个字");return}
+
+        //开始WebSocket
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9035" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                SID:parseInt(""),
+                BTime:enddate,
+                CTime:maxdate,
+                Title:ann_001,
+                Word:ann_inform,
+                Way:qu,
+                photo:""
+            }));
+            
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for(var i = 0;i<msg.data.length;i++){
+                    if(i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                if(obj.Errcode == -1){
+                    alert("发布成功");
+                    return
+                }else {
+                    alert("发布失败");
+                }
+                socket.close();
+            }
+        }
+    }
+</script>
+</body>

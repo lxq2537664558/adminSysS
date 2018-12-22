@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/WdatePicker.css" />
+    <link rel="stylesheet" type="text/css" href="css/skin_/table.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.grid.css" />
+
+
+</head>
+
+<body>
+<div id="container">
+
+    <div id="bd">
+        <div id="main">
+
+            <div class="search-box ue-clear">
+                <div class="search-area">
+                    <div class="kv-item ue-clear">
+
+
+                    </div>
+
+
+                    <!--<div class="kv-item ue-clear">
+                      <h3><button>ATT:</button><span>200</span><button>五星宏辉:</button><span>200</span><button>森林舞会:</button><span>200</span><button>金鲨银鲨:</button><span>200</span><button>水浒传:</button><span>200</span><button>
+                          牛魔王:</button><span>200</span><button>百家乐二号:</button><span>200</span><button>梦幻乐园:</button><span>200</span></h3>
+                    </div> -->
+
+                </div>
+                <div class="search-button">
+                    手机号：<input type="checkbox"> 账号<input type="checkbox"> <input value="请输入手机号、账号" id="numinput" onclick="slelct_input()" style="width: 200px;color: #8b8b8b">  <input type="button" value="添加" onclick="insert_monery_copy()"> <input class="button" type="button" value="查询" onclick="Log_ann_Information_monery()" />
+                </div>
+            </div>
+
+            <div class="table">
+                <!-- 		<div class="opt ue-clear">
+                    <span class="sort">
+                          <label>排序：</label>
+                          <span class="name">
+                              <i class="icon"></i>
+                              <span class="text">名称</span>
+                          </span>
+                      </span>
+
+                      <i class="list"></i>
+                      <i class="card"></i>
+                  </span>
+
+                  <span class="optarea">
+                      <a href="javascript:;" class="add">
+                          <i class="icon"></i>
+                          <span class="text">添加</span>
+                      </a>
+                      <a href="javascript:;" class="delete">
+                          <i class="icon"></i>
+                          <span class="text">删除</span>
+                      </a>
+
+                      <a href="javascript:;" class="statistics">
+                          <i class="icon"></i>
+                          <span class="text">统计</span>
+                      </a>
+
+                      <a href="javascript:;" class="config">
+                          <i class="icon"></i>
+                          <span class="text">配置</span>
+                      </a>
+                  </span>
+                  </div>-->
+
+                <div class="grid"></div>
+
+                <div class="pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/jquery.select.js"></script>
+<script type="text/javascript" src="js/core.js"></script>
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+<script type="text/javascript" src="js/jquery.grid.js"></script>
+<script type="text/javascript" src="js/WdatePicker.js"></script>
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script type="text/javascript" src="/static/js/head.js"></script>
+<script type="text/javascript" src="/static/js/Game_js.js"></script>
+
+
+<script type="text/javascript">
+
+    //清空数据
+    function slelct_input() {
+
+        $('#numinput').val("")
+
+    }
+
+
+
+    //发送个游戏在线人数
+    $(function () {
+
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9300" + JSON.stringify({
+                LG:"",
+                UG:GetCookies("UG"),
+            }));
+            socket.onmessage = function (msg) {
+
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj)
+                // if (obj.Errcode == -1){
+                //     alert("添加成功")
+                //     return
+                // }else{
+                //     alert("添加失败")
+                // }
+
+                alert(obj[0].Count)
+
+
+                socket.close()
+            }
+        }
+
+
+    })
+
+
+    //搜索
+    function Log_ann_Information_monery() {
+        var username = document.getElementById("numinput").value;
+        var list = [];
+        list.push(username)
+        // alert(list)
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9310" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                SID: parseInt(0),
+                UID: list,
+                NN: "",
+                SN: parseInt(0),
+                NUM: parseInt(6)
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                alert(newdate)
+                obj = toJson(newdate)
+                // alert(obj.CT)
+                SetCookie("HPlength", obj.CT)
+
+                // $("table:eq(0) tr:gt(1)").remove();
+                // for(var i = 0 ;i<obj.UMG.length;i++) {
+                //     var  ZH  = ""
+                //     var  SB  = ""
+                //     if (obj.UMG[i].ZH == ""){
+                //         ZH = "无账号"
+                //     }else{
+                //         ZH =  obj.UMG[i].ZH
+                //     }
+                //     if (obj.UMG[i].CallX == ""){
+                //         SB = "暂无设备"
+                //     }else{as
+                //         SB =  obj.UMG[i].CallX
+                //     }
+                //     $('#page2_jDataGrid1_table').jqGrid('addRowData',1,{A0:obj.UMG[i].NickName,A1:obj.UMG[i].Uid,A2:obj.UMG[i].AddTime,A3:obj.UMG[i].Lv,A4:obj.UMG[i].Vip,A5:obj.UMG[i].GoldN,A6:obj.UMG[i].SendC,A7:obj.UMG[i].Coin,A8:ZH,A9:SB});
+
+                $('select').select();
+                var head = [{
+                    label: '昵称',
+                    width: 100,
+                    sortable: 'default',
+                    name: 'ID'
+                }, {
+                    label: '现有金币值',
+                    width: 150,
+                    sortable: 'default',
+                    name: '今日充值'
+                }, {
+                    label: '今日退分',
+                    width: 150
+                }, {
+                    label: '今日赠分',
+                    width: 150
+                }, {
+                    label: '历史记录',
+                    minWidth: 200
+                }];
+
+                var oper = [{
+                    label: '详细信息', onclick: function () {
+                        alert('详细信息')
+                    }
+                }]
+                var tbody = [
+                    ["1", "ATT", "256282", "123", "南京林业大学", "1982-10-18", "已审核", oper]]
+
+                $('.grid').Grid({
+                    thead: head,
+                    tbody: null,
+                    height:400,
+
+                    operator: {
+                        type : "normal",
+                        width : 100
+                    },
+                    sortCallBack : function(name,index,type){
+                        alert(name+","+index+','+type);
+                    }
+
+                });
+
+
+
+            }
+
+            socket.close()
+        }
+
+
+    }
+
+
+
+
+    //后台请求添加玩家金币
+    function insert_monery_copy() {
+        var username = document.getElementById("numinput").value;
+        alert(username)
+
+
+        socket = new WebSocket("ws://" + IPconf + ":" + prot + "/ws/join");
+        socket.onopen = function () {
+            socket.send("1000" + GetCookies("UG"));
+            socket.send("9308" + JSON.stringify({
+                BG: "",
+                UG: GetCookies("UG"),
+                ACC: "",
+                PHONE: "13333333333",
+                GOLD: parseInt(0),
+                DIA: parseInt(50),
+                ZS: parseInt(150)
+            }));
+            socket.onmessage = function (msg) {
+                var newdate = "";
+                for (var i = 0; i < msg.data.length; i++) {
+                    if (i > 3) {
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                // alert(newdate)
+                obj = toJson(newdate)
+                alert(obj.Err)
+
+
+
+
+
+            }
+
+            socket.close()
+        }
+
+
+
+    }
+
+
+
+
+
+    $('select').select();
+    var head = [{
+        label: 'ID',
+        width: 100,
+        sortable: 'default',
+        name: 'id'
+    },{
+        label:'游戏名',
+        width: 150,
+        sortable: 'default',
+        name:'name'
+    },{
+        label:'当前游戏人数',
+        width:150
+    },{
+        label: '密码',
+        width: 150
+    },{
+        label: '现有金币',
+        minWidth: 200
+    },{
+        label: '累计充值',
+        width: 120
+    },{
+        label: '累计退分',
+        width:100
+    }];
+
+    var oper = [{label:'详细信息',onclick: function(){
+            alert('详细信息')
+        }}]
+    var tbody = [
+        ["1","ATT","256282","123","南京林业大学","1982-10-18","已审核",oper],
+        ["2","五星宏辉","20","222","山东大学","1989-10-18","已审核",oper],
+        ["3","森林舞会","30","233123","南京林业大学","1982-10-18","已审核",oper],
+        ["4","金鲨银鲨","90","123213213","南京林业大学","1982-10-18","已审核",oper],
+        ["5","水浒传","200","768768768","山东大学","1989-10-18","已审核",oper],
+        ["6","牛魔王","40000","2131","南京林业大学","1982-10-18","已审核",oper],
+        ["7","百家乐二号","65052","123213213","南京林业大学","1982-10-18","已审核",oper],
+        ["8","梦幻乐园","235215","123213213","山东大学","1989-10-18","已审核",oper]
+                ["9","总计","","6666","山东大学","1989-10-18","已审核",oper]]
+
+    $('.grid').Grid({
+        thead: head,
+        tbody: null,
+        height:400,
+
+        operator: {
+            type : "normal",
+            width : 100
+        },
+        sortCallBack : function(name,index,type){
+            alert(name+","+index+','+type);
+        }
+
+    });
+
+    $('.grid').Grid('addLoading');
+
+    /// 模拟异步
+    // checkbox: {
+    //    single:true
+    // },
+
+    setTimeout(function(){
+        $('.grid').Grid('setData',tbody, head);
+    },20)
+
+
+    $('.pagination').pagination(100,{
+        callback: function(page){
+            alert(page);
+        },
+        display_msg: false
+    });
+
+    $('.search-box input[type=radio]').click(function(e) {
+        if($(this).prop('checked')){
+            if($(this).attr('data-define') === 'define'){
+                $('.define-input').show();
+            }else{
+                $('.define-input').hide();
+            }
+        }
+    });
+</script>
+</html>

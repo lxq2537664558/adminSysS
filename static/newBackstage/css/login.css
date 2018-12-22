@@ -1,0 +1,195 @@
+body
+{
+    background: #FFAE00;
+}
+
+#container
+{
+    position: relative;
+    padding-top: 150px;
+}
+
+#bd
+{
+    min-height: 430px;
+}
+
+#main
+{
+    position: relative;
+    width: 640px;
+    height: 410px;
+    margin: 0 auto 0;
+    background: #ffffff;
+    /*min-height: 443px;*/
+}
+
+/*logo*/
+.login-box .logo
+{
+    width: 640px;
+    height: 55px;
+    border-bottom: 1px solid #ccc;
+}
+.login-box .logo img{
+    width: 55px;
+    height: 55px;
+}
+.login-box .logo span{
+    line-height: 55px;
+    margin-right: 50px;
+    font-size: 30px;
+    font-style: italic;
+    text-shadow: 5px 2px 6px #000;
+    /* vertical-align: 2em; */
+    letter-spacing: 4px;
+}
+.login-box .input
+{
+    position: absolute;
+    left: 78px;
+    width: 311px;
+    height: 39px;
+}
+
+.login-box .input label
+{
+    height: 37px;
+    line-height: 37px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.login-box .input input
+{
+    position: absolute;
+    left: 67px;
+    top: 0;
+    width: 300px;
+    height: 39px;
+    line-height: 39px;
+    padding: 0 10px 0 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.login-box .username
+{
+    top: 127px;
+}
+
+.login-box .username input
+{
+    font-size: 18px;
+    font-weight: bold;
+    color: #33AED8;
+}
+
+.login-box .psw
+{
+    top: 187px;
+}
+
+.login-box .psw input
+{
+    font-size: 18px;
+}
+
+.login-box .validate
+{
+    position: relative;
+    top: 195px;
+}
+
+.login-box .validate input
+{
+    width: 160px;
+    padding: 0 10px 0 10px;
+    font-size: 18px;
+}
+
+.login-box .validate .value
+{
+    position: absolute;
+    right: -78px;
+    top: 0px;
+    height: 39px;
+    line-height: 16px;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.styleArea
+{
+    position: absolute;
+    left: 409px;
+    top: 217px;
+}
+
+.styleArea .styleWrap
+{
+    width: 133px;
+    height: 39px;
+}
+
+.styleArea .iselect-wrapper
+{
+    top: 2px;
+    left: 2px;
+    border: none;
+    width: 105px;
+    height: 36px;
+    line-height: 36px;
+}
+
+.styleArea .iselect-wrapper .iselect
+{
+    height: 39px;
+    width: 133px;
+    *top: 10px;
+}
+
+.styleArea .iselect-wrapper .iselwrap-val
+{
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+#btn
+{
+    position: absolute;
+    left: 335px;
+    top: 320px;
+}
+
+#btn input
+{
+    width: 133px;
+    height: 39px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#btn input:hover
+{
+    background: #f60;
+}
+
+#ft
+{
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    width: 100%;
+    text-align: center;
+    line-height: 12px;
+    color: #095071;
+}

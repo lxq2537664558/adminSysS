@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cardAdd.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>充值卡</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <ul class="rh_title">
+                    <li class="current">充值卡生成</li>
+                    <li>充值卡详情</li>
+                </ul>
+                <ul class="rh_cont">
+                    <!--管理员-->
+                    <li class="show">
+                        <p>
+                            <label for="">充值卡类型：</label>
+                            <select name="" id="">
+                                <option value="">10钻</option>
+                                <option value="">100钻</option>
+                                <option value="">1000钻</option>
+                                <option value="">10000钻</option>
+                                <option value="">10000钻</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="">充值卡数量：</label>
+                            <input type="text">
+                            <input type="button" value="添加">
+                        </p>
+                    </li>
+                    <!--用户-->
+                    <li>
+                        <div class="searchUser">
+                            <input type="text" placeholder="充值卡卡密">
+                            <input type="button" class="search" value="查询">
+                        </div>
+                        <div class="table">
+                            <div class="table-row-group">
+                                <ul class="table-header-row">
+                                    <li class="table-cell">大区</li>
+                                    <li class="table-cell">代理</li>
+                                    <li class="table-cell">充值卡账号</li>
+                                    <li class="table-cell">充值卡卡密</li>
+                                    <li class="table-cell">充值卡金额</li>
+                                    <li class="table-cell">出售人</li>
+                                    <li class="table-cell">使用人</li>
+                                    <li class="table-cell">充值时间</li>
+                                    <li class="table-cell">生成时间</li>
+                                    <li class="table-cell">使用状态</li>
+                                </ul>
+                            </div>
+                            <div class="table-row-group">
+                                <ul class="table-row">
+                                    <li class="table-cell">一区</li>
+                                    <li class="table-cell">一级代理</li>
+                                    <li class="table-cell">45651312</li>
+                                    <li class="table-cell">DASADJSKDJKLSA</li>
+                                    <li class="table-cell">500</li>
+                                    <li class="table-cell">admin</li>
+                                    <li class="table-cell">root</li>
+                                    <li class="table-cell">2018-12-04</li>
+                                    <li class="table-cell">2018-12-05</li>
+                                    <li class="table-cell">未使用</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--分页-->
+                        <div class="pages">
+                            <div class="fenye">
+                                <a href="javascript:;" class="backpage">上一页</a>
+                                <a href="javascript:;"><b>1</b></a>
+                                <a href="javascript:;"><b>2</b></a>
+                                <a href="javascript:;"><b>3</b></a>
+                                <a href="javascript:;"><b>4</b></a>
+                                <a href="javascript:;"><b>5</b></a>
+                                <a href="javascript:;" class="shenlue">...</a>
+                                <a href="javascript:;"><b>100</b></a>
+                                <a href="javascript:;" class="nextpage">下一页</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

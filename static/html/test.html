@@ -1,0 +1,399 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!DOCTYPE html>
+ <html>
+  <head>
+   <title>测试代码</title>
+   <meta charset="utf-8">
+      <script src="/static/js/chart.js"></script>
+      <script type="text/javascript" src="/static/js/jquery-1.10.2.js"></script>
+      <script type="text/javascript" src="/static/js/highcharts.js"></script>
+   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>-->
+  </head>
+  <body>
+  <!--
+  1 -- html页面中 创建一个canvas元素，给定id，也可以同时直接给定宽和高
+ 2 -- js中：2.1 用dom或者jq方法获得以上canvas
+            2.2 获取2d元素ctx
+ 3 -- js中：3.1 初始化数据data=[{},{},{}...]
+                 注：每个{}代表一份或者一个点
+                 {value://数值
+                 color:默认加载时的颜色
+                 highlight:// hover时的颜色
+                 label:鼠标移入该区域显示的内容标签
+                  }
+  4 -- js中：基于画布对象ctx,创建Chart对象
+  5 -- js中：基于初始化的数据data，通过Chart对象调用图表方法
+              /*
+                * 饼状图 - Pie(datas,options)
+                  * datas - 图表的数据
+                  * options - 选项
+                * 柱状图 - Bar(datas,options)
+                * 曲线图 - Line(datas,options)
+            */
+  -->
+  <!--1 -- html页面中 创建一个canvas元素，给定id，也可以同时直接给定宽和高-->
+   <canvas id="canvas" width="800" height="300"></canvas>
+
+
+  <div style="margin: 0 2em">
+      <div id="container1" style="min-width: 400px; height: 400px; margin: 0 auto"></div><br />
+      <div id="container2" style="min-width: 400px; height: 400px; margin: 0 auto"></div><br />
+      <div id="container3" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+  </div>
+
+   <script>
+     //      2 -- js中：2.1 用dom或者jq方法获得以上canvas
+     //     var canvas = document.getElementById("canvas");
+     // //              2.2 获取2d元素ctx
+     //     var ctx = canvas.getContext('2d');
+     //3 -- js中：3.1 初始化数据data=[{},{},{}...]
+     // var data = [
+     //     {
+     //         value: 30,
+     //         color:"lightgreen",
+     //         highlight: "green",
+     //         label: "大白菜"
+     //     },
+     //     {
+     //         value: 50,
+     //         color: "#46BFBD",
+     //         highlight: "#5AD3D1",
+     //         label: "小白菜"
+     //     },
+     //     {
+     //         value: 60,
+     //         color: "#FDB45C",
+     //         highlight: "#FFC870",
+     //         label: "洋白菜"
+     //     },
+     //     {
+     //         value: 40,
+     //         color: "#afB45C",
+     //         highlight: "#FabC870",
+     //         label: "娃娃菜"
+     //     },
+     //     {
+     //         value: 40,
+     //         color: "#949FB1",
+     //         highlight: "#f00",//A8B3C5
+     //         label: "圆白菜"
+     //     }
+     //
+     // ];
+
+
+//      var arr2=new Array();  arr2[0]="30";arr2[1]="52";arr2[2]="45";arr2[3]="78";
+//      arr2[4]="27";arr2[5]="88";arr2[6]="650";
+//
+//
+//      //用于存放图表上的数据
+//      var lineChartData = {
+// //表的X轴参数
+//          labels : ["1","2","3","4","5","6","7"],
+//          datasets : [
+//              {
+//                  label : "出分",
+//                  fillColor : "transparent",     //背景色，常用transparent透明
+//                  strokeColor : "rgba(220,220,220,1)",  //线条颜色，也可用"#ffffff"
+//                  pointColor : "rgba(220,220,220,1)",   //点的填充颜色
+//                  pointStrokeColor : "#000000",            //点的外边框颜色
+//                  data : [65,59,32,29,46,55,10]      //点的Y轴值
+//              },
+//
+//              {
+//                  label : "进分",
+//                  fillColor : "transparent",
+//                  strokeColor : "rgba(151,187,205,1)",
+//                  pointColor : "rgba(151,187,205,1)",
+//                  pointStrokeColor : "#000000",
+//                  data : []    //data中的参数，通过下方for循环，获取arr2中的数据
+//              }
+//          ]
+//      }
+//
+//      for(var i = 0; i < arr2.length;i++)
+//      {
+//          lineChartData.datasets[1].data.push(arr2[i]);//将数组arr2中的值写入data
+//      }
+//
+//      //定义图表的参数
+//      var defaults = {
+//          scaleStartValue :null,     // Y 轴的起始值
+//          scaleLineColor : "rgba(0,0,0,.1)",    // Y/X轴的颜色
+//          scaleLineWidth : 1,        // X,Y轴的宽度
+//          scaleShowLabels : true,    // 刻度是否显示标签, 即Y轴上是否显示文字
+//          scaleLabel : "<%=value%>", // Y轴上的刻度,即文字
+//          scaleFontFamily : "'Arial'",  // 字体
+//          scaleFontSize : 15,        // 文字大小
+//          scaleFontStyle : "normal",  // 文字样式
+//          scaleFontColor : "#666",    // 文字颜色
+//          scaleShowGridLines : true,   // 是否显示网格
+//          scaleGridLineColor : "rgba(0,0,0,.05)",   // 网格颜色
+//          scaleGridLineWidth : 2,      // 网格宽度
+//          bezierCurve : false,         // 是否使用贝塞尔曲线? 即:线条是否弯曲
+//          pointDot : true,             // 是否显示点数
+//          pointDotRadius : 5,          // 圆点的大小
+//          pointDotStrokeWidth : 1,     // 圆点的笔触宽度, 即:圆点外层边框大小
+//          datasetStroke : true,        // 数据集行程
+//          datasetStrokeWidth : 2,      // 线条的宽度, 即:数据集
+//          datasetFill : false,         // 是否填充数据集
+//          animation : true,            // 是否执行动画
+//          animationSteps : 60,          // 动画的时间
+//          animationEasing : "easeOutQuart",    // 动画的特效
+//          onAnimationComplete : null    // 动画完成时的执行函数
+//      }
+//
+//
+//      window.onload = function(){
+//          var ctx = document.getElementById("canvas").getContext("2d");
+//          window.myLine = new Chart(ctx).Line(lineChartData,defaults);
+//      }
+
+
+
+
+
+
+
+ // //4 -- js中：基于画布对象ctx,创建Chart对象
+ //     var chart = new Chart(ctx);
+ // //5 -- js中：基于初始化的数据data，通过Chart对象调用图表方法
+ //     chart.Pie(data);
+
+
+
+
+
+     var chart;
+     $(document).ready(function () {
+         //曲线图初始化
+         chart = new Highcharts.Chart({
+             chart: {
+                 renderTo: 'container1',
+                 type: 'line',
+                 marginRight: 220,
+                 marginBottom: 25
+             },
+             title: {
+                 text: '数据曲线图表',
+                 x: -20 //center
+             },
+             subtitle: {
+                 text: 'jqddsjfx',
+                 x: -20
+             },
+             xAxis: {
+                 categories: ['02年', '02年', '02年', '04年', '05年', '06年',
+                     '07年', '08年', '09年', '20年', '22年', '22年']
+             },
+             yAxis: {
+                 title: {
+                     text: '数据'
+                 },
+                 plotLines: [{
+                     value: 0,
+                     width: 2,
+                     color: '#808080'
+                 }]
+             },
+             tooltip: {
+                 formatter: function () {
+                     return '<b>' + this.series.name + '</b><br/><br/>' +
+                             this.x + ': ' + this.y + '单位';
+                 }
+             },
+             legend: {
+                 layout: 'vertical',
+                 align: 'right',
+                 verticalAlign: 'top',
+                 x: -20,
+                 y: 200,
+                 borderWidth: 0
+             },
+             series: [{
+                 name: '用户1',
+                 data: [22, 22, 95, 245, 282, 225, 252, 265, 222, 282, 229, 96]
+             }, {
+                 name: '用户2',
+                 data: [02, 08, 57, 222, 270, 220, 248, 242, 202, 242, 86, 25]
+             }, {
+                 name: '用户3',
+                 data: [9, 06, 25, 84, 225, 270, 286, 279, 242, 90, 29, 20]
+             }, {
+                 name: '用户4',
+                 data: [29, 42, 57, 85, 229, 252, 270, 266, 242, 202, 66, 48]
+             }]
+         });
+
+         //柱形图初始化
+         chart = new Highcharts.Chart({
+             chart: {
+                 renderTo: 'container2',
+                 type: 'column'
+             },
+             title: {
+                 text: '数据柱形图表'
+             },
+             subtitle: {
+                 text: 'jqddsjfx'
+             },
+             xAxis: {
+                 categories: [
+                     '01年',
+                     '02年',
+                     '03年',
+                     '04年',
+                     '05年',
+                     '06年',
+                     '07年',
+                     '08年',
+                     '09年',
+                     '10年',
+                     '11年',
+                     '01年',
+                     '02年',
+                     '03年',
+                     '04年',
+                     '05年',
+                     '06年',
+                     '07年',
+                     '08年',
+                     '09年',
+                     '10年',
+                     '11年',
+                     '01年',
+                     '02年',
+                     '03年',
+                     '04年',
+                     '05年',
+                     '06年',
+                     '07年',
+                     '08年',
+                     '09年',
+                     '10年',
+                     '11年'
+                 ]
+             },
+             yAxis: {
+                 min: 0,
+                 title: {
+                     text: '数据'
+                 }
+             },
+             legend: {
+                 layout: 'vertical',
+                 backgroundColor: '#FFFFFF',
+                 align: 'left',
+                 verticalAlign: 'top',
+                 x: 100,
+                 y: 70,
+                 floating: true,
+                 shadow: true
+             },
+             tooltip: {
+                 formatter: function () {
+                     return '' +
+                             this.x + ': ' + this.y + ' 单位';
+                 }
+             },
+             plotOptions: {
+                 column: {
+                     pointPadding: 0.2,
+                     borderWidth: 0
+                 }
+             },
+             series: [{
+                 name: '用户1',
+                 data: [499, 715, 1064, 1292, 1440, 1760, 1356, 1485, 2164, 1941, 956, 544, 715, 1064, 1292, 1440, 1760, 1356, 1485, 2164, 1941, 956, 544, 715, 1064, 1292, 1440, 1760, 1356, 1485, 2164, 1941, 956, 544]
+
+             }, {
+                 name: '用户2',
+                 data: [836, 788, 985, 934, 1060, 845, 1050, 1043, 912, 835, 1066, 923, 715, 1064, 1292, 1440, 1760, 1356, 1485, 2164, 1941, 956, 544, 715, 1064, 1292, 1440, 1760, 1356, 1485, 2164, 1941, 956, 544]
+
+             }, {
+                 name: '用户3',
+                 data: [489, 388, 393, 414, 470, 483, 590, 596, 524, 652, 593, 512, 715, 1064, 1292, 1440, 1760, 1356, 1485, 2164, 1941, 956, 544, 715, 1064, 1292, 1440, 1760, 1356, 1485, 2164, 1941, 956, 544]
+
+             }]
+         });
+
+         //饼状图初始化
+         chart = new Highcharts.Chart({
+             chart: {
+                 renderTo: 'container3',
+                 plotBackgroundColor: null,
+                 plotBorderWidth: null,
+                 plotShadow: false
+             },
+             title: {
+                 text: '数据饼状图表'
+             },
+             tooltip: {
+                 formatter: function () {
+                     return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
+                 }
+             },
+             plotOptions: {
+                 pie: {
+                     allowPointSelect: true,
+                     cursor: 'pointer',
+                     dataLabels: {
+                         enabled: true,
+                         color: '#000000',
+                         connectorColor: '#000000',
+                         formatter: function () {
+                             return '<b>' + this.point.name + '</b>: ' + this.percentage.toFixed(2) + ' %';
+                         }
+                     }
+                 }
+             },
+             series: [{
+                 type: 'pie',
+                 name: 'pie',
+                 data: [
+                     ['圆通快递', 55.0],
+                     ['中通快递', 26.8],
+                     {
+                         name: 'EMS',
+                         y: 12.8,
+                         sliced: true,
+                         selected: true
+                     },
+                     ['申通快递', 7.5]
+                 ]
+             }]
+         });
+     });
+
+
+
+
+
+
+
+
+   </script>
+  </body>
+ </html>
+
+
+
+
+
+
+
+
+
+

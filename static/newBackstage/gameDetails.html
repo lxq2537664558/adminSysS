@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/gameDetails.css">
+    <link rel="stylesheet" href="css/public.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/gameDetails.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li class="active"><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <ul class="rh_title">
+                    <li class="current">ATT</li>
+                    <li>五星宏辉</li>
+                    <li>森林舞会</li>
+                    <li>金鲨银鲨</li>
+                    <li>水浒传</li>
+                    <li>牛魔王</li>
+                    <li>百家乐二号</li>
+                    <li>梦幻乐园</li>
+                </ul>
+                <div class="public fl">
+                    <div class="chooseTime fl">
+                        <label for="">选择时间：</label>
+                    </div>
+                    <div class="type fl">
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="today" checked>
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="today">当日</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="week">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="week">近一周</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="month">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="month">近一月</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="year">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="year">近一年</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="custom">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="custom">自定义</label>
+                        </span>
+                        <div class="timer fl">
+                            <input type="date">&nbsp;&nbsp;到&nbsp;&nbsp;
+                            <input type="date">
+                        </div>
+                        <div class="search-button fl">
+                            <input class="button" type="button" value="搜索">
+                        </div>
+                    </div>
+                </div>
+                <!--左下侧列表-->
+                <div class="leftDown fl">
+                    <ul>
+                        <li><a href="gamePreview.html">概览</a></li>
+                        <li class="ldActive"><a href="gameDetails.html">房间详情</a></li>
+                    </ul>
+                </div>
+                <!--查询列表-->
+                <ul class="rh_cont">
+                    <!--ATT-->
+                    <li class="show">
+                        <ul>
+                            <li>ATT</li>
+                            <li>ATT</li>
+                            <li>ATT</li>
+                            <li>ATT</li>
+                            <li>ATT</li>
+                        </ul>
+                    </li>
+                    <!--五星宏辉-->
+                    <li>
+                        <ul>
+                            <li>五星宏辉</li>
+                        </ul>
+                    </li>
+                    <!--森林舞会-->
+                    <li>
+                        <ul>
+                            <li>森林舞会</li>
+                        </ul>
+                    </li>
+                    <!--金鲨银鲨-->
+                    <li>
+                        <ul>
+                            <li>金鲨银鲨</li>
+                        </ul>
+                    </li>
+                    <!--水浒传-->
+                    <li>
+                        <ul>
+                            <li>水浒传</li>
+                        </ul>
+                    </li>
+                    <!--牛魔王-->
+                    <li>
+                        <ul>
+                            <li>牛魔王</li>
+                        </ul>
+                    </li>
+                    <!--百家乐二号-->
+                    <li>
+                        <ul>
+                            <li>百家乐二号</li>
+                        </ul>
+                    </li>
+                    <!--梦幻乐园-->
+                    <li>
+                        <ul>
+                            <li>梦幻乐园</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="goBack">
+                    <span class="back">返回上一层</span>
+                </div>
+                <!--房间明细-->
+                <div class="room">
+                    <div class="table">
+                        <div class="table-row-group">
+                            <ul class="table-row header">
+                                <li class="table-cell">开奖明细</li>
+                                <li class="table-cell">进分值</li>
+                                <li class="table-cell">出分值</li>
+                                <li class="table-cell">差值</li>
+                            </ul>
+                        </div>
+                        <div class="table-row-group">
+                            <ul class="table-row">
+                                <li class="table-cell">五星宏辉金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                            <ul class="table-row">
+                                <li class="table-cell">金币</li>
+                                <li class="table-cell">1212</li>
+                                <li class="table-cell">2323</li>
+                                <li class="table-cell">4545</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--分页-->
+                <div class="pages">
+                    <div class="fenye">
+                        <a href="##" class="backpage">上一页</a>
+                        <a href="##"><b>1</b></a>
+                        <a href="##"><b>2</b></a>
+                        <a href="##"><b>3</b></a>
+                        <a href="##"><b>4</b></a>
+                        <a href="##"><b>5</b></a>
+                        <a href="##" class="shenlue">...</a>
+                        <a href="##"><b>100</b></a>
+                        <a href="##" class="nextpage">下一页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+</html>

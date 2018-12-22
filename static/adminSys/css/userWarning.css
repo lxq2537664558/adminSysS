@@ -1,0 +1,30 @@
+.notice{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.notice>div>ul>li{
+    line-height: 42px;
+    font-size: 15px;
+}
+.notice>div>ul>li:first-child{
+    font-size: 20px;
+    font-weight: bold;
+}
+.notice>.noticeLeft{
+    width: 40%;
+    height: 100%;
+    /*border: 1px solid #000;*/
+    overflow: hidden;
+}
+.notice>.noticeRight{
+    width: 50%;
+    height: 100%;
+    /*border: 1px solid red;*/
+    overflow: hidden;
+}
+@media screen and (min-width: 1200px) and (max-width: 1680px){
+    .pages .fenye {
+        margin-left: 260px;
+    }
+}

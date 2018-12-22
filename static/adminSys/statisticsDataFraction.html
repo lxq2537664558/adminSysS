@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/statisticsDataFraction.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/statisticsDataFraction.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/echarts.common.min.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>游戏数据统计</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <ul class="riTitle">
+                    <li><a href="statisticsDataOverview.html">总览</a></li>
+                    <li><a href="statisticsDataFishing.html">捕鱼</a></li>
+                    <li><a href="statisticsDataHappy.html">欢乐牌机</a></li>
+                    <li><a href="statisticsDataFraction.html" class="active">经典压分</a></li>
+                    <li><a href="statisticsDataDroiyan.html">决战百人</a></li>
+                    <li><a href="statisticsDataInsane.html">疯狂滚轮</a></li>
+                </ul>
+                <div class="listDown">
+                    <ul class="rh_title">
+                        <li class="current">金鲨银鲨</li>
+                        <li class="">豪车竞技</li>
+                        <li class="">森林舞会</li>
+                    </ul>
+                    <div class="leftList">
+                        <div class="listLeft fl">
+                            <ul>
+                                <li class="all current">经典押分总览</li>
+                                <li class="singleRoom">各个房间</li>
+                            </ul>
+                        </div>
+                        <div class="listRight fl">
+                            <p class="btn">
+                                <a href="javascript:;" class="site">概要</a>
+                                <a href="javascript:;">初级场</a>
+                                <a href="javascript:;">中级场</a>
+                                <a href="javascript:;">高级场</a>
+                            </p>
+                            <!--总览-->
+                            <div class="allList">
+                                <div class="public">
+                                    <div class="chooseTime fl">
+                                        <label for="">选择时间：</label>
+                                    </div>
+                                    <div class="type fl">
+                                        <span class="choose">
+                                            <span class="checkboxouter">
+                                                <input type="radio" name="time" id="today" checked="">
+                                                <span class="radio"></span>
+                                            </span>
+                                            <label class="text" for="today">日报表</label>
+                                        </span>
+                                        <span class="choose">
+                                            <span class="checkboxouter">
+                                                <input type="radio" name="time" id="week">
+                                                <span class="radio"></span>
+                                            </span>
+                                            <label class="text" for="week">周报表</label>
+                                        </span>
+                                        <span class="choose">
+                                            <span class="checkboxouter">
+                                                <input type="radio" name="time" id="month">
+                                                <span class="radio"></span>
+                                            </span>
+                                            <label class="text" for="month">月报表</label>
+                                        </span>
+                                        <span class="choose">
+                                            <span class="checkboxouter">
+                                                <input type="radio" name="time" id="custom">
+                                                <span class="radio"></span>
+                                            </span>
+                                            <label class="text" for="custom">自由时间报表</label>
+                                        </span>
+                                        <div class="timer fl">
+                                            <input type="date">&nbsp;&nbsp;到&nbsp;&nbsp;<input type="date">
+                                        </div>
+                                        <div class="search-button fl">
+                                            <input class="button" type="button" value="搜索">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row-group">
+                                    <ul class="table-header-row">
+                                        <li class="table-cell fHeader">时间（天）</li>
+                                        <li class="table-cell fHeader">用户数量</li>
+                                        <li class="table-cell fHeader">进币数量</li>
+                                        <li class="table-cell fHeader">出币数量</li>
+                                        <li class="table-cell fHeader">盈收</li>
+                                    </ul>
+                                </div>
+                                <div class="table">
+                                    <div class="tableList">
+                                        <div class="table-row-group">
+                                            <ul class="table-row">
+                                                <li class="table-cell">10月1日</li>
+                                                <li class="table-cell">1000</li>
+                                                <li class="table-cell">10000</li>
+                                                <li class="table-cell">5000</li>
+                                                <li class="table-cell">5000</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row-group">
+                                    <ul class="table-header-row footer">
+                                        <li class="table-cell">总计</li>
+                                        <li class="table-cell">1231456</li>
+                                        <li class="table-cell">121312</li>
+                                        <li class="table-cell">8451</li>
+                                        <li class="table-cell">98746</li>
+                                    </ul>
+                                </div>
+                                <!--统计图-->
+                                <div class="charts">
+                                    <!--柱状图-->
+                                    <div id="histogram"></div>
+                                    <!--折线图-->
+                                    <div id="lineCharts"></div>
+                                </div>
+                            </div>
+                            <!--各个房间-->
+                            <div class="singleRoomList">
+                                <ul class="rh_cont">
+                                    <!--经典模式-->
+                                    <li class="show">
+                                        <ul class="list">
+                                            <li>
+                                                <p>出币数量：10000</p>
+                                                <p>进币数量：20000</p>
+                                                <p>盈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收：10000</p>
+                                                <p>1区</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--房卡模式-->
+                                    <li>
+                                        <ul class="list">
+                                            <li>
+                                                <p>出币数量：20000</p>
+                                                <p>进币数量：30000</p>
+                                                <p>盈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收：10000</p>
+                                                <p>1区</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--比赛模式-->
+                                    <li>
+                                        <ul class="list">
+                                            <li>
+                                                <p>出币数量：40000</p>
+                                                <p>进币数量：50000</p>
+                                                <p>盈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收：10000</p>
+                                                <p>1区</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

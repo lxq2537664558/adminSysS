@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>新页面2</title>
+    <link rel="stylesheet" href="/static/chartist-js-0.9.0/dist/chartist.min.css" rel="external nofollow" >
+    <script src="/static/chartist-js-0.9.0/dist/chartist.min.js"></script>
+</head>
+<body >
+
+
+<div class="ct-chart"></div>
+
+
+<script>
+
+
+    // new Chartist.Line('.ct-chart', {
+    //     labels: ['1', '2', '3', '4', '5', '6'],
+    //     series: [
+    //         {
+    //             name: 'Fibonacci sequence',
+    //             data: [1, 2, 3, 5, 8, 3]
+    //         },
+    //         {
+    //             name: 'Golden section',
+    //             data: [1, 1.618, 2.618, 4.236, 6.854, 11.09]
+    //         }
+    //     ]
+    // });
+    //
+    // var easeOutQuad = function (x, t, b, c, d) {
+    //     return -c * (t /= d) * (t - 2) + b;
+    // };
+    //
+    // var $chart = $('.ct-chart');
+    //
+    // var $toolTip = $chart
+    //         .append('<div class="tooltip"></div>')
+    //         .find('.tooltip')
+    //         .hide();
+    //
+    // $chart.on('mouseenter', '.ct-point', function() {
+    //     var $point = $(this),
+    //             value = $point.attr('ct:value'),
+    //             seriesName = $point.parent().attr('ct:series-name');
+    //
+    //     $point.animate({'stroke-width': '50px'}, 300, easeOutQuad);
+    //     $toolTip.html(seriesName + '<br>' + value).show();
+    // });
+    //
+    // $chart.on('mouseleave', '.ct-point', function() {
+    //     var $point = $(this);
+    //
+    //     $point.animate({'stroke-width': '20px'}, 300, easeOutQuad);
+    //     $toolTip.hide();
+    // });
+    //
+    // $chart.on('mousemove', function(event) {
+    //     $toolTip.css({
+    //         left: (event.offsetX || event.originalEvent.layerX) - $toolTip.width() / 2 - 10,
+    //         top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 40
+    //     });
+    // });
+
+
+
+    new Chartist.Bar('.ct-chart', {
+        labels: ['First quarter of the year', 'Second quarter of the year', 'Third quarter of the year', 'Fourth quarter of the year'],
+        series: [
+            [60000, 140000, 80000, 170000],
+            [140000, 30000, 170000, 65000],
+            [18000, 13000, 110000, 16000]
+        ]
+    }, {
+        seriesBarDistance: 10,
+        axisX: {
+            offset: 60
+        },
+        axisY: {
+            offset: 80,
+            labelInterpolationFnc: function(value) {
+                return value + ' CHF'
+            },
+            scaleMinSpace: 15
+        }
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+    // $(function () {
+    //     Start()
+    //     Update()
+    // })
+
+    // //请求数据
+    // $(function () {
+    //     socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+    //     socket.onopen = function() {
+    //         socket.send("1000"+GetCookies("UG"));
+    //         socket.send("9502" + JSON.stringify({
+    //             BG:"",
+    //             UG:GetCookies("UG"),
+    //
+    //         }));
+    //         socket.onmessage = function (msg) {
+    //             //alert(msg.data)
+    //             var newdate="";
+    //             for(var i=0;i<msg.data.length;i++){
+    //                 if (i>3){
+    //                     newdate = newdate + msg.data[i];
+    //                 }
+    //             }
+    //             obj = toJson(newdate)
+    //             //alert(obj.AP)
+    //             // var mycars = new Array(23)
+    //             //Inform_chart(obj.AP)
+    //             // for (var i = 0 ; i < obj.AP.length;i++ ){
+    //             //     //alert("======Inform_chart====="+msg[i].Tm.substring(11,14))
+    //             //     console.log("======Inform_chart====="+obj.AP[i].Tm.substring(11,14))
+    //             //     mycars[i][0] = obj.AP[i].Win
+    //             //     mycars[i][1] = obj.AP[i].Los
+    //             //     mycars[i][3] =  obj.AP[i].Win - obj.AP[i].Los
+    //             // }
+    //             c100 = document.querySelector("#chart-composite-1");
+    //             var  num = []
+    //             var  num1 = []
+    //             var  num3 = []
+    //             var  count_time = []
+    //             for (var i = 0 ;i< obj.AP.length;i++){
+    //                 //  alert( obj.AP[i].Win+"==========="+obj.AP[i].Los)
+    //                 num1.push(obj.AP[i].Los )
+    //                 num.push(obj.AP[i].Win )
+    //                 num3.push(obj.AP[i].Win - obj.AP[i].Los)
+    //                 count_time.push(i)
+    //
+    //             }
+    //
+    //
+    //
+    //             $(document).ready(function(){
+    //
+    //                 var page14_jChart2_chart = echarts.init(document.getElementById('page14_jChart2'));
+    //                 page14_jChart2_chart.setOption({
+    //                     tooltip : {
+    //                         trigger: 'axis'
+    //                     },
+    //                     legend: {
+    //                         data:['收入（元宝）','输出（元宝）']
+    //                     },
+    //                     xAxis: [
+    //                         {
+    //                             type: 'category',
+    //                             data: count_time
+    //                         }
+    //                     ],
+    //                     yAxis: [
+    //                         {
+    //                             type: 'value'
+    //                         }
+    //                     ],
+    //                     series : [
+    //                         {
+    //                             name:'收入（元宝）',
+    //                             type:'line',
+    //                             data:num
+    //                         },
+    //                         {
+    //                             name:'输出（元宝）',
+    //                             type:'line',
+    //                             data:num1
+    //                         },
+    //                         {
+    //                             name:'差值（元宝）',
+    //                             type:'line',
+    //                             data:num3
+    //                         }
+    //                     ]
+    //                 });
+    //             });
+    //
+    //
+    //             // reportCountLists = num;
+    //             //
+    //             // lineCompositeDatas = {
+    //             //     labels: count_time,
+    //             //     yMarkers: [
+    //             //         {
+    //             //             label: "按小时",
+    //             //             value: 800,
+    //             //         }
+    //             //     ],
+    //             //
+    //             //     datasets: [{
+    //             //         "name": "元宝",
+    //             //         "values": reportCountLists
+    //             //     }]
+    //             // };
+    //             //
+    //             //
+    //             //
+    //             // lineCompositeChart = new Chart (c100, {
+    //             //     title: "",
+    //             //     data: lineCompositeDatas,
+    //             //     type: 'line',
+    //             //     height: 290,
+    //             //     colors: ['green'],
+    //             //     isNavigable: 1,
+    //             //     valuesOverPoints: 1,
+    //             //
+    //             //     lineOptions: {
+    //             //         dotSize: 8
+    //             //     },
+    //             //     // yAxisMode: 'tick'
+    //             //     // regionFill: 1
+    //             // });
+    //
+    //
+    //
+    //             socket.close()
+    //         }
+    //     }
+    //
+    // })
+
+
+
+</script>
+
+
+</body>
+</html>

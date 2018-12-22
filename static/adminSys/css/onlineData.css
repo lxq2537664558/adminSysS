@@ -1,0 +1,202 @@
+/**/
+.public {
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    /*line-height: 40px;*/
+}
+
+.public>.chooseTime {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.public>.chooseTime>label {
+    position: relative;
+    padding-left: 7px;
+    /*width: 6em;*/
+    height: 26px;
+    line-height: 26px;
+}
+
+.public>.type {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.public>.type>.choose {
+    position: relative;
+    top: 6px;
+    float: left;
+    margin-right: 21px;
+    white-space: nowrap;
+}
+
+.public>.type>.choose>.checkboxouter {
+    float: left;
+    position: relative;
+    margin: 0 auto;
+    width: 16px;
+    height: 16px;
+    background: url("../img/radio.png");
+}
+
+.public>.type>.choose input[type=radio], .kv-item .choose input[type=checkbox] {
+    position: relative;
+    *position: static;
+    float: left;
+    margin-right: -16px;
+}
+
+.public>.type>.choose .checkboxouter input[type="radio"] {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    background: red;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.public>.type>.choose .checkboxouter .radio {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 16px;
+    width: 16px;
+    background: none;
+}
+
+.public>.type>.choose .checkboxouter input[type="radio"]:checked ~.radio {
+    background: url("../img/radiochecked.png");
+}
+
+.public>.type>.choose .text {
+    float: left;
+    padding-left: 5px;
+    *padding-left: 5px;
+    white-space: nowrap;
+    /*font-size: 14px;*/
+}
+
+.public>.type>.timer {
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.public>.type>.search-button>input {
+    display: inline-block;
+    width: 105px;
+    height: 25px;
+    line-height: 25px;
+    background: #000033;
+    border: none;
+    border-radius: 3px;
+    color: #c96;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 18px;
+    outline: none;
+    margin-top: 4px;
+}
+.dailyList{
+    /*width: 100%;*/
+    height: auto;
+    /*border: 1px solid #000;*/
+    padding-bottom: 50px;
+}
+.dailyList>.list{
+    padding-bottom: 50px;
+    /*border: 1px solid red;*/
+}
+.dailyList>.list>ul{
+
+}
+.dailyList>.list>ul>li{
+    display: inline-block;
+    width: 13%;
+    height: 110px;
+    border: 1px solid #000;
+    margin: 15px 25px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.dailyList>.list>ul>li{
+    background: rgba(0, 0, 51, 0.67);
+}
+/*.dailyList>.list>ul>li:nth-child(1){*/
+/*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(2){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(3){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(4){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(5){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(6){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(7){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(8){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(9){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(10){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(11){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(12){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(13){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(14){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(15){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+/*.dailyList>.list>ul>li:nth-child(16){*/
+    /*background: rgb(69, 52, 174);*/
+/*}*/
+.dailyList>.list>ul>li>p:first-child{
+    height: 70px;
+    line-height: 70px;
+    font-size: 20px;
+    color: #fff;
+}
+.dailyList>.list>ul>li>p:last-child{
+    height: 40px;
+    line-height: 40px;
+    background: #ccc;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+/*柱状图*/
+.dailyList>.onecharts{
+    height: 500px;
+}
+@media screen and (min-width: 1200px) and (max-width: 1680px){
+    .dailyList>.list>ul>li {
+        width: 20%;
+        margin: 15px 25px;
+    }
+}

@@ -1,0 +1,36 @@
+.content>.rightList>.box {
+    width: auto;
+    height: 500px!important;
+}
+.content>.rightList>.box>.notice{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.content>.rightList>.box>.notice>div>ul>li{
+    line-height: 42px;
+    font-size: 15px;
+}
+.content>.rightList>.box>.notice>div>ul>li:first-child{
+    font-size: 20px;
+    font-weight: bold;
+}
+.content>.rightList>.box>.notice>.noticeLeft{
+    width: 40%;
+    height: 100%;
+    /*border: 1px solid #000;*/
+    overflow: hidden;
+}
+
+.content>.rightList>.box>.notice>.noticeRight{
+    width: 58%;
+    height: 100%;
+    /*border: 1px solid red;*/
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1623px) and (min-width: 1200px){
+    .pages .fenye {
+        margin-left: 250px!important;
+    }
+}

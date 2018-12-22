@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/skin_/nav.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+
+    <script type="text/javascript" src="/static/js/chartroom.js"></script>
+
+<title>底部内容页</title>
+</head>
+
+
+<!--
+查询在线人数 1
+查询用户详细信息 1
+发送邮件 和公告 6
+游戏开奖查询 5
+充值退分  6
+账务查询 3
+难度修改 4
+权限管理  用户操作 2
+异常预警 7
+服务器管理 10
+
+
+-->
+
+
+
+<body>
+<div id="container">
+	<div id="bd">
+    	<div class="sidebar">
+        	<div class="sidebar-bg"></div>
+            <i class="sidebar-hide"></i>
+            <h2><a href="javascript:;"><i class="h2-icon" title="切换到树型结构"></i><span>安全管理</span></a></h2>
+            <ul class="nav">
+                <li class="nav-li">
+                	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">查询信息</span></a>
+                    <ul class="subnav">
+                    	<li class="subnav-li" href="Select_Game_count.html" data-id="0"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">查询各游戏在线人数</span></a></li>
+                        <li class="subnav-li" href="Select_user_inform.html" data-id="18"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">查询用户详细信息</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-li current">
+                	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">用户信息设置</span></a>
+                	<ul class="subnav">
+                    	<li class="subnav-li current" href="User_insert.html" data-id="1"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">增加管理员</span></a></li>
+                        <li class="subnav-li" href="Delect_user.html  " data-id="2"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">删除管理员</span></a></li>
+                        <li class="subnav-li" href="locking_User.html" data-id="3"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">锁定用户</span></a></li>
+                        <li class="subnav-li" href="Unlock_User.html" data-id="4"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">解锁用户</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-li">
+                	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">账务查询</span></a>
+                    <ul class="subnav">
+                    	<li class="subnav-li" href="404.html"   data-id="5"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">查询充值明细</span></a></li>
+                        <li class="subnav-li" href="404.html"   data-id="6"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">充值总览</span></a></li>
+                        <li class="subnav-li"  href="404.html"   data-id="7"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">按游戏类型查询</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-li last-nav-li">
+                	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">风控操作</span></a>
+                    <ul class="subnav">
+                    	<li class="subnav-li" href="position_update.html" data-id="8"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">修改游戏档位</span></a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-li last-nav-li">
+                    <a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">开奖结果</span></a>
+                    <ul class="subnav">
+                        <li class="subnav-li"  href="404.html"   data-id="9"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">实时开奖结构</span></a></li>
+                        <li class="subnav-li"  href="kaijingjieguo.html"   data-id="10"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">各游戏总览</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-li last-nav-li">
+                    <a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">邮件公告</span></a>
+                    <ul class="subnav">
+                        <li class="subnav-li" href="Send_Emil.html" data-id="11"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">邮件功能</span></a></li>
+                        <li class="subnav-li" href="Notice_Send.html" data-id="12"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">公告功能</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-li last-nav-li">
+                    <a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">异常预警</span></a>
+                    <ul class="subnav">
+                        <li class="subnav-li" href="warning_inform.html" data-id="13"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">预警信息</span></a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li class="nav-li last-nav-li">
+                    <a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">服务器管理</span></a>
+                    <ul class="subnav">
+                        <li class="subnav-li" href="Stop_taking.html" data-id="15"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">停服操作</span></a></li>
+                        <li class="subnav-li" href="SetUP_room.html" data-id="16"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">设置游戏房间数</span></a></li>
+                        <li class="subnav-li" href="Invitation_Code.html" data-id="17"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">邀请码</span></a></li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-li last-nav-li">
+                    <a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">充值兑换</span></a>
+                    <ul class="subnav">
+                        <li class="subnav-li" href="insert_monery.html" data-id="14"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">修改玩家金币</span></a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
+            <div class="tree-list outwindow">
+            	<div class="tree ztree"></div>
+            </div>
+        </div>
+        <div class="main">
+        	<div class="title">
+                <i class="sidebar-show"></i>
+                <ul class="tab ue-clear">
+                   
+                </ul>
+                <i class="tab-more"></i>
+                <i class="tab-close"></i>
+            </div>
+            <div class="content">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="more-bab-list">
+	<ul></ul>
+    <div class="opt-panel-ml"></div>
+    <div class="opt-panel-mr"></div>
+    <div class="opt-panel-bc"></div>
+    <div class="opt-panel-br"></div>
+    <div class="opt-panel-bl"></div>
+</div>
+</body>
+<script type="text/javascript" src="js/nav.js"></script>
+<script type="text/javascript" src="js/Menu.js"></script>
+<script type="text/javascript" src="js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript">
+	var menu = new Menu({
+		defaultSelect: $('.nav').find('li[data-id="1"]')	
+	});
+
+	
+	function yemianzanwu() {
+            alert("页面暂无")
+        // window.location.href = "http://"+IPconf+":"+prot+"/static/newhtml/404.html"
+        return
+    }
+	
+	
+	// 左侧树结构加载
+	var setting = {};
+
+		var zNodes =[
+			{ name:"新闻管理",
+			   children: [
+				 { name:"新闻视频管理",icon:'img/skin_/leftlist.png'},
+				 { name:"新闻频道管理",icon:'img/skin_/leftlist.png'},
+				 { name:"地方新闻管理",icon:'img/skin_/leftlist.png'}
+			]},
+			{ name:"用户信息设置", open:true,
+			   children: [
+				 { name:"首页", checked:true,icon:'img/skin_/leftlist.png'},
+				 { name:"表单",icon:'img/skin_/leftlist.png'},
+				 { name:"表格",icon:'img/skin_/leftlist.png'},
+				 { name:"自定义设置",icon:'img/skin_/leftlist.png'}
+			]},
+			{ name:"工作安排",
+			   children: [
+				 { name:"工作安排",icon:'img/skin_/leftlist.png'},
+				 { name:"安排管理",icon:'img/skin_/leftlist.png'},
+				 { name:"类型选择",icon:'img/skin_/leftlist.png'},
+				 { name:"自定义设置",icon:'img/skin_/leftlist.png'}
+			]},
+			{ name:"数据管理",
+			   children: [
+				 { name:"工作安排",icon:'img/skin_/leftlist.png'},
+				 { name:"安排管理",icon:'img/skin_/leftlist.png'},
+				 { name:"类型选择",icon:'img/skin_/leftlist.png'},
+				 { name:"自定义设置",icon:'img/skin_/leftlist.png'}
+			]},
+            { name:"数据管理",
+                children: [
+                    { name:"工作安排",icon:'img/skin_/leftlist.png'},
+                    { name:"安排管理",icon:'img/skin_/leftlist.png'},
+                    { name:"类型选择",icon:'img/skin_/leftlist.png'},
+                    { name:"自定义设置",icon:'img/skin_/leftlist.png'}
+                ]},
+            { name:"数据管理",
+                children: [
+                    { name:"工作安排",icon:'img/skin_/leftlist.png'},
+                    { name:"安排管理",icon:'img/skin_/leftlist.png'},
+                    { name:"类型选择",icon:'img/skin_/leftlist.png'},
+                    { name:"自定义设置",icon:'img/skin_/leftlist.png'}
+                ]}
+		];
+
+	$.fn.zTree.init($(".tree"), setting, zNodes);
+	
+	
+	$('.sidebar h2').click(function(e) {
+        $('.tree-list').toggleClass('outwindow');
+		$('.nav').toggleClass('outwindow');
+    });
+	
+	$(document).click(function(e) {
+		if(!$(e.target).is('.tab-more')){
+			 $('.tab-more').removeClass('active');
+			 $('.more-bab-list').hide();
+		}
+    });
+</script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆后台</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <!--登陆-->
+
+        <div id="container">
+            <div id="main">
+                <div class="login-box">
+                    <div class="logo">
+                        <img src="img/logo.jpg" alt="" class="left fl">
+                        <span class="right fr">叁角猫游戏后台管理系统</span>
+                    </div>
+                    <div class="input username">
+                        <label for="userName">用户名</label>
+                        <span></span>
+                        <input type="text" name="userName" maxlength="20" id="userName">
+                    </div>
+                    <div class="input psw" id="psw">
+                        <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                        <span></span>
+                        <input type="password" name="passWord" maxlength="20" id="password">
+                    </div>
+                    <div class="input validate">
+                        <label for="valiDate">验证码</label>
+                        <input type="text" name="code" maxlength="10">
+                        <img src="img/code.jpg" alt="" class="value">
+                    </div>
+                    <div id="btn" class="loginButton"  onclick="Select_as_Banned()">
+                        <input type="submit" class="button" value="登录">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+<script>
+
+
+
+
+
+
+
+    //客户端请求登录
+    function Select_as_Banned() {
+
+
+        //   window.location.href = "http://"+IPconf+":"+prot+"/static/html/home.html"
+        var username = document.getElementById("userName").value;
+        var pas = document.getElementById("password").value;
+
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+        // window.location.href = "http://"+IPconf+":"+prot+"/static/newBackstage/onlineUser.html"
+        socket.onopen = function() {
+            socket.send("9001" + JSON.stringify({
+                BG:"",
+                UN:username,
+                PW:pas
+            }));
+            socket.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                //alert(obj.Errcode)
+
+
+                if (obj.Errcode == -1 ){
+                    SetCookie("UG",obj.UG)
+                    SetCookie("un",obj.UN)
+                    SetCookie("ac",obj.AC)
+                    alert("登录成功")
+                    window.location.href = "http://"+IPconf+":"+prot+"/static/newBackstage/onlineUser.html"
+                }else if (obj.Errcode == 2){
+                    alert("密码错误")
+                }else if (obj.Errcode == 0){
+                    alert("账号不存在")
+                }else if (obj.Errcode == 3){
+                    alert("权限不足")
+                }
+                socket.close()
+            }
+        }
+
+
+
+    }
+
+
+
+</script>
+
+
+
+</html>

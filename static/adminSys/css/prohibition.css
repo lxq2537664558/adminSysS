@@ -1,0 +1,56 @@
+.prohibition>.sub{
+    display: block;
+}
+.prohibition>.sub>li>.oneLi{
+    color: #f60;
+}
+.table-cell {
+    padding: 5px 0 5px 0;
+}
+.table-cell>input{
+    height: 20px;
+    line-height: 20px;
+    margin-left: -25px;
+    border: 1px solid #cccccc;
+    padding-left: 10px;
+    outline: none;
+    background: rgba(204, 204, 204, 0);
+}
+.table-cell>input:hover{
+    /*opacity: 0;*/
+    background: rgba(204, 204, 204, 0);
+}
+.table-cell>select{
+    outline: none;
+    width: 90px;
+    height: 20px;
+}
+.operation{
+    padding: 0;
+}
+.operation>a{
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid transparent;
+    margin-right: 8px;
+    color: #fff;
+    /*background: #000033;*/
+    border-radius: 5px;
+}
+.operation>a:first-child{
+    background: red;
+}
+.operation>a:last-child{
+    background: green;
+}
+/*适配*/
+@media screen and (min-width: 1200px) and (max-width: 1680px) {
+    .table-cell {
+        padding: 5px 0 5px 0;
+    }
+    .operation{
+        padding: 0 10px 0 10px;
+    }
+}

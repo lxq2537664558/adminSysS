@@ -1,0 +1,146 @@
+.machineAccount>.sub{
+    display: block;
+}
+.machineAccount>.sub>li>.twoLi{
+    color: #f60;
+}
+.content>.pageCont>.right>.rightDown>.riTitle{
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding-left: 26px;
+    margin-bottom: 20px;
+}
+.content>.pageCont>.right>.rightDown>.riTitle>li{
+    display: inline-block;
+    width: 16%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: -5px;
+    background: #ccc;
+}
+.content>.pageCont>.right>.rightDown>.riTitle>li>a{
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+.content>.pageCont>.right>.rightDown>.riTitle>li>.active{
+    color: #fff!important;
+    background: #000033;
+}
+.content>.pageCont>.right>.rightDown>.listDown{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding-left: 20px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listLeft{
+    width: 10%;
+    height: auto;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listLeft>ul>li{
+    width: 50%;
+    line-height: 30px;
+    font-size: 15px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listLeft>ul>.current{
+    color: #fff!important;
+    background: #000033;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight{
+    width: 90%;
+    height: auto;
+    overflow: hidden;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.allList{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 20px;
+    /*display: none;*/
+    /*background: #000033;*/
+}
+.time{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.time>span{
+    font-size: 14px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: none;
+    margin-left: 20px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_title{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_title>li{
+    width: 11%;
+    height: 30px;
+    /*background: #ccc;*/
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+    font-size: 15px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_title>.comm{
+    border-bottom: 2px solid #000033;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_cont{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_cont>li{
+    display: none;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_cont>.show{
+    display: block;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_cont>li>.list>li{
+    display: inline-block;
+    width: 185px;
+    height: 110px;
+    border: 1px solid #ccc;
+    margin: 0 5px 5px 0;
+    font-size: 14px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_cont>li>.list>li>p{
+    padding-left: 15px;
+    line-height: 27px;
+}
+.content>.pageCont>.right>.rightDown>.listDown>.listRight>.singleRoomList>.rh_cont>li>.list>li>p:last-child{
+    background: #ccc;
+    text-align: center;
+    padding-left: 0;
+}
+.table{
+    width: 93.1%;
+    margin: 0;
+}
+.table-cell {
+    display: table-cell;
+    padding: 5px 0 5px 0;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 14px;
+}
+/*适配*/
+@media screen and (min-width: 1200px) and (max-width: 1680px) {
+    .table-cell {
+        padding: 5px 0 5px 0;
+    }
+    .content>.pageCont>.right>.rightDown>.listDown>.listLeft>ul>li {
+        width: 70%;
+    }
+}

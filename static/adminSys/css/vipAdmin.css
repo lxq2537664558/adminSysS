@@ -1,0 +1,99 @@
+.table-cell {
+    padding: 5px 0 5px 0
+}
+.table-cell>input{
+    height: 20px;
+    line-height: 20px;
+    margin-left: -25px;
+    border: none;
+    padding-left: 10px;
+    outline: none;
+    background: rgba(204, 204, 204, 0);
+}
+.table-cell>input:hover{
+    /*opacity: 0;*/
+    background: rgba(204, 204, 204, 0);
+}
+.table-cell>select{
+    outline: none;
+    width: 90px;
+    height: 20px;
+}
+.operation{
+    padding: 0;
+}
+.operation>a{
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid transparent;
+    margin-right: 8px;
+    color: #fff;
+    /*background: #000033;*/
+    border-radius: 5px;
+}
+.operation>a:first-child{
+    background: red;
+}
+.operation>a:last-child{
+    background: green;
+}
+/*搜索*/
+.searchUser{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+}
+.searchUser>input[type=text]{
+    /*margin-left: 55px;*/
+    width: 15%;
+    height: 25px;
+    outline: none;
+    padding: 0 10px 0 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.searchUser>.search{
+    margin-left: 6px;
+    outline: none;
+    border: none;
+    padding: 5px 20px;
+    background: #000033;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.content>.pageCont>.right>.rightDown {
+    padding-bottom: 100px;
+}
+.echarts{
+    height: 500px;
+    /*border: 1px solid #000;*/
+    margin-top: 20px;
+}
+.echarts>div{
+    float: left;
+}
+.echarts>.vipecharts1{
+    width: 50%;
+    height: 100%;
+    /*background: #000;*/
+}
+.echarts>.vipecharts2{
+    width: 50%;
+    height: 100%;
+    /*background: red;*/
+}
+/*适配*/
+@media screen and (min-width: 1200px) and (max-width: 1680px) {
+    .table-cell {
+        padding: 5px 0 5px 0
+    }
+    .operation{
+        padding: 0 10px 0 10px;
+    }
+}

@@ -1,0 +1,182 @@
+.content>.rightList>.box>.rh_title {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.content>.rightList>.box>.rh_title>li {
+    width: 11%;
+    height: 50px;
+    background: #ccc;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    cursor: pointer;
+    font-size: 15px;
+    /*border-bottom: 1px solid #ccc;*/
+}
+
+.content>.rightList>.box>.rh_title>.current {
+    background: #199ed8;
+}
+
+.content>.rightList>.box>.rh_cont {
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+}
+
+.content>.rightList>.box>.rh_cont>li {
+    display: none;
+}
+
+.content>.rightList>.box>.rh_cont>.show {
+    display: block;
+}
+
+.content>.rightList>.box>.public {
+}
+
+.content>.rightList>.box>.public>.chooseTime {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.content>.rightList>.box>.public>.chooseTime>label {
+    position: relative;
+    padding-left: 7px;
+    /*width: 6em;*/
+    height: 26px;
+    line-height: 26px;
+}
+
+.content>.rightList>.box>.public>.type {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.content>.rightList>.box>.public>.type>.choose {
+    position: relative;
+    top: 6px;
+    float: left;
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+.content>.rightList>.box>.public>.type>.choose>.checkboxouter {
+    float: left;
+    position: relative;
+    margin: 0 auto;
+    width: 16px;
+    height: 16px;
+    background: url("../img/radio.png");
+}
+
+.content>.rightList>.box>.public>.type>.choose input[type=radio], .kv-item .choose input[type=checkbox] {
+    position: relative;
+    *position: static;
+    float: left;
+    margin-right: -16px;
+}
+
+.content>.rightList>.box>.public>.type>.choose .checkboxouter input[type="radio"] {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    background: red;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.content>.rightList>.box>.public>.type>.choose .checkboxouter .radio {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 16px;
+    width: 16px;
+    background: none;
+}
+
+.content>.rightList>.box>.public>.type>.choose .checkboxouter input[type="radio"]:checked ~.radio {
+    background: url("../img/radiochecked.png");
+}
+
+.content>.rightList>.box>.public>.type>.choose .text {
+    float: left;
+    padding-left: 5px;
+    *padding-left: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.content>.rightList>.box>.public>.type>.timer {
+    margin-top: 2px;
+    font-size: 15px;
+}
+
+.content>.rightList>.box>.public>.type>.search-button>input {
+    display: inline-block;
+    width: 135px;
+    height: 30px;
+    background: url("../img/formbtnbg.png");
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.table{
+    display: table;
+    border-collapse: collapse;
+    /*border: 1px solid #ccc;*/
+    margin: 75px 0 0 100px;
+}
+.table>.tabletit{
+    margin-bottom: 10px;
+}
+.table-row-group {
+    display: table-row-group;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-row-group .table-row:hover,.table-footer-group .table-row:hover {
+    background: #f6f6f6;
+}
+
+.table-cell {
+    display: table-cell;
+    padding: 10px 60px;
+    border: 1px solid #000;
+    text-align: center;
+}
+.table-cell a{
+    text-decoration: none;
+    color: blue;
+}
+.table-header-group {
+    display: table-header-group;
+    background: #eee;
+    font-weight: bold;
+}
+
+.table-footer-group {
+    display: table-footer-group;
+}
+
+@media screen and (min-width:1200px) and (max-width:1623px){
+    .table-cell{
+        padding: 7px 35px;
+    }
+    .table{
+        margin: 75px 0 0 40px;
+    }
+}

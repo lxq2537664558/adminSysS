@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/districtIncome.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="content">
+    <div class="pageCont">
+        <div class="right fl">
+            <div class="rightTitle">
+                <p>
+                    <i></i>
+                    <span>系统主页</span>
+                    <i>></i>
+                    <span>区服收入</span>
+                </p>
+            </div>
+            <div class="rightDown">
+                <div class="public">
+                    <div class="chooseTime fl">
+                        <label for="">选择时间：</label>
+                    </div>
+                    <div class="type fl">
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="today" checked="">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="today">日报表</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="week">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="week">周报表</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="month">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="month">月报表</label>
+                        </span>
+                        <span class="choose">
+                            <span class="checkboxouter">
+                                <input type="radio" name="time" id="custom">
+                                <span class="radio"></span>
+                            </span>
+                            <label class="text" for="custom">自由时间报表</label>
+                        </span>
+                        <div class="timer fl">
+                            <input type="date">&nbsp;&nbsp;到&nbsp;&nbsp;<input type="date">
+                        </div>
+                        <div class="search-button fl">
+                            <input class="button" type="button" value="搜索">
+                        </div>
+                    </div>
+                </div>
+                <div class="sel">
+                    <select name="" id="">
+                        <option value="">应用宝</option>
+                        <option value="">360手机助手</option>
+                        <option value="">OPPO软件商店</option>
+                        <option value="">百度手机助手</option>
+                        <option value="">华为应用市场</option>
+                        <option value="">小米应用商店</option>
+                        <option value="">VIVO应用商店</option>
+                        <option value="">PP助手</option>
+                        <option value="">豌豆荚</option>
+                        <option value="">苹果应用商店</option>
+                    </select>
+                    <input class="button" type="button" value="确定">
+                </div>
+                <div class="table">
+                    <div class="table-row-group">
+                        <ul class="table-header-row">
+                            <li class="table-cell"></li>
+                            <li class="table-cell">1区</li>
+                            <li class="table-cell">2区</li>
+                            <li class="table-cell">3区</li>
+                            <li class="table-cell">4区</li>
+                            <li class="table-cell">5区</li>
+                            <li class="table-cell">6区</li>
+                            <li class="table-cell">7区</li>
+                            <li class="table-cell">8区</li>
+                            <li class="table-cell">9区</li>
+                            <li class="table-cell">10区</li>
+                            <li class="table-cell">11区</li>
+                            <li class="table-cell">12区</li>
+                            <li class="table-cell">13区</li>
+                            <li class="table-cell">14区</li>
+                            <li class="table-cell">15区</li>
+                            <li class="table-cell">16区</li>
+                            <li class="table-cell">17区</li>
+                            <li class="table-cell">18区</li>
+                            <li class="table-cell">19区</li>
+                            <li class="table-cell">20区</li>
+                            <li class="table-cell">21区</li>
+                            <li class="table-cell">22区</li>
+                            <li class="table-cell">23区</li>
+                            <li class="table-cell">24区</li>
+                            <li class="table-cell">25区</li>
+                            <li class="table-cell">26区</li>
+                            <li class="table-cell">27区</li>
+                            <li class="table-cell">28区</li>
+                            <li class="table-cell">29区</li>
+                            <li class="table-cell">30区</li>
+                        </ul>
+                    </div>
+                    <div class="table-row-group" id="table-body">
+                        <ul class="table-row">
+                            <li class="table-cell">0:00</li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                        </ul>
+                        <ul class="table-row">
+                            <li class="table-cell">1:00</li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                            <li class="table-cell"></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!--分页-->
+                <div class="pages">
+                    <div class="fenye">
+                        <span>共<em id="total"></em>条，本页显示<em id="Page"></em>条，当前是第<em id="num"></em>页</span>
+                        <a href="javascript:;" class="backpage" onclick="Select_User_infrom(1)" title="上一页"><<</a>
+                        <a href="javascript:;" class="nextpage" onclick="Select_User_infrom(2)" title="下一页">>></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+
+
+<script>
+
+
+    //请求玩家金币排行榜 9077
+
+    // $(function () {
+    //     socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+    //     socket.onopen = function() {
+    //         socket.send("1000"+GetCookies("UG"));
+    //         socket.send("9077" + JSON.stringify({
+    //             BG:"",
+    //             UG:GetCookies("UG"),
+    //             ST:parseInt(1),
+    //             SID:parseInt(0),
+    //             SN:parseInt(5),
+    //             NUM:parseInt(16),
+    //         }));
+    //         socket.onmessage = function (msg) {
+    //             var newdate="";
+    //             for(var i=0;i<msg.data.length;i++){
+    //                 if (i>3){
+    //                     newdate = newdate + msg.data[i];
+    //                 }
+    //             }
+    //
+    //             obj = toJson(newdate)
+    //             if (obj.UMG == null) {
+    //                 alert("未查询到数据")
+    //                 return
+    //             }
+    //
+    //             SetCookie("HPlength", obj.UMG.length)
+    //
+    //             var num = ""
+    //             for (var i = 0; i < obj.UMG.length; i++) {
+    //                 // var tr = $("<tr>");
+    //                 num += "<ul  class='table-row'>"
+    //                 num += "<li class='table-cell'>"+''+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].NickName+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].ZH+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Id+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Uid+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Lv+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Vip+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].GoldN+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Coin+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].MG+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].HD+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Rmb+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].YXN+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].ZXTM+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].CallX+"</li>"
+    //                 num += "</ul>"
+    //             }
+    //             $("#table-body").html(num)
+    //             socket.close()
+    //         }
+    //     }
+    // })
+    //
+    // //查询玩家信息
+    // $("#search").click(function () {
+    //     var name = document.getElementById("name").value;
+    //     // alert(name)
+    //     if(name == ""){
+    //         alert("昵称或UID不能为空")
+    //         return
+    //     }
+    //
+    //     //创建一个数组
+    //     var list = new Array();
+    //     //将需要查询的值push到数组中（字段UID为数组形式）
+    //     list.push(name);
+    //     var num = "";
+    //     SetCookie("Ste",num)
+    //     SetCookie("pages",0)
+    //     socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+    //     socket.onopen = function() {
+    //         socket.send("1000"+GetCookies("UG"));
+    //         socket.send("9003" + JSON.stringify({
+    //             BG:"",
+    //             UG:GetCookies("UG"),
+    //             ST:parseInt(num),
+    //             SID:parseInt(0),
+    //             SN:parseInt(0),
+    //             NUM:parseInt(16),
+    //             UID:list
+    //         }));
+    //         socket.onmessage = function (msg) {
+    //             var newdate="";
+    //             for(var i=0;i<msg.data.length;i++){
+    //                 if (i>3){
+    //                     newdate = newdate + msg.data[i];
+    //                 }
+    //             }
+    //             obj = toJson(newdate)
+    //             if (obj.UMG == null) {
+    //                 alert("未查询到数据")
+    //                 return
+    //             }
+    //             // alert(newdate)
+    //             $("table:eq(0) tr:gt(0)").remove();
+    //
+    //
+    //             // alert(obj.CT)
+    //             SetCookie("HPlength",obj.CT)
+    //             var num = ""
+    //             for (var i = 0; i < obj.UMG.length; i++) {
+    //                 // var tr = $("<tr>");
+    //                 num += "<ul  class='table-row'>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].NickName+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].ZH+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Id+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Uid+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Lv+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Vip+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].GoldN+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Coin+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].MG+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].HD+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].Rmb+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].YXN+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].ZXTM+"</li>"
+    //                 num += "<li class='table-cell'>"+obj.UMG[i].CallX+"</li>"
+    //                 num += "</ul>"
+    //             }
+    //
+    //             $("#table-body").html(num)
+    //
+    //             socket.close()
+    //         }
+    //     }
+    // });
+
+</script>
+</html>

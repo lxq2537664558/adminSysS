@@ -1,0 +1,1571 @@
+﻿body{font-size:12px;}
+
+#page1_jPanel1{
+  top: 0px;
+  height: 634px;
+  width: 1440px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(../images/jloginbg02.jpg) no-repeat;
+}
+
+#page1_jPanel2{
+  top: 257px;
+  height: 333px;
+  width: 1074px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page1_jHtmlForm1_form{
+  position:absolute;
+  left: 706px;
+  top: 74px;
+  width: 303px;
+  height: 174px;
+}
+
+#page1_jLabel1{
+  left: 49px;
+  top: 31px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+#page1_jEdit1{
+  left: 119px;
+  top: 28px;
+  width:170px;
+  height:14px;
+}
+
+#page1_jLabel2{
+  left: 49px;
+  top: 63px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+#page1_jEdit2{
+  left: 119px;
+  top: 60px;
+  width:171px;
+  height:14px;
+}
+
+#page1_jCheckBox1{
+  left: 120px;
+  top: 90px;
+}
+
+#page1_jButton1{
+  left: 114px;
+  top: 134px;
+  width:79px;
+  height:20px;
+}
+
+#page1_jButton2{
+  left: 209px;
+  top: 134px;
+  width:79px;
+  height:20px;
+}
+
+#page1_jLabel3{
+  left: 300px;
+  top: 99px;
+  font-size: 24px;
+  font-family: "黑体";
+  font-weight: bold;
+  color: #000000;
+  line-height: 26px;
+}
+
+#page1_jImages2{
+  left: 369px;
+  top: 44px;
+  height: 45px;
+  width: 45px;
+}
+
+#page1_jLabel4{
+  left: 299px;
+  top: 134px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  line-height: 20px;
+}
+
+#page1_jLabel5{
+  left: 818px;
+  top: 40px;
+  font-size: 24px;
+  font-family: "微软雅黑";
+  font-weight: bold;
+  color: #f0f0f0;
+  line-height: 26px;
+}
+
+#page1_jLabel6{
+  left: 927px;
+  top: 56px;
+  color: #f0f0f0;
+  line-height: 14px;
+}
+
+#page2_jContainer1{
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#page2_jMenuH1{
+  left: 22px;
+  top: 59px;
+  width: 1912px;
+  z-index: 3;
+}
+
+#page2_jRegion1{
+  border:none;
+  overflow:hidden;
+}
+
+#page2_jRegion2{
+  border:none;
+  overflow:hidden;
+}
+
+#page2_jPanel3{
+  left: 0px;
+  top: 92px;
+  height: 31px;
+  right: 0px;
+}
+
+#page2_jPanel1{
+  left: 0px;
+  top: 0px;
+  height: 94px;
+  width: 100%;
+  background: url(../images/jTitle001.jpg) repeat;
+}
+
+#page2_jLabel1{
+  left: 15px;
+  top: 10px;
+  font-size: 36px;
+  font-family: "隶书";
+  color: #FFFFFF;
+  line-height: 38px;
+}
+
+#page2_jPanel2{
+  right: 0px;
+  top: 4px;
+  height: 39px;
+  width: 246px;
+}
+
+#page2_jLink1{
+  left: 12px;
+  top: 9px;
+}
+
+#page2_jLink2{
+  left: 56px;
+  top: 9px;
+}
+
+#page2_jLink3{
+  left: 131px;
+  top: 9px;
+}
+
+#page2_jLink4{
+  left: 200px;
+  top: 9px;
+}
+
+#page2_jLabel2{
+  left: 117px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page2_jLabel3{
+  left: 44px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page2_jLabel4{
+  left: 190px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page2_jContainer2{
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#page2_jRegion5{
+  border:none;
+  overflow:hidden;
+}
+
+#page2_jDataGrid1{
+  left: 1px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+#page2_jDataGrid1 .ui-jqgrid{
+  border: none;
+}
+
+#page2_jLabel5{
+  left: 4px;
+  top: 7px;
+  line-height: 14px;
+}
+
+#page2_jLabel6{
+  left: 10px;
+  top: 174px;
+  line-height: 14px;
+}
+
+#page2_jEdit1{
+  left: 106px;
+  top: 174px;
+  width:219px;
+  height:14px;
+}
+
+#page2_jButton5{
+  left: 351px;
+  top: 174px;
+  width:56px;
+  height:20px;
+}
+
+#page2_jExtPanel2{
+  left: 0px;
+  top: 69px;
+  height: 100%;
+  right: 0px;
+}
+
+#page2_jExtPanel2 .PanelBarCaption{
+}
+
+#page2_jExtPanel2 .PanelContent{
+}
+
+#page2_jExtPanel2 .cumicon{
+  background:url(../images/) no-repeat;
+  right: 0px;
+  height:16px;
+  margin: 2px 5px 0 2px;
+}
+
+#page3_jContainer1{
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#page3_jRegion1{
+  border:none;
+  overflow:hidden;
+}
+
+#page3_jRegion2{
+  border:none;
+  overflow:hidden;
+}
+
+#page3_jRegion3{
+  border:none;
+  overflow:hidden;
+}
+
+#page3_jExtPanel1{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+#page3_jExtPanel1 .PanelBarCaption{
+}
+
+#page3_jExtPanel1 .PanelContent{
+}
+
+#page3_jExtPanel1 .cumicon{
+  background:url(../images/) no-repeat;
+  right: 0px;
+  bottom: 0px;
+  margin: 2px 5px 0 2px;
+}
+
+#page3_jTabControl1{
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+}
+
+#page3_jPanel1{
+  left: 0px;
+  top: 0px;
+  height: 94px;
+  width: 100%;
+  background: url(../images/jTitle001.jpg) repeat;
+}
+
+#page3_jLabel1{
+  left: 15px;
+  top: 10px;
+  font-size: 36px;
+  font-family: "隶书";
+  color: #FFFFFF;
+  line-height: 38px;
+}
+
+#page3_jPanel2{
+  right: 0px;
+  top: 4px;
+  height: 39px;
+  width: 246px;
+}
+
+#page3_jLink1{
+  left: 12px;
+  top: 9px;
+}
+
+#page3_jLink2{
+  left: 56px;
+  top: 9px;
+}
+
+#page3_jLink3{
+  left: 131px;
+  top: 9px;
+}
+
+#page3_jLink4{
+  left: 200px;
+  top: 9px;
+}
+
+#page3_jLabel3{
+  left: 117px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page3_jLabel4{
+  left: 44px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page3_jLabel5{
+  left: 190px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page3_jPanel3{
+  left: 0px;
+  top: 93px;
+  height: 31px;
+  right: 0px;
+}
+
+#page3_jTreeView1{
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+#page3_jContainer3{
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#page3_jRegion6{
+  border:none;
+  overflow:hidden;
+}
+
+#page3_jRegion7{
+  border:none;
+  overflow:hidden;
+}
+
+#page3_jToolbar2{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+#page3_jButton5{
+  left: 4px;
+  top: 3px;
+  width:76px;
+  height: 22px;
+}
+
+#page3_jButton6{
+  left: 89px;
+  top: 3px;
+  width:76px;
+  height: 22px;
+}
+
+#page3_jButton7{
+  left: 174px;
+  top: 3px;
+  width:76px;
+  height: 22px;
+}
+
+#page3_jSeparator2{
+  left: 263px;
+  top: 5px;
+  height: 18px;
+  width: 8px;
+}
+
+#page3_jLabel8{
+  left: 277px;
+  top: 7px;
+}
+
+#page3_jEdit1{
+  left: 337px;
+  top: 5px;
+  width:117px;
+  height:14px;
+}
+
+#page3_jButton9{
+  left: 462px;
+  top: 3px;
+  width:56px;
+  height: 22px;
+}
+
+#page3_jDataGrid2{
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+#page3_jDataGrid2 .ui-jqgrid{
+  border: none;
+}
+
+#page3_jLabel2{
+  left: 4px;
+  top: 7px;
+  line-height: 14px;
+}
+
+#page3_jLabel6{
+  left: 134px;
+  top: 7px;
+  line-height: 14px;
+}
+
+#page3_jLabel7{
+  left: 293px;
+  top: 7px;
+  line-height: 14px;
+}
+
+#page3_jButton21{
+  right: 142px;
+  top: 4px;
+  width:76px;
+  height: 22px;
+}
+
+#page3_jButton22{
+  right: 75px;
+  top: 4px;
+  width:56px;
+  height: 22px;
+}
+
+#page3_jButton23{
+  right: 8px;
+  top: 4px;
+  width:56px;
+  height: 22px;
+}
+
+#page4_jPanel1{
+  top: 211px;
+  height: 393px;
+  width: 590px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(../images/jloginbox03.png) no-repeat;
+}
+
+#page4_jHtmlForm1_form{
+  position:absolute;
+  left: 69px;
+  top: 121px;
+  width: 473px;
+  height: 252px;
+}
+
+#page4_jLabel5{
+  left: 102px;
+  top: 89px;
+  font-size: 18px;
+  font-family: "微软雅黑";
+  font-weight: bold;
+  color: #505050;
+  line-height: 20px;
+}
+
+#page4_jLabel6{
+  left: 174px;
+  top: 94px;
+  font-size: 14px;
+  color: #505050;
+  line-height: 16px;
+}
+
+#page4_jButton1{
+  left: 156px;
+  top: 192px;
+  width:79px;
+  height:20px;
+}
+
+#page4_jButton2{
+  left: 248px;
+  top: 193px;
+  width:79px;
+  height:20px;
+}
+
+#page4_jPanel2{
+  left: 32px;
+  top: 4px;
+  height: 48px;
+  width: 394px;
+  background: #33393f;
+}
+
+#page4_jPanel3{
+  left: 33px;
+  top: 62px;
+  height: 48px;
+  width: 394px;
+  background: #33393f;
+}
+
+#page4_jLabel2{
+  left: 31px;
+  top: 16px;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 16px;
+}
+
+#page4_jEdit1{
+  left: 125px;
+  top: 10px;
+  width:242px;
+  height:20px;
+}
+
+#page4_jLabel7{
+  left: 29px;
+  top: 17px;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 16px;
+}
+
+#page4_jEdit2{
+  left: 125px;
+  top: 11px;
+  width:242px;
+  height:20px;
+}
+
+#page4_jPanel4{
+  left: 33px;
+  top: 118px;
+  height: 48px;
+  width: 394px;
+  background: #33393f;
+}
+
+#page4_jCheckBox1{
+  left: 126px;
+  top: 13px;
+}
+
+#page4_jLabel1{
+  left: 26px;
+  top: 16px;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 16px;
+}
+
+#page4_jPanel5{
+  top: -187px;
+  height: 62px;
+  width: 589px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page4_jLabel3{
+  left: 51px;
+  top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3f3f3f;
+  line-height: 26px;
+}
+
+#page4_jImages1{
+  left: 4px;
+  top: 4px;
+  height: 45px;
+  width: 45px;
+}
+
+#page4_jLabel4{
+  left: 345px;
+  top: 19px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #3f3f3f;
+  line-height: 22px;
+}
+
+#page5_jTreeView1{
+  left: 0px;
+  top: 48px;
+  height:319px;
+  width:227px;
+  border-style:solid;
+  border-width:1pt;
+}
+
+#page5_jLabel1{
+  left: 325px;
+  top: 100px;
+  line-height: 14px;
+}
+
+#page5_jDateTimePicker1{
+  left: 370px;
+  top: 96px;
+  width: 150px;
+  height:  20px;
+}
+
+#page5_jDateTimePicker1 input[type=text]{
+  width: 148px;
+  height: 17px;
+}
+
+#page5_jLabel2{
+  left: 671px;
+  top: 104px;
+  line-height: 14px;
+}
+
+#page5_jDateTimePicker2{
+  left: 716px;
+  top: 100px;
+  width: 150px;
+  height:  20px;
+}
+
+#page5_jDateTimePicker2 input[type=text]{
+  width: 148px;
+  height: 17px;
+}
+
+#page5_jDateTimePicker3{
+  left: 630px;
+  top: 337px;
+  width: 150px;
+  height:  20px;
+}
+
+#page5_jDateTimePicker3 input[type=text]{
+  width: 148px;
+  height: 17px;
+}
+
+#page5_jLabel3{
+  left: 586px;
+  top: 343px;
+  line-height: 14px;
+}
+
+#page5_jLabel4{
+  left: 373px;
+  top: 367px;
+  line-height: 14px;
+}
+
+#page5_jDateTimePicker4{
+  left: 418px;
+  top: 363px;
+  width: 150px;
+  height:  20px;
+}
+
+#page5_jDateTimePicker4 input[type=text]{
+  width: 148px;
+  height: 17px;
+}
+
+#page6_jContainer1{
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#page6_jMenuH1{
+  left: 22px;
+  top: 59px;
+  width: 1912px;
+  z-index: 3;
+}
+
+#page6_jExtPanel1{
+  left: 1px;
+  top: 123px;
+  height:774px;
+  width:1437px;
+}
+
+#page6_jExtPanel1 .PanelBarCaption{
+}
+
+#page6_jExtPanel1 .PanelContent{
+}
+
+#page6_jExtPanel1 .cumicon{
+  background:url(../images/) no-repeat;
+  width:16px;
+  height:16px;
+  margin: 2px 5px 0 2px;
+}
+
+#page6_jRegion1{
+  border:none;
+  overflow:hidden;
+}
+
+#page6_jPanel3{
+  left: 0px;
+  top: 92px;
+  height: 31px;
+  right: 0px;
+}
+
+#page6_jPanel1{
+  left: 0px;
+  top: 0px;
+  height: 94px;
+  width: 100%;
+  background: url(../images/jTitle001.jpg) repeat;
+}
+
+#page6_jLabel1{
+  left: 15px;
+  top: 10px;
+  font-size: 36px;
+  font-family: "隶书";
+  color: #FFFFFF;
+  line-height: 38px;
+}
+
+#page6_jPanel2{
+  right: 0px;
+  top: 4px;
+  height: 39px;
+  width: 246px;
+}
+
+#page6_jLink1{
+  left: 12px;
+  top: 9px;
+}
+
+#page6_jLink2{
+  left: 56px;
+  top: 9px;
+}
+
+#page6_jLink3{
+  left: 131px;
+  top: 9px;
+}
+
+#page6_jLink4{
+  left: 200px;
+  top: 9px;
+}
+
+#page6_jLabel2{
+  left: 117px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page6_jLabel3{
+  left: 44px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page6_jLabel4{
+  left: 190px;
+  top: 9px;
+  line-height: 14px;
+}
+
+#page6_jLabel5{
+  left: 4px;
+  top: 7px;
+  line-height: 14px;
+}
+
+#page6_jLabel6{
+  left: 173px;
+  top: 46px;
+  line-height: 14px;
+}
+
+#page6_jDateTimePicker1{
+  left: 288px;
+  top: 45px;
+  width: 137px;
+  height:  20px;
+}
+
+#page6_jDateTimePicker1 input[type=text]{
+  width: 135px;
+  height: 17px;
+}
+
+#page6_jLabel7{
+  left: 172px;
+  top: 80px;
+  line-height: 14px;
+}
+
+#page6_jDateTimePicker2{
+  left: 289px;
+  top: 81px;
+  width: 138px;
+  height:  21px;
+}
+
+#page6_jDateTimePicker2 input[type=text]{
+  width: 136px;
+  height: 18px;
+}
+
+#page6_jContainer2{
+  left: 615px;
+  top: 90px;
+  width: 511px;
+  height: 369px;
+}
+
+#page6_jLabel8{
+  left: 176px;
+  top: 126px;
+  line-height: 14px;
+}
+
+#page6_jEdit1{
+  left: 284px;
+  top: 131px;
+  width:144px;
+  height:14px;
+}
+
+#page6_jLabel9{
+  left: 166px;
+  top: 174px;
+  line-height: 14px;
+}
+
+#page6_jEdit2{
+  left: 280px;
+  top: 175px;
+  width:144px;
+  height:14px;
+}
+
+#page6_jRegion3{
+  border:none;
+  overflow:hidden;
+}
+
+#page6_jDataGrid1{
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+#page6_jLabel10{
+  left: 157px;
+  top: 233px;
+  line-height: 14px;
+}
+
+#page6_jMemo1{
+  left: 279px;
+  top: 229px;
+  width:142px;
+  height:74px;
+}
+
+#page6_jLabel12{
+  left: 168px;
+  top: 350px;
+  line-height: 14px;
+}
+
+#page6_jComboBox1{
+  left: 275px;
+  top: 356px;
+  height: 20px;
+  width: 150px;
+  position:absolute;
+}
+
+#page6_jLabel11{
+  left: 179px;
+  top: 415px;
+  line-height: 14px;
+}
+
+#page6_jEdit3{
+  left: 273px;
+  top: 415px;
+  width:144px;
+  height:14px;
+}
+
+#page6_jButton2{
+  left: 176px;
+  top: 504px;
+  width:76px;
+  height:20px;
+}
+
+#page6_jButton1{
+  left: 321px;
+  top: 506px;
+  width:88px;
+  height:20px;
+}
+
+#page7_jContainer1{
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 991px;
+  background: #FF8080;
+}
+
+#page7_jRegion1{
+  background: #f0f0f0;
+  border:none;
+  overflow:hidden;
+}
+
+#page7_jRegion2{
+  background: #C0C0C0;
+  border:none;
+  overflow:hidden;
+}
+
+#page7_jPanel27{
+  top: 612px;
+  height: 360px;
+  width: 96%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page7_jPanel16{
+  top: -16px;
+  height: 240px;
+  width: 96%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page7_jPanel5{
+  top: -518px;
+  height: 238px;
+  width: 96%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: #FFFFFF;
+}
+
+#page7_jPanel1{
+  left: 0px;
+  top: 60px;
+  height: 98px;
+  right: 0px;
+}
+
+#page7_jPanel2{
+  left: 1px;
+  top: 0px;
+  height: 60px;
+  width: 100%;
+  background: #2070A0;
+}
+
+#page7_jPanel3{
+  left: 0px;
+  top: 0px;
+  height: 60px;
+  right: 0px;
+  background: #3080b0;
+}
+
+#page7_jImageButton1{
+  left: 6px;
+  top: 16px;
+  width:28px;
+  height:39px;
+  background-image: url(../images/jmenuicon.png);
+  background-position: center center;
+  padding: 0px;
+}
+
+#page7_jImageButton1:hover{
+  background-image: url(../images/jmenuicon.gif);
+}
+
+#page7_jImageButton1 .valigh-fix,#page7_jImageButton1 .button_txtR{
+  vertical-align: middle;
+}
+
+#page7_jLabel1{
+  left: 72px;
+  top: 15px;
+  font-size: 24px;
+  font-family: "微软雅黑";
+  font-weight: bold;
+  color: #e0e9f9;
+  line-height: 26px;
+}
+
+#page7_jImages1{
+  left: 20px;
+  top: 8px;
+  height: 45px;
+  width: 45px;
+}
+
+#page7_jImages2{
+  left: 14px;
+  top: 16px;
+  height: 60px;
+  width: 60px;
+}
+
+#page7_jLabel2{
+  left: 86px;
+  top: 21px;
+  color: #333333;
+  line-height: 14px;
+}
+
+#page7_jLabel3{
+  left: 89px;
+  top: 54px;
+  color: #0080FF;
+  line-height: 14px;
+}
+
+#page7_jPanel4{
+  left: 1px;
+  top: 157px;
+  height: 57px;
+  width: 100%;
+}
+
+#page7_jEdit1{
+  left: 12px;
+  top: 11px;
+  width:144px;
+  height:29px;
+}
+
+#page7_jButton1{
+  left: 164px;
+  top: 11px;
+  width:32px;
+  height:33px;
+}
+
+#page7_jMenuV1{
+  left: 0px;
+  top: 211px;
+  width: 100%;
+  z-index: 3;
+}
+
+#page7_jImageButton2{
+  right: 5px;
+  top: 12px;
+  width:40px;
+  height:40px;
+  background-image: url(../images/jrefrashicon.png);
+  background-position: center center;
+  padding: 0px;
+}
+
+#page7_jImageButton2:hover{
+  background-image: url(../images/jrefrashiconhover.png);
+}
+
+#page7_jImageButton2 .valigh-fix,#page7_jImageButton2 .button_txtR{
+  vertical-align: middle;
+}
+
+#page7_jPanel6{
+  top: 16px;
+  height: 200px;
+  width: 96%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: #FFFFFF;
+}
+
+#page7_jPanel7{
+  left: 1px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+
+#page7_jPanel8{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+
+#page7_jPanel9{
+  right: 0px;
+  top: 50px;
+  height: 100px;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+#page7_jPanel10{
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+
+#page7_jPanel11{
+  right: 0px;
+  top: 50px;
+  height: 100px;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+#page7_jPanel12{
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+
+#page7_jPanel13{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+
+#page7_jPanel14{
+  right: 0px;
+  top: 50px;
+  height: 100px;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+#page7_jPanel15{
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+
+#page7_jPanel17{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 49%;
+  background: #e7e7e7;
+}
+
+#page7_jPanel18{
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+
+#page7_jPanel19{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+}
+
+#page7_jPanel20{
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+  background: #e7e7e7;
+}
+
+#page7_jPanel21{
+  top: 0px;
+  height: 115px;
+  width: 90%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page7_jPanel22{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 49%;
+  background: #7B97AA;
+}
+
+#page7_jPanel23{
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 49%;
+  background: #428FA6;
+}
+
+#page7_jPanel24{
+  top: 3px;
+  height: 120px;
+  width: 90%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page7_jPanel25{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 49%;
+  background: #6F9C9F;
+}
+
+#page7_jPanel26{
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 49%;
+  background: #739EBF;
+}
+
+#page7_jPanel29{
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 50%;
+  background: #e7e7e7;
+  border-color: #7da4b2;
+}
+
+#page7_jPanel34{
+  left: 0px;
+  top: 0px;
+  height: 39px;
+  right: 0px;
+  background: #9fb2c2;
+}
+
+#page7_jLabel4{
+  left: 30px;
+  top: 13px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #4F6D8A;
+  line-height: 16px;
+}
+
+#page7_jLabel5{
+  right: 10px;
+  top: 10px;
+  line-height: 14px;
+  width: 29px;
+  text-align: right;
+}
+
+#page7_jPanel35{
+  left: 14px;
+  top: 10px;
+  height: 20px;
+  width: 3px;
+  background: #5a7e9d;
+  border-color: #88A3BB;
+  border-top:none;
+  border-bottom:none;
+  border-left:none;
+}
+
+#page7_jPanel36{
+  left: 0px;
+  top: 0px;
+  height: 39px;
+  right: 0px;
+  background: #9fb2c2;
+}
+
+#page7_jLabel6{
+  left: 30px;
+  top: 13px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #4F6D8A;
+  line-height: 16px;
+}
+
+#page7_jLabel7{
+  right: 10px;
+  top: 10px;
+  line-height: 14px;
+  width: 29px;
+  text-align: right;
+}
+
+#page7_jPanel37{
+  left: 14px;
+  top: 10px;
+  height: 20px;
+  width: 3px;
+  background: #5a7e9d;
+  border-color: #88A3BB;
+  border-top:none;
+  border-bottom:none;
+  border-left:none;
+}
+
+#page7_jPanel28{
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 49%;
+  background: #e7e7e7;
+  border-color: #7da4b2;
+}
+
+#page7_jPanel31{
+  left: 0px;
+  top: 38px;
+  height: 324px;
+  right: 0px;
+}
+
+#page7_jPanel32{
+  left: 0px;
+  top: 0px;
+  height: 39px;
+  right: 0px;
+  background: #9fb2c2;
+}
+
+#page7_jLabel8{
+  left: 30px;
+  top: 13px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #4F6D8A;
+  line-height: 16px;
+}
+
+#page7_jLabel9{
+  right: 10px;
+  top: 10px;
+  line-height: 14px;
+  width: 29px;
+  text-align: right;
+}
+
+#page7_jPanel33{
+  left: 14px;
+  top: 10px;
+  height: 20px;
+  width: 3px;
+  background: #5a7e9d;
+  border-color: #88A3BB;
+  border-top:none;
+  border-bottom:none;
+  border-left:none;
+}
+
+#page7_jPanel38{
+  left: 0px;
+  top: 0px;
+  height: 150px;
+  width: 50%;
+}
+
+#page7_jPanel43{
+  top: 0px;
+  height: 150px;
+  width: 200px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page7_jChart1{
+  left: 0px;
+  top: 0px;
+  height: 150px;
+  width: 100%;
+}
+
+#page7_jPanel44{
+  right: 0px;
+  top: 0px;
+  height: 150px;
+  width: 50%;
+}
+
+#page7_jPanel45{
+  top: 0px;
+  height: 150px;
+  width: 195px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page7_jChart2{
+  left: 0px;
+  top: 1px;
+  height: 150px;
+  width: 100%;
+}
+
+#page7_jTable1{
+  left: 1px;
+  top: 153px;
+  height: 119px;
+  width: 100%;
+}
+
+#page7_jPanel46{
+  left: 0px;
+  top: 0px;
+  height: 39px;
+  right: 0px;
+  background: #9fb2c2;
+}
+
+#page7_jLabel10{
+  left: 30px;
+  top: 13px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #4F6D8A;
+  line-height: 16px;
+}
+
+#page7_jLabel11{
+  right: 10px;
+  top: 10px;
+  line-height: 14px;
+  width: 29px;
+  text-align: right;
+}
+
+#page7_jPanel47{
+  left: 14px;
+  top: 10px;
+  height: 20px;
+  width: 3px;
+  background: #5a7e9d;
+  border-color: #88A3BB;
+  border-top:none;
+  border-bottom:none;
+  border-left:none;
+}
+
+#page7_jChart3{
+  left: 0px;
+  top: 40px;
+  height: 200px;
+  width: 100%;
+}
+

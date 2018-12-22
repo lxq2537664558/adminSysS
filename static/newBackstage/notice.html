@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/notice.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/notice.js"></script>
+</head>
+<body>
+    <div class="content">
+        <!--顶部-->
+        <div class="title">
+            <h1 class="logo fl"></h1>
+            <p class="admin fr">
+                <span class="userName">
+                    <img src="img/userfacebg.png" alt="">
+                    admin
+                </span>
+                <a href="javascript:;" class="logo-icon"></a>
+            </p>
+            <div class="listNone">
+                <ul>
+                    <li> <a href="login.html">重新登陆</a></li>
+                    <li>修改密码</li>
+                    <li><a href="login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧列表-->
+        <div class="leftList fl">
+            <ul>
+                <li><a href="onlineUser.html">在线用户</a></li>
+                <li><a href="userDetails.html">用户详情</a></li>
+                <li><a href="mail.html">邮件公告</a></li>
+                <li><a href="gamePreview.html">游戏记录</a></li>
+                <li><a href="Recharge.html">充值兑换</a></li>
+                <li class="active"><a href="accQuery.html">账务查询</a></li>
+                <li><a href="diffModify.html">难度修改</a></li>
+                <li><a href="jurisdAdmin.html">权限管理</a></li>
+                <li><a href="warning.html">异常预警</a></li>
+                <li><a href="server.html">服务器管理</a></li>
+            </ul>
+        </div>
+        <!--右侧列表-->
+        <div class="rightList">
+            <div class="box">
+                <div class="usertitle">
+                    <ul>
+                        <li><a href="mail.html">邮件功能</a></li>
+                        <li class="useractive"><a href="notice.html">公告功能</a></li>
+                    </ul>
+                </div>
+                <form action="">
+                    <div class="formList">
+                        <div class="formTitle">
+                            <label for="">标题邮件：</label>
+                            <input type="text" maxlength="35" placeholder="文章标题" id="Emilhead">
+                            <span>标题字数限制在35个字符</span>
+                        </div>
+                        <div class="formContent">
+                            <label for="">邮件内容：</label>
+                            <textarea id="msg_emil_001"></textarea>
+                        </div>
+                        <div class="formSubmit">
+                            <input type="button" value="发送公告" onclick="Log_ann_Information_Game_copy_0001()">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+
+
+<script>
+    //后台添加登录公告
+    function Log_ann_Information_Game_copy_0001(){
+
+        // var ann_001 = document.getElementById("Emilhead").value  //标题
+        // var ann_inform = document.getElementById("msg_emil_001").value  //内容
+        // alert(ann_001+"==="+ann_inform)
+        // var username = document.getElementById("user").value;
+        // socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        // socket.onopen = function() {
+        //     socket.send("1000"+GetCookies("UG"));
+        //     socket.send("9035" + JSON.stringify({
+        //         BG:"",
+        //         UG:GetCookies("UG"),
+        //         SID:parseInt(0),
+        //         BTime:"",
+        //         CTime:"",
+        //         Title:ann_001,
+        //         Word:ann_inform,
+        //         Way:0,
+        //         Photo:0
+        //     }));
+        //     socket.onmessage = function (msg) {
+        //
+        //         var newdate="";
+        //         for(var i=0;i<msg.data.length;i++){
+        //             if (i>3){
+        //                 newdate = newdate + msg.data[i];
+        //             }
+        //         }
+        //         obj = toJson(newdate)
+        //         if (obj.Errcode == -1){
+        //             alert("添加成功")
+        //             return
+        //         }else{
+        //             alert("添加失败")
+        //         }
+        //
+        //         socket.close()
+        //     }
+        // }
+
+
+
+
+        var ann_001 = document.getElementById("Emilhead").value  //标题
+        var ann_inform = document.getElementById("msg_emil_001").value  //内容
+
+        var ws = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+
+        ws.onopen = function() {
+            ws.send("1000"+GetCookies("UG"));
+            ws.send("9035" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                SID:parseInt(0),
+                BTime:"",
+                CTime:"",
+                Title:ann_001,
+                Word:ann_inform,
+                Way:"",
+                Photo:""
+            }));
+            ws.onmessage = function (msg) {
+
+                // alert(msg.data)
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                // alert(obj.Errcode)
+                if (obj.Errcode == 0 || obj.Errcode == -1 ){
+                    alert("添加公告成功")
+                }else{
+                    alert("添加公告失败")
+                }
+                ws.close()
+            }
+        }
+
+
+
+    }
+
+
+
+
+</script>
+
+</html>

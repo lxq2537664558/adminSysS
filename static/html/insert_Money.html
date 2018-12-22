@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>游戏管理后台</title>
+    <link href="/static/home/css/jqueryui.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/layout-default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/tlayout.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/vjpublic.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/cum.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/vjpage.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/config.css" rel="stylesheet" type="text/css" />
+
+    <!-- start: CSS -->
+    <link id="bootstrap-style" href="/static/cs/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/cs/bootstrap-responsive.min.css" rel="stylesheet">
+    <link id="base-style" href="/static/cs/style.css" rel="stylesheet">
+    <link id="base-style-responsive" href="/static/cs/style-responsive.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+    <!-- end: CSS -->
+
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    <link id="ie-style" href="/static/cs/ie.css" rel="stylesheet">
+    <![endif]-->
+
+    <!--[if IE 9]>
+    <link id="ie9style" href="/static/cs/ie9.css" rel="stylesheet">
+    <![endif]-->
+
+    <script src="/static/page5/jquery-ui.min.js"></script>
+    <script src="/static/page5/jquery.js"></script>
+    <!-- start: Favicon -->
+
+    <!-- end: Favicon -->
+
+    <style>
+        #mytable {
+            border: black solid 1px;
+            width: 700px;
+            text-align: center;
+            position: relative;
+            margin-top: -26%;
+            margin-left: 38%;
+        }
+        th {
+            font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+            color: #4f6b72;
+            border-right: 1px solid #C1DAD7;
+            border-bottom: 1px solid #C1DAD7;
+            border-top: 1px solid #C1DAD7;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 6px 6px 12px;
+        }
+        td {
+            border-right: 1px solid #C1DAD7;
+            border-bottom: 1px solid #C1DAD7;
+            background: #fff;
+            font-size:11px;
+            padding: 6px 6px 6px 12px;
+            color: #4f6b72;
+        }
+        td.alt {
+            background: #F5FAFA;
+            color: #797268;
+        }
+
+    </style>
+
+
+    <script type="text/javascript" src="/static/home/js/public.js"></script>
+    <script type="text/javascript" src="/static/home/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="/static/home/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/home/js/resizeComponents.js"></script>
+
+    <script type="text/javascript" src="/static/home/js/grid.locale-cn.js"></script>
+    <script type="text/javascript" src="/static/home/js/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="/static/home/js/jquery.ztree.all-3.5.min.js"></script>
+    <script type="text/javascript" src="/static/js/page3.js"></script>
+
+
+    <link href="/static/home/css/jqueryui.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/vjpublic.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/chart.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/zTreeStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/treeview.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/vjpage.css" rel="stylesheet" type="text/css" />
+    <link href="/static/home/css/config.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/static/page5/page5.js"></script>
+
+
+</head>
+<body data-curpagename="page2" class="body_style1">
+<!--
+<div id="head">
+</div>
+ -->
+<div id="content" class="span10" style="position: absolute;margin-top: 124px;margin-left: -20px">
+
+
+ <!--   <span onclick="youxinei_activity()">游戏活动</span> <span onclick="youxinei_Select_activity()">查询活动</span> -- >
+    <hr style="background-color: #00FFFF">
+     http://192.168.1.118:7041/static/insert_Money.html
+
+     http://192.168.1.118:7041/static/html/login.html
+-->
+
+    <div class="row-fluid">
+        <div class="row-fluid sortable">
+            <div class="box span12" style="height: 614px">
+                <div class="box-header" data-original-title>
+                    <h2><i class="halflings-icon white edit"></i><span class="break"></span>添加金币</h2>
+
+                    <div class="box-icon">
+                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                    </div>
+
+                </div>
+                <div class="box-content">
+                    <button onclick="home_href()">首页</button>
+                    <form class="form-horizontal">
+
+
+
+                        <br>    <br>    <br>    <br>    <br>    <br>
+
+                        <label class="control-label" for="selectError3"> 用户ID</label>
+                        <div class="controls">
+                            <input type="text" id="PropNums">
+                        </div>
+                        <br>
+
+                        <br>
+                        <label class="control-label" for="selectError3">金币数量</label>
+                        <div class="controls">
+                            <input type="text" id="Emilhead">
+                        </div>
+
+                        <br>
+                        <input type="button" onclick="Add_UserProp_Copy_table_110()" value="添加金币" style="margin-left: 18%">
+                        <!--
+                        <button type="button" class="btn btn-primary" onclick="Log_Select_Information_activity()" style="margin-left: 20%">添加活动</button>
+                        <table id="mytable" cellspacing="0" >
+                            <tr>
+                                <th scope="col" abbr="Configurations" class="nobg">道具名称</th>
+                                <th scope="col" abbr="Dual 1.8">道具数量</th>
+                                <th>删除该行</th>
+                            </tr>
+                        </table>
+ -->
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<script src="/static/js/echarts-all.js"></script>
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script type="text/javascript" src="/static/js/head.js"></script>
+
+<script src="/static/jss/jquery-1.9.1.min.js"></script>
+<script src="/static/jss/jquery-migrate-1.0.0.min.js"></script>
+
+<script src="/static/jss/jquery-ui-1.10.0.custom.min.js"></script>
+
+<script src="/static/jss/jquery.ui.touch-punch.js"></script>
+
+
+
+
+
+<!-- end: JavaScript-->
+
+<script  type="application/javascript">
+    
+    
+    
+    
+    
+    
+    
+    function home_href () {
+
+        window.location.href = "home.html"
+    }
+    
+    
+    var newArr = new Array();
+    $(function(){
+        $("#page5_jDateTimePicker1_edit").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd"
+        });
+    });
+
+    $(function(){
+        $("#page5_jDateTimePicker3_edit").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd"
+        });
+    });
+
+
+    $(document).ready(function () {
+        //常规用法
+        laydate.render({
+            elem: '#enddate'
+        });
+        //常规用法
+        laydate.render({
+            elem: '#maxdate'
+        });
+
+        $("#date-popover").popover({html: true, trigger: "manual"});
+        $("#date-popover").hide();
+        $("#date-popover").click(function (e) {
+            $(this).hide();
+        });
+
+        // $("#my-calendar").zabuto_calendar({
+        //     action: function () {
+        //         return myDateFunction(this.id, false);
+        //     },
+        //     action_nav: function () {
+        //         return myNavFunction(this.id);
+        //     },
+        //     ajax: {
+        //         url: "show_data.php?action=1",
+        //         modal: true
+        //     },
+        //     legend: [
+        //         {type: "text", label: "Special event", badge: "00"},
+        //         {type: "block", label: "Regular event", }
+        //     ]
+        // });
+    });
+
+
+
+
+
+
+
+
+    function Add_UserProp_Copy_table_110() {
+
+        var PropName_2 = document.getElementById("PropNums").value
+        var PropName_3 = document.getElementById("Emilhead").value
+
+
+        socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        socket.onopen = function() {
+            socket.send("1000"+GetCookies("UG"));
+            socket.send("9025" + JSON.stringify({
+                BG:"",
+                UG:GetCookies("UG"),
+                Sid:parseInt(PropName_2),
+                Golds:parseInt(PropName_3),
+            }));
+            socket.onmessage = function (msg) {
+
+                var newdate="";
+                for(var i=0;i<msg.data.length;i++){
+                    if (i>3){
+                        newdate = newdate + msg.data[i];
+                    }
+                }
+                obj = toJson(newdate)
+                if (obj.Err == -1){
+                    alert("添加成功")
+                   // window.location.href = "http://"+IPconf+":"+prot+"/static/html/Activity_function.html"
+                    return
+                }else{
+                    alert("添加失败")
+                }
+                socket.close()
+            }
+        }
+
+    }
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

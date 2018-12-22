@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/WdatePicker.css" />
+    <link rel="stylesheet" type="text/css" href="css/skin_/form.css" />
+    <link href="umeditor/themes/default/_css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/global.js"></script>
+    <script type="text/javascript" src="js/jquery.select.js"></script>
+    <script type="text/javascript" src="js/WdatePicker.js"></script>
+    <script type="text/javascript">
+        window.UMEDITOR_HOME_URL = 'umeditor/';  // 请换成绝对路径
+    </script>
+    <script type="text/javascript" src="js/umeditor.config.js"></script>
+    <script type="text/javascript" src="js/editor_api.js"></script>
+    <script type="text/javascript" src="umeditor/lang/zh-cn/zh-cn.js"></script>
+    <title>基础信息</title>
+</head>
+
+<body>
+<div id="container">
+    <div id="hd">
+    </div>
+    <div id="bd">
+        <div id="main">
+            <h2 class="subfild">
+                <span>基本信息</span>
+            </h2>
+            <div class="subfild-content base-info">
+                <div class="kv-item ue-clear">
+                    <label><span class="impInfo">*</span>公告标题</label>
+                    <div class="kv-item-content">
+                        <input type="text" placeholder="文章标题" />
+                    </div>
+                    <span class="kv-item-tip">标题字数限制在35个字符</span>
+                </div>
+
+
+                <div class="subfild-content remarkes-info">
+                    <div class="kv-item ue-clear">
+                        <label><span class="impInfo">*</span>公告内容</label>
+                        <div class="kv-item-content">
+                            <textarea placeholder="邮件内容" id="content" style="width:800px;height:240px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="buttons">
+                    <input class="button" type="button" value="发送邮件" onclick="Log_ann_Information_Game_copy_0001()" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script type="text/javascript" src="/static/js/chartroom.js"></script>
+<script type="text/javascript" src="/static/js/Cookie.js"></script>
+<script type="text/javascript" src="/static/js/head.js"></script>
+<script type="text/javascript" src="/static/js/Game_js.js"></script>
+
+
+
+<script type="text/javascript">
+    $('select').select();
+    showRemind('input[type=text],textarea','color5');
+    UM.getEditor('content');
+
+
+
+    /*
+    * 查询用户详细信息
+    *
+    * 发送邮件和公告
+    *
+    * 账户查询
+    *
+    * 权限管理
+    *
+    * */
+
+
+
+    //后台添加登录公告
+    function Log_ann_Information_Game_copy_0001(){
+        var enddate = document.getElementById("page5_jDateTimePicker1_edit").value
+        var maxdate = document.getElementById("page5_jDateTimePicker3_edit").value
+        var qu = document.getElementById("PropName").value
+        var fu = document.getElementById("Emilnc").value
+        var ann_001 = document.getElementById("Emilhead").value
+        var ann_inform = document.getElementById("msg_emil_001").value
+        alert(enddate+"=========="+maxdate+"=="+qu+"======"+ann_001+"==="+ann_inform)
+        // var username = document.getElementById("user").value;
+        // socket = new WebSocket("ws://"+IPconf+":"+prot+"/ws/join");
+        // socket.onopen = function() {
+        //     socket.send("1000"+GetCookies("UG"));
+        //     socket.send("9035" + JSON.stringify({
+        //         BG:"",
+        //         UG:GetCookies("UG"),
+        //         SID:parseInt(fu),
+        //         BTime:enddate,
+        //         CTime:maxdate,
+        //         Title:ann_001,
+        //         Word:ann_inform,
+        //         Way:qu,
+        //         Photo:fu
+        //     }));
+        //     socket.onmessage = function (msg) {
+        //
+        //         var newdate="";
+        //         for(var i=0;i<msg.data.length;i++){
+        //             if (i>3){
+        //                 newdate = newdate + msg.data[i];
+        //             }
+        //         }
+        //         obj = toJson(newdate)
+        //         if (obj.Errcode == -1){
+        //             alert("添加成功")
+        //             return
+        //         }else{
+        //             alert("添加失败")
+        //         }
+        //
+        //         socket.close()
+        //     }
+        // }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+</script>
+</html>
